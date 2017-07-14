@@ -1,0 +1,15 @@
+PODS:
+  - AZDropdownMenu (1.1.2)
+  - IQKeyboardManagerSwift (4.0.10)
+
+DEPENDENCIES:
+  - AZDropdownMenu
+  - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  AZDropdownMenu: 411c1b445fd29bb1e56b219131aaf294ba21b9b6
+  IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
+
+PODFILE CHECKSUM: e22c1c40412208477315d3a7968304fffc87f0c3
+
+COCOAPODS: 1.2.1

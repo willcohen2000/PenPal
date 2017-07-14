@@ -1,0 +1,6 @@
+framework module Pods_PenPalUITests {
+  umbrella header "Pods-PenPalUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
