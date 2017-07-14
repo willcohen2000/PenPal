@@ -178,12 +178,28 @@
                                             <action selector="logInButtonPressed:" destination="wSx-qI-aXZ" eventType="touchUpInside" id="tDp-wO-3It"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rw3-IH-YWO">
+                                        <rect key="frame" x="0.0" y="610" width="375" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="91r-nN-5Zi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                        <state key="normal" title="Go back to home page">
+                                            <color key="titleColor" white="1" alpha="0.85406681365030679" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backToHomePageButtonPressed:" destination="wSx-qI-aXZ" eventType="touchUpInside" id="1KQ-fz-t1K"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.30351322850000001" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="gTe-Bi-M7u" firstAttribute="centerX" secondItem="da9-6y-0sy" secondAttribute="centerX" id="Bwx-wL-aDP"/>
                                     <constraint firstItem="SDR-O2-54D" firstAttribute="centerX" secondItem="da9-6y-0sy" secondAttribute="centerX" id="D5c-0R-kHq"/>
                                     <constraint firstItem="gTe-Bi-M7u" firstAttribute="width" secondItem="yOv-tj-P8P" secondAttribute="width" id="FH4-Jd-Pny"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rw3-IH-YWO" secondAttribute="bottom" constant="10" id="GiC-9G-BMd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rw3-IH-YWO" secondAttribute="trailing" id="MYN-32-9uf"/>
+                                    <constraint firstItem="Rw3-IH-YWO" firstAttribute="leading" secondItem="da9-6y-0sy" secondAttribute="leading" id="NQC-Bf-nAD"/>
                                     <constraint firstItem="yOv-tj-P8P" firstAttribute="leading" secondItem="da9-6y-0sy" secondAttribute="leading" constant="20" id="YM5-LH-GeX"/>
                                     <constraint firstAttribute="trailing" secondItem="yOv-tj-P8P" secondAttribute="trailing" constant="20" id="gUW-n7-XvQ"/>
                                     <constraint firstItem="SDR-O2-54D" firstAttribute="top" secondItem="da9-6y-0sy" secondAttribute="top" constant="50" id="gxK-cK-rpV"/>
@@ -205,12 +221,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="HRl-hs-BeI" id="FHd-Pm-sEC"/>
                         <outlet property="logInButton" destination="gTe-Bi-M7u" id="Lq0-NH-kLX"/>
+                        <outlet property="passwordTextField" destination="PsY-V8-789" id="NYV-1q-slw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AK-fH-h2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="159"/>
+            <point key="canvasLocation" x="601" y="159"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="ITs-9e-RHf">
@@ -293,16 +311,32 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-jZ-GZS">
+                                        <rect key="frame" x="0.0" y="610" width="375" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="2WE-Jy-LuH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
+                                        <state key="normal" title="Go back to home page">
+                                            <color key="titleColor" white="1" alpha="0.85393500766871167" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backToHomePageButtonPressed:" destination="8lA-t4-8CG" eventType="touchUpInside" id="Kcq-yM-VTj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.30351322850000001" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6xd-jZ-GZS" secondAttribute="trailing" id="3L2-mr-mZE"/>
                                     <constraint firstItem="mr0-Gr-cku" firstAttribute="top" secondItem="hdv-nl-dK9" secondAttribute="top" constant="30" id="3bK-py-2s7"/>
                                     <constraint firstAttribute="trailing" secondItem="w4H-xU-XcW" secondAttribute="trailing" constant="20" id="I58-5g-zPq"/>
                                     <constraint firstItem="Wha-tN-upm" firstAttribute="centerX" secondItem="hdv-nl-dK9" secondAttribute="centerX" id="NOx-bQ-c4W"/>
                                     <constraint firstItem="Wha-tN-upm" firstAttribute="width" secondItem="w4H-xU-XcW" secondAttribute="width" id="Yud-Be-p0u"/>
+                                    <constraint firstItem="6xd-jZ-GZS" firstAttribute="leading" secondItem="hdv-nl-dK9" secondAttribute="leading" id="mfl-8c-slg"/>
                                     <constraint firstItem="w4H-xU-XcW" firstAttribute="leading" secondItem="hdv-nl-dK9" secondAttribute="leading" constant="20" id="nd3-jD-KBm"/>
                                     <constraint firstItem="w4H-xU-XcW" firstAttribute="top" secondItem="mr0-Gr-cku" secondAttribute="bottom" constant="15" id="s95-n9-ELY"/>
                                     <constraint firstItem="Wha-tN-upm" firstAttribute="top" secondItem="w4H-xU-XcW" secondAttribute="bottom" constant="20" id="wkD-6N-FlK"/>
+                                    <constraint firstAttribute="bottom" secondItem="6xd-jZ-GZS" secondAttribute="bottom" constant="10" id="x2O-Ab-O6u"/>
                                     <constraint firstItem="mr0-Gr-cku" firstAttribute="centerX" secondItem="hdv-nl-dK9" secondAttribute="centerX" id="yf7-rV-idh"/>
                                 </constraints>
                             </view>
@@ -320,12 +354,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmPasswordTextField" destination="A1o-Ov-Hb0" id="MP3-iP-a5l"/>
+                        <outlet property="emailTextField" destination="yol-Bv-rpS" id="tAp-dI-fpJ"/>
+                        <outlet property="fullNameTextField" destination="vdA-lQ-EYR" id="hzy-6t-u1e"/>
+                        <outlet property="passwordTextField" destination="4ta-5e-7eO" id="bUv-My-ssn"/>
                         <outlet property="signUpButton" destination="Wha-tN-upm" id="13p-0E-WPs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwg-KU-Iq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="158.77061469265368"/>
+            <point key="canvasLocation" x="1295" y="159"/>
         </scene>
     </scenes>
     <resources>

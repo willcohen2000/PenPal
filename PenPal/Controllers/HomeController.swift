@@ -49,7 +49,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.homeCell, for: indexPath)
-        let row = indexPath.row
+        //let row = indexPath.row
        // cell.textLabel?.text = externalLearners[row]
         
         return cell

@@ -12,9 +12,6 @@ class InitialLandingPage: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let screenSize: CGRect = UIScreen.main.bounds
-        print("SCR33N SIZE WIDTH: \(screenSize.width)")
         
     }
 
