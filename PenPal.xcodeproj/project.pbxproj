@@ -29,12 +29,19 @@
 		6E58DBC81F1902220031E78B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBC51F1902220031E78B /* Info.plist */; };
 		6E58DBCA1F19022E0031E78B /* TextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58DBC91F19022E0031E78B /* TextFieldPadding.swift */; };
 		6E632DCA1F17C10000765AB7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E632DC91F17C10000765AB7 /* HomeController.swift */; };
+		6E6E20A81F192EC60032ADBC /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E20A71F192EC60032ADBC /* CircleImage.swift */; };
+		6E6E20AA1F1941520032ADBC /* PickTargetLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E20A91F1941520032ADBC /* PickTargetLanguageController.swift */; };
 		6E82CB861F17E4A600EA6173 /* ShadowTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */; };
 		6E82CB881F17E4D500EA6173 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E82CB871F17E4D500EA6173 /* ShadowView.swift */; };
 		6E8C70E61F1657F90015C107 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C70E51F1657F90015C107 /* AppDelegate.swift */; };
 		6E8C70EF1F1657F90015C107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C70EE1F1657F90015C107 /* Assets.xcassets */; };
 		6E8C70FD1F1657F90015C107 /* PenPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C70FC1F1657F90015C107 /* PenPalTests.swift */; };
 		6E8C71081F1657FA0015C107 /* PenPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C71071F1657FA0015C107 /* PenPalUITests.swift */; };
+		6EDA58931F19625C0071B3F1 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58921F19625C0071B3F1 /* Languages.swift */; };
+		6EDA58971F1CF7EA0071B3F1 /* PickLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58961F1CF7EA0071B3F1 /* PickLanguageCell.swift */; };
+		6EDA589A1F1D337E0071B3F1 /* PickNativeLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */; };
+		6EDA589C1F1D33A00071B3F1 /* PickNativeLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA589B1F1D33A00071B3F1 /* PickNativeLanguageCell.swift */; };
+		6EDA589E1F1D44FF0071B3F1 /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA589D1F1D44FF0071B3F1 /* Interests.swift */; };
 		6EE43CBD1F17B91C002FDC96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE43CBB1F17B91C002FDC96 /* Main.storyboard */; };
 		6EE43CBE1F17B91C002FDC96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE43CBC1F17B91C002FDC96 /* LaunchScreen.storyboard */; };
 		6EE81B941F18648C00C5CF67 /* InitialLandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81B931F18648C00C5CF67 /* InitialLandingPage.swift */; };
@@ -89,6 +96,8 @@
 		6E58DBC51F1902220031E78B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Supporting/Info.plist; sourceTree = "<group>"; };
 		6E58DBC91F19022E0031E78B /* TextFieldPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldPadding.swift; path = Views/TextFieldPadding.swift; sourceTree = "<group>"; };
 		6E632DC91F17C10000765AB7 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = Controllers/HomeController.swift; sourceTree = "<group>"; };
+		6E6E20A71F192EC60032ADBC /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		6E6E20A91F1941520032ADBC /* PickTargetLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickTargetLanguageController.swift; path = Controllers/PickTargetLanguageController.swift; sourceTree = "<group>"; };
 		6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowTableView.swift; path = Views/ShadowTableView.swift; sourceTree = "<group>"; };
 		6E82CB871F17E4D500EA6173 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = Views/ShadowView.swift; sourceTree = "<group>"; };
 		6E8C70E21F1657F90015C107 /* PenPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +109,11 @@
 		6E8C71031F1657FA0015C107 /* PenPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8C71071F1657FA0015C107 /* PenPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenPalUITests.swift; sourceTree = "<group>"; };
 		6E8C71091F1657FA0015C107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EDA58921F19625C0071B3F1 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Languages.swift; path = Supporting/Languages.swift; sourceTree = "<group>"; };
+		6EDA58961F1CF7EA0071B3F1 /* PickLanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickLanguageCell.swift; path = Views/PickLanguageCell.swift; sourceTree = "<group>"; };
+		6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickNativeLanguageController.swift; sourceTree = "<group>"; };
+		6EDA589B1F1D33A00071B3F1 /* PickNativeLanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickNativeLanguageCell.swift; path = Views/PickNativeLanguageCell.swift; sourceTree = "<group>"; };
+		6EDA589D1F1D44FF0071B3F1 /* Interests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interests.swift; path = Supporting/Interests.swift; sourceTree = "<group>"; };
 		6EE43CBB1F17B91C002FDC96 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		6EE43CBC1F17B91C002FDC96 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EE81B931F18648C00C5CF67 /* InitialLandingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialLandingPage.swift; path = Controllers/InitialLandingPage.swift; sourceTree = "<group>"; };
@@ -149,6 +163,25 @@
 				7AEA19E07C3AE3F4FB494E70 /* Pods-PenPalUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E6E20A61F192B330032ADBC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */,
+				6E58DBA61F1901DC0031E78B /* Roboto-BlackItalic.ttf */,
+				6E58DBA71F1901DC0031E78B /* Roboto-Bold.ttf */,
+				6E58DBA81F1901DC0031E78B /* Roboto-BoldItalic.ttf */,
+				6E58DBA91F1901DC0031E78B /* Roboto-Italic.ttf */,
+				6E58DBAA1F1901DC0031E78B /* Roboto-Light.ttf */,
+				6E58DBAB1F1901DC0031E78B /* Roboto-LightItalic.ttf */,
+				6E58DBAC1F1901DC0031E78B /* Roboto-Medium.ttf */,
+				6E58DBAD1F1901DC0031E78B /* Roboto-MediumItalic.ttf */,
+				6E58DBAE1F1901DC0031E78B /* Roboto-Regular.ttf */,
+				6E58DBAF1F1901DC0031E78B /* Roboto-Thin.ttf */,
+				6E58DBB01F1901DC0031E78B /* Roboto-ThinItalic.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		6E8C70D91F1657F90015C107 = {
@@ -211,10 +244,11 @@
 		6E8C71151F1718550015C107 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6EDA58981F1CF7EF0071B3F1 /* TV/CV Cells */,
 				6E58DBC91F19022E0031E78B /* TextFieldPadding.swift */,
 				6E82CB871F17E4D500EA6173 /* ShadowView.swift */,
 				6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */,
-				6E16FCCE1F17EA760075A113 /* ExternalLearnerCell.swift */,
+				6E6E20A71F192EC60032ADBC /* CircleImage.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -226,6 +260,8 @@
 				6E58DBC41F1902220031E78B /* MainFunctions.swift */,
 				6E58DBC51F1902220031E78B /* Info.plist */,
 				6E58DBA31F19016D0031E78B /* GoogleService-Info.plist */,
+				6EDA58921F19625C0071B3F1 /* Languages.swift */,
+				6EDA589D1F1D44FF0071B3F1 /* Interests.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -278,21 +314,20 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		6EDA58981F1CF7EF0071B3F1 /* TV/CV Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6EDA58961F1CF7EA0071B3F1 /* PickLanguageCell.swift */,
+				6EDA589B1F1D33A00071B3F1 /* PickNativeLanguageCell.swift */,
+				6E16FCCE1F17EA760075A113 /* ExternalLearnerCell.swift */,
+			);
+			name = "TV/CV Cells";
+			sourceTree = "<group>";
+		};
 		6EE43CA21F17B1AC002FDC96 /* Rescources */ = {
 			isa = PBXGroup;
 			children = (
-				6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */,
-				6E58DBA61F1901DC0031E78B /* Roboto-BlackItalic.ttf */,
-				6E58DBA71F1901DC0031E78B /* Roboto-Bold.ttf */,
-				6E58DBA81F1901DC0031E78B /* Roboto-BoldItalic.ttf */,
-				6E58DBA91F1901DC0031E78B /* Roboto-Italic.ttf */,
-				6E58DBAA1F1901DC0031E78B /* Roboto-Light.ttf */,
-				6E58DBAB1F1901DC0031E78B /* Roboto-LightItalic.ttf */,
-				6E58DBAC1F1901DC0031E78B /* Roboto-Medium.ttf */,
-				6E58DBAD1F1901DC0031E78B /* Roboto-MediumItalic.ttf */,
-				6E58DBAE1F1901DC0031E78B /* Roboto-Regular.ttf */,
-				6E58DBAF1F1901DC0031E78B /* Roboto-Thin.ttf */,
-				6E58DBB01F1901DC0031E78B /* Roboto-ThinItalic.ttf */,
+				6E6E20A61F192B330032ADBC /* Fonts */,
 				6E8C70EE1F1657F90015C107 /* Assets.xcassets */,
 			);
 			name = Rescources;
@@ -304,6 +339,8 @@
 				6E58DBBD1F1901E90031E78B /* SignUpController.swift */,
 				6EE81B971F1874D000C5CF67 /* LoginController.swift */,
 				6EE81B931F18648C00C5CF67 /* InitialLandingPage.swift */,
+				6E6E20A91F1941520032ADBC /* PickTargetLanguageController.swift */,
+				6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */,
 			);
 			name = "Login Controllers";
 			sourceTree = "<group>";
@@ -620,15 +657,22 @@
 				6E58DBC71F1902220031E78B /* MainFunctions.swift in Sources */,
 				6EE81B981F1874D000C5CF67 /* LoginController.swift in Sources */,
 				6E58DBC61F1902220031E78B /* Constants.swift in Sources */,
+				6E6E20A81F192EC60032ADBC /* CircleImage.swift in Sources */,
 				6E82CB881F17E4D500EA6173 /* ShadowView.swift in Sources */,
 				6E82CB861F17E4A600EA6173 /* ShadowTableView.swift in Sources */,
+				6EDA589A1F1D337E0071B3F1 /* PickNativeLanguageController.swift in Sources */,
 				6E16FCCF1F17EA760075A113 /* ExternalLearnerCell.swift in Sources */,
 				6E632DCA1F17C10000765AB7 /* HomeController.swift in Sources */,
+				6EDA589C1F1D33A00071B3F1 /* PickNativeLanguageCell.swift in Sources */,
 				6E58DBC01F1901F50031E78B /* ExternalLearner.swift in Sources */,
 				6EE81B941F18648C00C5CF67 /* InitialLandingPage.swift in Sources */,
 				6E58DBCA1F19022E0031E78B /* TextFieldPadding.swift in Sources */,
 				6E8C70E61F1657F90015C107 /* AppDelegate.swift in Sources */,
+				6EDA589E1F1D44FF0071B3F1 /* Interests.swift in Sources */,
+				6EDA58971F1CF7EA0071B3F1 /* PickLanguageCell.swift in Sources */,
 				6E58DBBE1F1901E90031E78B /* SignUpController.swift in Sources */,
+				6E6E20AA1F1941520032ADBC /* PickTargetLanguageController.swift in Sources */,
+				6EDA58931F19625C0071B3F1 /* Languages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

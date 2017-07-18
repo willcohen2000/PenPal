@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import AZDropdownMenu
+import DropDown
 
 class HomeController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var dropdownMenu: UIButton!
     @IBOutlet weak var targetLanguageLabel: UILabel!
     @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var dropDownMenuHoldingView: UIView!
     
-    var dropMenuGlobal: AZDropdownMenu!
-    
+    var dropMenuGlobal = DropDown()
     var externalLearners = [ExternalLearner]()
     
     override func viewDidLoad() {
@@ -25,18 +25,18 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         homeTableView.delegate = self
         homeTableView.dataSource = self
         
-        let options = ["French","English","Italian","Japanese"]
-        let menu = AZDropdownMenu(titles: options)
-        self.dropMenuGlobal = menu
-        
-        menu.cellTapHandler = { [weak self] (indexPath: IndexPath) -> Void in
-            self?.targetLanguageLabel.text = options[indexPath.row]
+        dropMenuGlobal.anchorView = dropDownMenuHoldingView
+        dropDownMenuHoldingView.isHidden = true
+        dropMenuGlobal.dataSource = ["French", "English", "Italian", "Spanish", "Korean"]
+       
+        dropMenuGlobal.selectionAction = { [unowned self] (index: Int, selectedLanguage: String) in
+            self.targetLanguageLabel.text = selectedLanguage
         }
         
     }
     
     @IBAction func dropdownMenuButtonPressed(_ sender: Any) {
-        dropMenu(menu: dropMenuGlobal)
+        dropMenuGlobal.show()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -48,22 +48,13 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.homeCell, for: indexPath)
-        //let row = indexPath.row
-       // cell.textLabel?.text = externalLearners[row]
-        
-        return cell
-    }
-
-}
-
-extension HomeController {
-    func dropMenu(menu: AZDropdownMenu) {
-        if (menu.isDescendant(of: self.view) == true) {
-            menu.hideMenu()
+        if let cell = homeTableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.homeCell) as? ExternalLearnerCell {
+            return cell
         } else {
-            menu.showMenuFromView(self.view)
+            return ExternalLearnerCell()
         }
     }
+
 }
+
 

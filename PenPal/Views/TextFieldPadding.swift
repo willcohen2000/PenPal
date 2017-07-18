@@ -27,5 +27,5 @@ class TextFieldPadding: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
-
+    
 }

@@ -20,7 +20,7 @@ class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        signUpButton.layer.cornerRadius = 15
+        //signUpButton.layer.cornerRadius = 15
     }
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
@@ -35,7 +35,7 @@ class SignUpController: UIViewController {
                     MainFunctions.showErrorMessage(error: error) 
                     return
                 }
-                print("\(user!.email!) created")
+                self.performSegue(withIdentifier: Constants.Segues.targetLanguageSegue, sender: nil)
             }
         }
     }

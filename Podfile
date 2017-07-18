@@ -7,14 +7,13 @@ target 'PenPal' do
 
   # Pods for PenPal
 
-  pod 'AZDropdownMenu'
   pod 'IQKeyboardManagerSwift'
   pod ‘Firebase/Core’
   pod ‘Firebase/Auth’
   pod ‘Firebase/Database’
   pod ‘Firebase/Storage’
   pod ‘Firebase/Messaging’
-  pod 'DotsLoading'
+  pod 'DropDown'
 
   target 'PenPalTests' do
     inherit! :search_paths

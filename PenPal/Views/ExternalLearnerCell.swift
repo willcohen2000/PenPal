@@ -10,10 +10,13 @@ import UIKit
 
 class ExternalLearnerCell: UITableViewCell {
 
+    @IBOutlet weak var profilePictureImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profilePictureImageView.maskCircle(anyImage: UIImage(named: "profilePic")!)
     }
 
-
+    
 }

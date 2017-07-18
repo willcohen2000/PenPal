@@ -14,6 +14,9 @@ class Constants {
         static let homeCell: String = "HomeCell"
     }
     
+    struct Segues {
+        static let targetLanguageSegue: String = "toTargetLanguagePick"
+    }
     
     
 }
