@@ -44,6 +44,10 @@ class PickNativeLanguageController: UIViewController, UICollectionViewDataSource
         print("kafdjh")
     }
 
+    @IBAction func backArrowButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 

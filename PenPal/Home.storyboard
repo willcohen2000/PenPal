@@ -266,7 +266,7 @@
                                                                         <constraint firstAttribute="height" constant="50" id="gjG-ZB-Gm6"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="19"/>
-                                                                    <state key="normal" title="Engage with Tara">
+                                                                    <state key="normal" title="Talk with Tara">
                                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </state>
                                                                 </button>
@@ -375,8 +375,8 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8F-fG-t09">
-                                        <rect key="frame" x="10" y="78" width="355" height="200"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z8F-fG-t09">
+                                        <rect key="frame" x="10" y="78" width="355" height="7"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="lWi-WI-nZh"/>
@@ -422,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vya-xH-gBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="-507"/>
+            <point key="canvasLocation" x="-127.2" y="-507.79610194902551"/>
         </scene>
     </scenes>
     <resources>

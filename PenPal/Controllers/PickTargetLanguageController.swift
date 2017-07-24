@@ -43,6 +43,10 @@ class PickTargetLanguageController: UIViewController, UICollectionViewDelegate, 
     func targetLanguageDeselected(_ language: Languages.LanguagesEnum) {
         print("2")
     }
+    
+    @IBAction func backArrowButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }
 
