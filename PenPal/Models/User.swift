@@ -1,0 +1,22 @@
+//
+//  User.swift
+//  PenPal
+//
+//  Created by Will Cohen on 7/24/17.
+//  Copyright © 2017 Will Cohen. All rights reserved.
+//
+
+import Foundation
+
+final class User {
+    static let sharedInstance = User()
+    private init() { }
+    
+    var name: String!
+    var targetLanguages: [Languages.LanguagesEnum]!
+    var nativeLanguages: [Languages.LanguagesEnum]!
+    var interests: [Interests.InterestsEnum]!
+    var skillLevelInt: Int = 0
+    var uid: String!
+    
+}

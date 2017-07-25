@@ -16,6 +16,7 @@ class Constants {
     
     struct Segues {
         static let targetLanguageSegue: String = "toTargetLanguagePick"
+        static let nextSegue: String = "nextSegue"
     }
     
     

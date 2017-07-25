@@ -11,6 +11,7 @@ import UIKit
 class PickNativeLanguageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,pickNativeLanguageDelegate, unpickNativeLanguageDelegate {
 
     @IBOutlet weak var pickNativeLanguageCollectionView: UICollectionView!
+    var nativeLanguages: [Languages.LanguagesEnum] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,25 @@ class PickNativeLanguageController: UIViewController, UICollectionViewDataSource
     }
     
     func nativeLanguageSelected(_ language: Languages.LanguagesEnum) {
-        print("hellosd")
+        nativeLanguages.append(language)
     }
     
     func nativeLanguageDeselected(_ language: Languages.LanguagesEnum) {
-        print("kafdjh")
+        if let languageIndex = nativeLanguages.index(of: language) {
+            nativeLanguages.remove(at: languageIndex)
+        }
     }
 
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        if (nativeLanguages.count != 0) {
+            User.sharedInstance.nativeLanguages = []
+            User.sharedInstance.nativeLanguages = nativeLanguages
+            self.performSegue(withIdentifier: Constants.Segues.nextSegue, sender: nil)
+        } else {
+            MainFunctions.createSimpleAlert(alertTitle: "No Languages Selected", alertMessage: "You need to select at least one language to continue.", controller: self)
+        }
+    }
+    
     @IBAction func backArrowButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

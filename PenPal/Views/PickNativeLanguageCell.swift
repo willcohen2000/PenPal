@@ -34,25 +34,21 @@ class PickNativeLanguageCell: UICollectionViewCell {
         pickNativeLanguageButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    
     func configureCell(language: Languages.LanguagesEnum) {
         self.language = language
         self.pickNativeLanguageButton.setTitle(String(describing: language), for: .normal)
     }
     
-    
     @IBAction func pickNativeLanguageButtonPressed(_ sender: Any) {
         if (pickNativeLanguageButton.backgroundColor == selectedLanguageColor) {
             self.pickNativeLanguageButton.backgroundColor = UIColor.clear
-            print("94985")
-            if pickDelegate != nil {
-                pickDelegate?.nativeLanguageSelected(language)
-                print("94985")
+            if let unpickDelegate = unpickDelegate {
+                unpickDelegate.nativeLanguageDeselected(self.language)
             }
         } else {
             self.pickNativeLanguageButton.backgroundColor = selectedLanguageColor
-            if let unpickDelegate = unpickDelegate {
-                unpickDelegate.nativeLanguageDeselected(self.language)
+            if let pickDelegate = pickDelegate {
+                pickDelegate.nativeLanguageSelected(self.language)
             }
         }
     }

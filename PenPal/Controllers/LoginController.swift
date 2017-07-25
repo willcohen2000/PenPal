@@ -30,7 +30,10 @@ class LoginController: UIViewController {
                 let vc = homeStoryboard.instantiateViewController(withIdentifier: "HomeControllerID") as UIViewController
                 self.present(vc, animated: true, completion: nil)
             } else {
-                MainFunctions.showErrorMessage(error: error!)
+                if let error = error {
+                    AuthenticationErrorService.loginErrors(error: error, controller: self)
+                    MainFunctions.showErrorMessage(error: error)
+                }
             }
         })
     }

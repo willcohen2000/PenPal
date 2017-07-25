@@ -10,6 +10,11 @@
 		6E16FCCF1F17EA760075A113 /* ExternalLearnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E16FCCE1F17EA760075A113 /* ExternalLearnerCell.swift */; };
 		6E1E9B271F25ACBA006C2338 /* PickInterestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B261F25ACBA006C2338 /* PickInterestsController.swift */; };
 		6E1E9B2B1F25AD10006C2338 /* PickInterestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B2A1F25AD10006C2338 /* PickInterestsCell.swift */; };
+		6E1E9B301F263A66006C2338 /* Firebase+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B2F1F263A66006C2338 /* Firebase+Service.swift */; };
+		6E1E9B321F268D1F006C2338 /* PickLanguageSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B311F268D1F006C2338 /* PickLanguageSkills.swift */; };
+		6E1E9B341F268DD2006C2338 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B331F268DD2006C2338 /* Colors.swift */; };
+		6E1E9B361F2693F1006C2338 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B351F2693F1006C2338 /* User.swift */; };
+		6E1E9B381F26D825006C2338 /* AuthenticationError+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B371F26D825006C2338 /* AuthenticationError+Service.swift */; };
 		6E3447DE1F19139C00EA71E0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E3447DD1F19139C00EA71E0 /* Home.storyboard */; };
 		6E58DBA41F19016D0031E78B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBA31F19016D0031E78B /* GoogleService-Info.plist */; };
 		6E58DBB11F1901DC0031E78B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */; };
@@ -79,6 +84,11 @@
 		6E16FCCE1F17EA760075A113 /* ExternalLearnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalLearnerCell.swift; path = Views/ExternalLearnerCell.swift; sourceTree = "<group>"; };
 		6E1E9B261F25ACBA006C2338 /* PickInterestsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickInterestsController.swift; path = Controllers/PickInterestsController.swift; sourceTree = "<group>"; };
 		6E1E9B2A1F25AD10006C2338 /* PickInterestsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickInterestsCell.swift; path = Views/PickInterestsCell.swift; sourceTree = "<group>"; };
+		6E1E9B2F1F263A66006C2338 /* Firebase+Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Firebase+Service.swift"; path = "Services/Firebase+Service.swift"; sourceTree = "<group>"; };
+		6E1E9B311F268D1F006C2338 /* PickLanguageSkills.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickLanguageSkills.swift; path = Controllers/PickLanguageSkills.swift; sourceTree = "<group>"; };
+		6E1E9B331F268DD2006C2338 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		6E1E9B351F2693F1006C2338 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		6E1E9B371F26D825006C2338 /* AuthenticationError+Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AuthenticationError+Service.swift"; path = "Services/AuthenticationError+Service.swift"; sourceTree = "<group>"; };
 		6E3447DD1F19139C00EA71E0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		6E58DBA31F19016D0031E78B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "Rescources/Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -169,6 +179,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6E1E9B2C1F2639CF006C2338 /* Specialized Views */ = {
+			isa = PBXGroup;
+			children = (
+				6E82CB871F17E4D500EA6173 /* ShadowView.swift */,
+				6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */,
+			);
+			name = "Specialized Views";
+			sourceTree = "<group>";
+		};
+		6E1E9B2D1F263A0A006C2338 /* Global Functions */ = {
+			isa = PBXGroup;
+			children = (
+				6E58DBC41F1902220031E78B /* MainFunctions.swift */,
+			);
+			name = "Global Functions";
+			sourceTree = "<group>";
+		};
+		6E1E9B2E1F263A15006C2338 /* Global Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6E58DBC31F1902220031E78B /* Constants.swift */,
+				6EDA58921F19625C0071B3F1 /* Languages.swift */,
+				6EDA589D1F1D44FF0071B3F1 /* Interests.swift */,
+				6E1E9B331F268DD2006C2338 /* Colors.swift */,
+			);
+			name = "Global Constants";
+			sourceTree = "<group>";
+		};
 		6E6E20A61F192B330032ADBC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,10 +286,9 @@
 		6E8C71151F1718550015C107 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E9B2C1F2639CF006C2338 /* Specialized Views */,
 				6EDA58981F1CF7EF0071B3F1 /* TV/CV Cells */,
 				6E58DBC91F19022E0031E78B /* TextFieldPadding.swift */,
-				6E82CB871F17E4D500EA6173 /* ShadowView.swift */,
-				6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */,
 				6E6E20A71F192EC60032ADBC /* CircleImage.swift */,
 			);
 			name = Views;
@@ -260,12 +297,10 @@
 		6E8C71161F17185B0015C107 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				6E58DBC31F1902220031E78B /* Constants.swift */,
-				6E58DBC41F1902220031E78B /* MainFunctions.swift */,
+				6E1E9B2E1F263A15006C2338 /* Global Constants */,
+				6E1E9B2D1F263A0A006C2338 /* Global Functions */,
 				6E58DBC51F1902220031E78B /* Info.plist */,
 				6E58DBA31F19016D0031E78B /* GoogleService-Info.plist */,
-				6EDA58921F19625C0071B3F1 /* Languages.swift */,
-				6EDA589D1F1D44FF0071B3F1 /* Interests.swift */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -283,6 +318,8 @@
 		6E8C71181F17186E0015C107 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E9B2F1F263A66006C2338 /* Firebase+Service.swift */,
+				6E1E9B371F26D825006C2338 /* AuthenticationError+Service.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -291,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				6E58DBBF1F1901F50031E78B /* ExternalLearner.swift */,
+				6E1E9B351F2693F1006C2338 /* User.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -347,6 +385,7 @@
 				6E6E20A91F1941520032ADBC /* PickTargetLanguageController.swift */,
 				6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */,
 				6E1E9B261F25ACBA006C2338 /* PickInterestsController.swift */,
+				6E1E9B311F268D1F006C2338 /* PickLanguageSkills.swift */,
 			);
 			name = "Login Controllers";
 			sourceTree = "<group>";
@@ -661,7 +700,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E58DBC71F1902220031E78B /* MainFunctions.swift in Sources */,
+				6E1E9B341F268DD2006C2338 /* Colors.swift in Sources */,
 				6EE81B981F1874D000C5CF67 /* LoginController.swift in Sources */,
+				6E1E9B361F2693F1006C2338 /* User.swift in Sources */,
 				6E58DBC61F1902220031E78B /* Constants.swift in Sources */,
 				6E6E20A81F192EC60032ADBC /* CircleImage.swift in Sources */,
 				6E82CB881F17E4D500EA6173 /* ShadowView.swift in Sources */,
@@ -672,10 +713,13 @@
 				6E1E9B2B1F25AD10006C2338 /* PickInterestsCell.swift in Sources */,
 				6E632DCA1F17C10000765AB7 /* HomeController.swift in Sources */,
 				6EDA589C1F1D33A00071B3F1 /* PickNativeLanguageCell.swift in Sources */,
+				6E1E9B301F263A66006C2338 /* Firebase+Service.swift in Sources */,
 				6E58DBC01F1901F50031E78B /* ExternalLearner.swift in Sources */,
 				6EE81B941F18648C00C5CF67 /* InitialLandingPage.swift in Sources */,
+				6E1E9B321F268D1F006C2338 /* PickLanguageSkills.swift in Sources */,
 				6E58DBCA1F19022E0031E78B /* TextFieldPadding.swift in Sources */,
 				6E8C70E61F1657F90015C107 /* AppDelegate.swift in Sources */,
+				6E1E9B381F26D825006C2338 /* AuthenticationError+Service.swift in Sources */,
 				6EDA589E1F1D44FF0071B3F1 /* Interests.swift in Sources */,
 				6EDA58971F1CF7EA0071B3F1 /* PickLanguageCell.swift in Sources */,
 				6E58DBBE1F1901E90031E78B /* SignUpController.swift in Sources */,

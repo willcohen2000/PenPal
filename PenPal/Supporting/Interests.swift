@@ -9,7 +9,7 @@
 import Foundation
 
 struct Interests {
-    
+
     enum InterestsEnum {
         case Reading
         case TV

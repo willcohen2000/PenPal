@@ -8,17 +8,11 @@
 
 import UIKit
 
-class PickInterestsController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, pickInterestDelegate, unpickInterestDelegate {
-    
-    func interestSelected(_ interest: Interests.InterestsEnum) {
-        print(111)
-    }
-    
-    func interestDeselected(_ interest: Interests.InterestsEnum) {
-        print(222)
-    }
+class PickInterestsController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var pickInterestsCollectionView: UICollectionView!
+    var selected: NSMutableSet = NSMutableSet()
+    var userInterests: [Interests.InterestsEnum] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +21,30 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate, UICol
         pickInterestsCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
     
+    @IBAction func backArrowButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func finishButtonPressed(_ sender: Any) {
+        User.sharedInstance.interests = []
+        User.sharedInstance.interests = self.userInterests
+    }
+}
+
+extension PickInterestsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Interests.interests.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let interest = Interests.interests[indexPath.row]
+        
         if let cell = pickInterestsCollectionView.dequeueReusableCell(withReuseIdentifier: "pickInterestCell", for: indexPath) as? PickInterestsCell {
-            cell.configureCell(interest: interest)
+            if selected.contains(interest) {
+                cell.configureCell(interest: interest, isSelectedBool: true)
+            } else {
+                cell.configureCell(interest: interest, isSelectedBool: false)
+            }
             cell.pickDelegate = self
             cell.unpickDelegate = self
             return cell
@@ -42,13 +52,20 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate, UICol
             return PickNativeLanguageCell()
         }
     }
-   
-    @IBAction func backArrowButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+}
+
+extension PickInterestsController: pickInterestDelegate {
+    func interestSelected(_ interest: Interests.InterestsEnum) {
+        selected.add(interest)
+        userInterests.append(interest)
     }
-    
-    @IBAction func finishButtonPressed(_ sender: Any) {
-        
+}
+
+extension PickInterestsController: unpickInterestDelegate {
+    func interestDeselected(_ interest: Interests.InterestsEnum) {
+        selected.remove(interest)
+        if let interestIndex = userInterests.index(of: interest) {
+            userInterests.remove(at: interestIndex)
+        }
     }
-    
 }

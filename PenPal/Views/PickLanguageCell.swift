@@ -43,13 +43,13 @@ class PickLanguageCell: UICollectionViewCell {
     @IBAction func pickLanguageButtonPressed(_ sender: Any) {
         if (pickLanguageButton.backgroundColor == selectedLanguageColor) {
             self.pickLanguageButton.backgroundColor = UIColor.clear
-            if let pickDelegate = pickDelegate {
-                pickDelegate.targetLanguageSelected(self.language)
+            if let unpickDelegate = unpickDelegate {
+                unpickDelegate.targetLanguageDeselected(self.language)
             }
         } else {
             self.pickLanguageButton.backgroundColor = selectedLanguageColor
-            if let unpickDelegate = unpickDelegate {
-                unpickDelegate.targetLanguageDeselected(self.language)
+            if let pickDelegate = pickDelegate {
+                pickDelegate.targetLanguageSelected(self.language)
             }
         }
     }

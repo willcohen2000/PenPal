@@ -28,18 +28,22 @@ class SignUpController: UIViewController {
         let userEmail: String = emailTextField.text!
         
         if (passwordTextField.text != confirmPasswordTextField.text) {
-            // handle password text field is NOT equal to confirm password text field
+            
         } else {
             Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (user, error) in
                 if let error = error {
+                    AuthenticationErrorService.signUpErrors(error: error, controller: self)
                     MainFunctions.showErrorMessage(error: error) 
                     return
                 }
                 self.performSegue(withIdentifier: Constants.Segues.targetLanguageSegue, sender: nil)
+                User.sharedInstance.uid = user?.uid
+                if let userName = self.fullNameTextField.text {
+                    User.sharedInstance.name = userName
+                }
             }
         }
     }
-
 
     @IBAction func backToHomePageButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

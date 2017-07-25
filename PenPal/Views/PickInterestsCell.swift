@@ -25,6 +25,7 @@ class PickInterestsCell: UICollectionViewCell {
     var unpickDelegate: unpickInterestDelegate?
     let selectedLanguageColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.3)
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         pickInterestButton.layer.cornerRadius = pickInterestButton.frame.height / 2
@@ -34,11 +35,21 @@ class PickInterestsCell: UICollectionViewCell {
         pickInterestButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    func configureCell(interest: Interests.InterestsEnum) {
+    func configureCell(interest: Interests.InterestsEnum, isSelectedBool: Bool) {
         self.interest = interest
         self.pickInterestButton.setTitle(String(describing: interest), for: .normal)
+        if (isSelectedBool) {
+            self.pickInterestButton.backgroundColor = selectedLanguageColor
+        } else {
+            self.pickInterestButton.backgroundColor = UIColor.clear
+        }
     }
  
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
     @IBAction func interestButtonPressed(_ sender: Any) {
         if (pickInterestButton.backgroundColor == selectedLanguageColor) {
             self.pickInterestButton.backgroundColor = UIColor.clear
