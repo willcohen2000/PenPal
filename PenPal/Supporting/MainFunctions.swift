@@ -25,6 +25,23 @@ class MainFunctions {
         }
     }
     
+    
+    
+    // ADD ERROR BORDER AROUND TEXT FIELD -> TAKE AWAY BORDER AROUND TEXT FIELD
+    static func textFieldError(textFields: [UITextField]) {
+        for (textField) in textFields {
+            textField.layer.cornerRadius = textField.frame.size.height / 2
+            textField.layer.borderColor = Colors.textFieldErrorRed.cgColor
+            textField.layer.borderWidth = 1.0
+        }
+    }
+    
+    static func textFieldTakeawayErrors(textFields: [UITextField]) {
+        for (textField) in textFields {
+            textField.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
     // CREATE SIMPLE UIALERT WITHOUT ANY ADDED BUTTONS
     static func createSimpleAlert(alertTitle: String, alertMessage: String, controller: UIViewController) {
         let alert = UIAlertController(title: alertTitle, message:

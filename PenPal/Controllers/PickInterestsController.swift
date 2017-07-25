@@ -28,6 +28,15 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
     @IBAction func finishButtonPressed(_ sender: Any) {
         User.sharedInstance.interests = []
         User.sharedInstance.interests = self.userInterests
+        
+        FirebaseService.saveInterestsInDatabase(uid: User.sharedInstance.uid, interests: self.userInterests) { (success) in
+            if (success) {
+                self.performSegue(withIdentifier: Constants.Segues.toSkillSegue, sender: nil)
+            } else {
+                // HANDLE ERROR
+            }
+        }
+        
     }
 }
 

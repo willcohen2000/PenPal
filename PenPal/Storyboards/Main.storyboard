@@ -257,6 +257,9 @@
                                             <constraint firstAttribute="height" constant="70" id="Eib-i5-f7k"/>
                                         </constraints>
                                         <state key="normal" image="AddPhoto"/>
+                                        <connections>
+                                            <action selector="pickProfilePictureButtonPressed:" destination="8lA-t4-8CG" eventType="touchUpInside" id="KIL-Zz-dJL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-tN-upm">
                                         <rect key="frame" x="20" y="481" width="335" height="57"/>
@@ -360,13 +363,14 @@
                         <outlet property="emailTextField" destination="yol-Bv-rpS" id="tAp-dI-fpJ"/>
                         <outlet property="fullNameTextField" destination="vdA-lQ-EYR" id="hzy-6t-u1e"/>
                         <outlet property="passwordTextField" destination="4ta-5e-7eO" id="bUv-My-ssn"/>
+                        <outlet property="setProfileImageButton" destination="mr0-Gr-cku" id="PL8-xJ-yQb"/>
                         <outlet property="signUpButton" destination="Wha-tN-upm" id="13p-0E-WPs"/>
                         <segue destination="L2p-yK-XWl" kind="show" identifier="toTargetLanguagePick" id="kLO-ZK-X0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwg-KU-Iq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="159"/>
+            <point key="canvasLocation" x="1213.5999999999999" y="158.77061469265368"/>
         </scene>
         <!--Pick Target Language Controller-->
         <scene sceneID="jlz-4o-Ic7">
@@ -723,7 +727,6 @@
                                         </state>
                                         <connections>
                                             <action selector="finishButtonPressed:" destination="8eY-uq-K0c" eventType="touchUpInside" id="SL5-5C-YRN"/>
-                                            <segue destination="Ozi-wv-vj4" kind="show" id="E2J-5B-aHh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zw-Of-E0X">
@@ -772,6 +775,7 @@
                     </view>
                     <connections>
                         <outlet property="pickInterestsCollectionView" destination="tqK-tf-0T8" id="25L-iw-WBM"/>
+                        <segue destination="Ozi-wv-vj4" kind="show" identifier="toSkillLevelSegue" id="HiD-RJ-eQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hk6-0H-gIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1054,7 +1058,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VzV-kR-nqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="799"/>
+            <point key="canvasLocation" x="2006" y="798"/>
         </scene>
     </scenes>
     <resources>

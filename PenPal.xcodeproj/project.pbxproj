@@ -44,6 +44,7 @@
 		6E8C70EF1F1657F90015C107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E8C70EE1F1657F90015C107 /* Assets.xcassets */; };
 		6E8C70FD1F1657F90015C107 /* PenPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C70FC1F1657F90015C107 /* PenPalTests.swift */; };
 		6E8C71081F1657FA0015C107 /* PenPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C71071F1657FA0015C107 /* PenPalUITests.swift */; };
+		6E8F28D91F27902B004DA767 /* CircleButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F28D81F27902B004DA767 /* CircleButtonImage.swift */; };
 		6EDA58931F19625C0071B3F1 /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58921F19625C0071B3F1 /* Languages.swift */; };
 		6EDA58971F1CF7EA0071B3F1 /* PickLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58961F1CF7EA0071B3F1 /* PickLanguageCell.swift */; };
 		6EDA589A1F1D337E0071B3F1 /* PickNativeLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */; };
@@ -123,6 +124,7 @@
 		6E8C71031F1657FA0015C107 /* PenPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8C71071F1657FA0015C107 /* PenPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenPalUITests.swift; sourceTree = "<group>"; };
 		6E8C71091F1657FA0015C107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E8F28D81F27902B004DA767 /* CircleButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButtonImage.swift; sourceTree = "<group>"; };
 		6EDA58921F19625C0071B3F1 /* Languages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Languages.swift; path = Supporting/Languages.swift; sourceTree = "<group>"; };
 		6EDA58961F1CF7EA0071B3F1 /* PickLanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickLanguageCell.swift; path = Views/PickLanguageCell.swift; sourceTree = "<group>"; };
 		6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickNativeLanguageController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,8 @@
 		6E1E9B2C1F2639CF006C2338 /* Specialized Views */ = {
 			isa = PBXGroup;
 			children = (
+				6E6E20A71F192EC60032ADBC /* CircleImage.swift */,
+				6E8F28D81F27902B004DA767 /* CircleButtonImage.swift */,
 				6E82CB871F17E4D500EA6173 /* ShadowView.swift */,
 				6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */,
 			);
@@ -289,7 +293,6 @@
 				6E1E9B2C1F2639CF006C2338 /* Specialized Views */,
 				6EDA58981F1CF7EF0071B3F1 /* TV/CV Cells */,
 				6E58DBC91F19022E0031E78B /* TextFieldPadding.swift */,
-				6E6E20A71F192EC60032ADBC /* CircleImage.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				6E6E20A81F192EC60032ADBC /* CircleImage.swift in Sources */,
 				6E82CB881F17E4D500EA6173 /* ShadowView.swift in Sources */,
 				6E82CB861F17E4A600EA6173 /* ShadowTableView.swift in Sources */,
+				6E8F28D91F27902B004DA767 /* CircleButtonImage.swift in Sources */,
 				6EDA589A1F1D337E0071B3F1 /* PickNativeLanguageController.swift in Sources */,
 				6E16FCCF1F17EA760075A113 /* ExternalLearnerCell.swift in Sources */,
 				6E1E9B271F25ACBA006C2338 /* PickInterestsController.swift in Sources */,

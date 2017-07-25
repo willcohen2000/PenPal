@@ -12,6 +12,26 @@ import Firebase
 
 class FirebaseService {
     
+    static func saveInterestsInDatabase(uid: String, interests: [Interests.InterestsEnum], completionHandler: @escaping (_ success: Bool) -> Void) {
+        let interestsReference = Database.database().reference().child("Users").child(uid).child("Interests")
+        for (interest) in interests {
+            interestsReference.updateChildValues([String(describing: interest):true])
+            completionHandler(true)
+        }
+    }
+    
+    static func storeUserInDatabase(uid: String, name: String, profileImageUrl: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        Database.database().reference().child("Users").child(uid).updateChildValues(
+            ["fullName": name,
+             "profileImageUrl": profileImageUrl]) { (error, ref) in
+                if (error != nil) {
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+    }
+    
     static func initiateStartingData(targetLanguages tlangs: [Languages.LanguagesEnum], nativeLanguages natlangs: [Languages.LanguagesEnum], userInterests interests: [Interests.InterestsEnum], completionHandler: @escaping (_ success: Bool) -> Void) {
         guard let uid = User.sharedInstance.uid else { return }
         let targetLanguageReference = Database.database().reference().child("TargetLanguages")
