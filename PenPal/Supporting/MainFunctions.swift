@@ -31,6 +31,12 @@ class MainFunctions {
         User.sharedInstance.uid = uid
         let nativeLanguageReference = Database.database().reference().child("NativeLanguages").child(uid)
         let targetLanguageReference = Database.database().reference().child("TargetLanguages").child(uid)
+        let userReference = Database.database().reference().child("Users").child(uid)
+        
+        userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            User.sharedInstance.name = postDict["fullName"] as! String
+        })
         
         nativeLanguageReference.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary {

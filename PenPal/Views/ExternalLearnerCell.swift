@@ -17,6 +17,7 @@ class ExternalLearnerCell: UITableViewCell {
     @IBOutlet weak var interestLabelTwo: UILabel!
     @IBOutlet weak var interestLabelThree: UILabel!
     @IBOutlet weak var interestLabelFour: UILabel!
+    @IBOutlet weak var talkWithPersonButton: UIButton!
     
     var person: ExternalLearner!
     
@@ -32,6 +33,10 @@ class ExternalLearnerCell: UITableViewCell {
         interestLabelTwo.text = "- \(person.interests["two"]!)"
         interestLabelThree.text = "- \(person.interests["three"]!)"
         interestLabelFour.text = "- \(person.interests["four"]!)"
+        talkWithPersonButton.setTitle("Talk with \(person.name!)", for: .normal)
+    }
+    
+    @IBAction func talkWithPersonButtonPressed(_ sender: Any) {
     }
     
 }

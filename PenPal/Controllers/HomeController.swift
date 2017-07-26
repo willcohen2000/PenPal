@@ -20,8 +20,6 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     var dropMenuGlobal = DropDown()
     var pulledUsers = [ExternalLearner]()
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +51,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
             return ExternalLearnerCell()
         }
     }
+
 
 }
 

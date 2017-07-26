@@ -40,7 +40,7 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
                     }
                 }
                 let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                let vc = homeStoryboard.instantiateViewController(withIdentifier: "HomeControllerID") as UIViewController
+                let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
                 self.present(vc, animated: true, completion: nil)
             } else {
                 // HANDLE ERROR

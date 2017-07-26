@@ -10,12 +10,31 @@ import UIKit
 
 class SettingsController: UIViewController {
 
+    @IBOutlet weak var editMyFourThingsButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profilePictureButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+        loadSettingsView()
+        
     }
 
+    @IBAction func editMyFourThingsButtonPressed(_ sender: Any) {
+        
+    }
     
+    @IBAction func profilePictureButtonPressed(_ sender: Any) {
+    }
 
+}
+
+extension SettingsController {
+    func loadSettingsView() {
+        editMyFourThingsButton.layer.borderColor = UIColor.black.cgColor
+        editMyFourThingsButton.layer.cornerRadius = editMyFourThingsButton.frame.height / 2
+        editMyFourThingsButton.layer.borderWidth = 1.0
+        nameLabel.text = User.sharedInstance.name
+    }
 }

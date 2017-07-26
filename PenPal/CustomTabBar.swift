@@ -23,7 +23,7 @@ class CustomTabBar: UITabBarController {
         tabBar.barTintColor = UIColor.white
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
-        
+        self.selectedIndex = 2
         for vc in self.viewControllers! {
             vc.tabBarItem.title = nil
             vc.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
