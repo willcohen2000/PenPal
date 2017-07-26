@@ -9,11 +9,11 @@
 import UIKit
 
 protocol pickNativeLanguageDelegate {
-    func nativeLanguageSelected(_ language: Languages.LanguagesEnum)
+    func nativeLanguageSelected(_ language: String)
 }
 
 protocol unpickNativeLanguageDelegate {
-    func nativeLanguageDeselected(_ language: Languages.LanguagesEnum)
+    func nativeLanguageDeselected(_ language: String)
 }
 
 class PickNativeLanguageCell: UICollectionViewCell {
@@ -23,7 +23,7 @@ class PickNativeLanguageCell: UICollectionViewCell {
     var pickDelegate: pickNativeLanguageDelegate?
     var unpickDelegate: unpickNativeLanguageDelegate?
     let selectedLanguageColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.3)
-    var language: Languages.LanguagesEnum!
+    var language: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,7 @@ class PickNativeLanguageCell: UICollectionViewCell {
         pickNativeLanguageButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    func configureCell(language: Languages.LanguagesEnum) {
+    func configureCell(language: String) {
         self.language = language
         self.pickNativeLanguageButton.setTitle(String(describing: language), for: .normal)
     }

@@ -10,25 +10,15 @@ import Foundation
 import UIKit
 
 struct Languages {
-   enum LanguagesEnum {
-        case English
-        case French
-        case Spanish
-        case Italian
-        case Chinese
-        case Japanese
-        case Russian
-        case German
-    }
     
-    static var languages: [LanguagesEnum] = [
-        LanguagesEnum.English,
-        LanguagesEnum.French,
-        LanguagesEnum.Spanish,
-        LanguagesEnum.Italian,
-        LanguagesEnum.Japanese,
-        LanguagesEnum.Russian,
-        LanguagesEnum.German
+    static var languages: [String] = [
+        "English",
+        "French",
+        "Spanish",
+        "Italian",
+        "Japanese",
+        "Russian",
+        "German"
     ]
     
 }

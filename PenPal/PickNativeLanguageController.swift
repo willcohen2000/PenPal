@@ -11,7 +11,7 @@ import UIKit
 class PickNativeLanguageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,pickNativeLanguageDelegate, unpickNativeLanguageDelegate {
 
     @IBOutlet weak var pickNativeLanguageCollectionView: UICollectionView!
-    var nativeLanguages: [Languages.LanguagesEnum] = []
+    var nativeLanguages: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +37,11 @@ class PickNativeLanguageController: UIViewController, UICollectionViewDataSource
         }
     }
     
-    func nativeLanguageSelected(_ language: Languages.LanguagesEnum) {
+    func nativeLanguageSelected(_ language: String) {
         nativeLanguages.append(language)
     }
     
-    func nativeLanguageDeselected(_ language: Languages.LanguagesEnum) {
+    func nativeLanguageDeselected(_ language: String) {
         if let languageIndex = nativeLanguages.index(of: language) {
             nativeLanguages.remove(at: languageIndex)
         }

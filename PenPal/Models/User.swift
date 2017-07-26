@@ -13,9 +13,9 @@ final class User {
     private init() { }
     
     var name: String!
-    var targetLanguages: [Languages.LanguagesEnum]!
-    var nativeLanguages: [Languages.LanguagesEnum]!
-    var interests: [Interests.InterestsEnum]!
+    var targetLanguages: [String]!
+    var nativeLanguages: [String]!
+    var interests: [String]!
     var skillLevelInt: Int = 0
     var uid: String!
     

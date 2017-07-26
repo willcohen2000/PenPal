@@ -9,18 +9,18 @@
 import UIKit
 
 protocol pickInterestDelegate {
-    func interestSelected(_ interest: Interests.InterestsEnum)
+    func interestSelected(_ interest: String)
 }
 
 protocol unpickInterestDelegate {
-    func interestDeselected(_ interest: Interests.InterestsEnum)
+    func interestDeselected(_ interest: String)
 }
 
 class PickInterestsCell: UICollectionViewCell {
     
     @IBOutlet weak var pickInterestButton: UIButton!
     
-    var interest: Interests.InterestsEnum!
+    var interest: String!
     var pickDelegate: pickInterestDelegate?
     var unpickDelegate: unpickInterestDelegate?
     let selectedLanguageColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.3)
@@ -35,7 +35,7 @@ class PickInterestsCell: UICollectionViewCell {
         pickInterestButton.layer.borderColor = UIColor.white.cgColor
     }
     
-    func configureCell(interest: Interests.InterestsEnum, isSelectedBool: Bool) {
+    func configureCell(interest: String, isSelectedBool: Bool) {
         self.interest = interest
         self.pickInterestButton.setTitle(String(describing: interest), for: .normal)
         if (isSelectedBool) {

@@ -26,9 +26,14 @@ class LoginController: UIViewController {
         let userPassword: String = passwordTextField.text!
         Auth.auth().signIn( withEmail: userEmail, password: userPassword, completion: { (user, error) in
             if error == nil {
-                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                let vc = homeStoryboard.instantiateViewController(withIdentifier: "HomeControllerID") as UIViewController
-                self.present(vc, animated: true, completion: nil)
+                MainFunctions.loadSingletonData(uid: (user?.uid)!, completionHandler: { (success) in
+                    if (success) {
+                        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                        let vc = homeStoryboard.instantiateViewController(withIdentifier: "temp") as UIViewController
+                        self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                })
             } else {
                 if let error = error {
                     AuthenticationErrorService.loginErrors(error: error, controller: self)

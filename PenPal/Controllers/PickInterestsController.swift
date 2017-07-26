@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class PickInterestsController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var pickInterestsCollectionView: UICollectionView!
     var selected: NSMutableSet = NSMutableSet()
-    var userInterests: [Interests.InterestsEnum] = []
+    var userInterests: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,16 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
         
         FirebaseService.saveInterestsInDatabase(uid: User.sharedInstance.uid, interests: self.userInterests) { (success) in
             if (success) {
-                self.performSegue(withIdentifier: Constants.Segues.toSkillSegue, sender: nil)
+                FirebaseService.saveByLanguages(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages)
+                FirebaseService.initiateStartingData(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages) { (success) -> Void in
+                    if (success) {
+                    } else {
+                        print("2error")
+                    }
+                }
+                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                let vc = homeStoryboard.instantiateViewController(withIdentifier: "HomeControllerID") as UIViewController
+                self.present(vc, animated: true, completion: nil)
             } else {
                 // HANDLE ERROR
             }
@@ -40,13 +50,28 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extension PickInterestsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Interests.interests.count
+        return Interests.Interests.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let interest = Interests.interests[indexPath.row]
+        let interest = Interests.Interests[indexPath.row]
         
         if let cell = pickInterestsCollectionView.dequeueReusableCell(withReuseIdentifier: "pickInterestCell", for: indexPath) as? PickInterestsCell {
             if selected.contains(interest) {
@@ -64,14 +89,14 @@ extension PickInterestsController: UICollectionViewDataSource {
 }
 
 extension PickInterestsController: pickInterestDelegate {
-    func interestSelected(_ interest: Interests.InterestsEnum) {
+    func interestSelected(_ interest: String) {
         selected.add(interest)
         userInterests.append(interest)
     }
 }
 
 extension PickInterestsController: unpickInterestDelegate {
-    func interestDeselected(_ interest: Interests.InterestsEnum) {
+    func interestDeselected(_ interest: String) {
         selected.remove(interest)
         if let interestIndex = userInterests.index(of: interest) {
             userInterests.remove(at: interestIndex)

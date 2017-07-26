@@ -7,16 +7,31 @@
 //
 
 import UIKit
+import Firebase
 
 class ExternalLearnerCell: UITableViewCell {
 
     @IBOutlet weak var profilePictureImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var interestLabelOne: UILabel!
+    @IBOutlet weak var interestLabelTwo: UILabel!
+    @IBOutlet weak var interestLabelThree: UILabel!
+    @IBOutlet weak var interestLabelFour: UILabel!
+    
+    var person: ExternalLearner!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        profilePictureImageView.maskCircle(anyImage: UIImage(named: "profilePic")!)
     }
 
+    func configureCell(person: ExternalLearner) {
+        self.person = person
+        profilePictureImageView.maskCircle(anyImage: UIImage(named: "profilePic")!)
+        userNameLabel.text = "\(person.name!)"
+        interestLabelOne.text = "- \(person.interests["one"]!)"
+        interestLabelTwo.text = "- \(person.interests["two"]!)"
+        interestLabelThree.text = "- \(person.interests["three"]!)"
+        interestLabelFour.text = "- \(person.interests["four"]!)"
+    }
     
 }

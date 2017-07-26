@@ -45,36 +45,19 @@ class SignUpController: UIViewController {
                     MainFunctions.showErrorMessage(error: error) 
                     return
                 }
-                let storageReference = Storage.storage().reference().child("ProfileImages").child((user?.uid)!)
-                if let profileImage = self.selectedImage {
-                    let imageData = UIImageJPEGRepresentation(profileImage, 0.1)
-                    storageReference.putData(imageData!, metadata: nil, completion: { (metaData, error) in
-                        if (error != nil) {
-                            // HANDLE ERROR
-                            return
-                        } else {
-                            FirebaseService.storeUserInDatabase(uid: (user?.uid)!, name: fullName, profileImageUrl: String(describing: metaData!.downloadURLs![0]), completionHandler: { (success) in
-                                if (success) {
-                                    self.performSegue(withIdentifier: Constants.Segues.targetLanguageSegue, sender: nil)
-                                    User.sharedInstance.uid = user?.uid
-                                    if let userName = self.fullNameTextField.text {
-                                        User.sharedInstance.name = userName
-                                    }
-                                } else {
-                                    // HANDLE ERROR
-                                }
-                            })
+                FirebaseService.storeUserInDatabase(uid: (user?.uid)!, name: fullName, profileImageUrl: "", completionHandler: { (success) in
+                    if (success) {
+                        self.performSegue(withIdentifier: Constants.Segues.targetLanguageSegue, sender: nil)
+                        User.sharedInstance.uid = user?.uid
+                        if let userName = self.fullNameTextField.text {
+                            User.sharedInstance.name = userName
                         }
-                    })
-                }
+                    } else {
+                        // HANDLE ERROR
+                    }
+                })
             }
         }
-    }
-
-    @IBAction func pickProfilePictureButtonPressed(_ sender: Any) {
-        let pickerController =  UIImagePickerController()
-        pickerController.delegate = self
-        self.present(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func backToHomePageButtonPressed(_ sender: Any) {
@@ -83,7 +66,7 @@ class SignUpController: UIViewController {
 
 }
 
-extension SignUpController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+/*extension SignUpController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let profileImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             setProfileImageButton.maskCircle(anyImage: profileImage)
@@ -91,6 +74,26 @@ extension SignUpController: UIImagePickerControllerDelegate, UINavigationControl
         }
         dismiss(animated: true, completion: nil)
     }
-}
+    
+    let storageReference = Storage.storage().reference().child("ProfileImages").child((user?.uid)!)
+    if let profileImage = self.selectedImage {
+        let imageData = UIImageJPEGRepresentation(profileImage, 0.1)
+        storageReference.putData(imageData!, metadata: nil, completion: { (metaData, error) in
+            if (error != nil) {
+                // HANDLE ERROR
+                return
+            } else {
+                
+            }
+        })
+    }
+ 
+ 
+ 
+ let pickerController =  UIImagePickerController()
+ pickerController.delegate = self
+ self.present(pickerController, animated: true, completion: nil)
+ 
+}*/
 
 

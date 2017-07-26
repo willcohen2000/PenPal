@@ -11,7 +11,7 @@ import UIKit
 class PickTargetLanguageController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, pickTargetLanguageDelegate, unpickTargetLanguageDelegate {
 
     @IBOutlet weak var pickTargetLanguageCollectionView: UICollectionView!
-    var targetLanguages: [Languages.LanguagesEnum] = []
+    var targetLanguages: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +37,11 @@ class PickTargetLanguageController: UIViewController, UICollectionViewDelegate, 
         }
     }
     
-    func targetLanguageSelected(_ language: Languages.LanguagesEnum) {
+    func targetLanguageSelected(_ language: String) {
         targetLanguages.append(language)
     }
     
-    func targetLanguageDeselected(_ language: Languages.LanguagesEnum) {
+    func targetLanguageDeselected(_ language: String) {
         if let languageIndex = targetLanguages.index(of: language) {
             targetLanguages.remove(at: languageIndex)
         }

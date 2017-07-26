@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class MainFunctions {
     
@@ -25,7 +26,32 @@ class MainFunctions {
         }
     }
     
-    
+    // LOADS SINGLETON DATA
+    static func loadSingletonData(uid: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        User.sharedInstance.uid = uid
+        let nativeLanguageReference = Database.database().reference().child("NativeLanguages").child(uid)
+        let targetLanguageReference = Database.database().reference().child("TargetLanguages").child(uid)
+        
+        nativeLanguageReference.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if let value = snapshot.value as? NSDictionary {
+                var languages: [String] = []
+                for (language) in value {
+                    languages.append(language.key as! String)
+                }
+                User.sharedInstance.nativeLanguages = languages
+            }
+            targetLanguageReference.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                if let value = snapshot.value as? NSDictionary {
+                    var languages: [String] = []
+                    for (language) in value {
+                        languages.append(language.key as! String)
+                    }
+                    User.sharedInstance.targetLanguages = languages
+                }
+                completionHandler(true)
+            })
+        })
+    }
     
     // ADD ERROR BORDER AROUND TEXT FIELD -> TAKE AWAY BORDER AROUND TEXT FIELD
     static func textFieldError(textFields: [UITextField]) {

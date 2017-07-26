@@ -12,17 +12,70 @@ import Firebase
 
 class FirebaseService {
     
-    static func saveInterestsInDatabase(uid: String, interests: [Interests.InterestsEnum], completionHandler: @escaping (_ success: Bool) -> Void) {
-        let interestsReference = Database.database().reference().child("Users").child(uid).child("Interests")
-        for (interest) in interests {
-            interestsReference.updateChildValues([String(describing: interest):true])
-            completionHandler(true)
+    static func loadUsers(UIDs: [String], completionHandler: @escaping (_ people: [ExternalLearner]) -> Void) {
+        let usersReference = Database.database().reference().child("Users")
+        var users = [ExternalLearner]()
+        for (uid) in UIDs {
+            usersReference.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                    for (snap) in snapshot {
+                        if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                            let key = snap.key
+                            let user = ExternalLearner(postkey: key, postData: postDict)
+                            users.append(user)
+                            if (users.count == 100) {
+                                completionHandler(users)
+                            }
+                        }
+                    }
+                }
+
+            })
         }
+        completionHandler(users)
+    }
+    
+    static func findCompatibleUsers(targetLanguage: String, nativeLanguages: [String], completionHandler: @escaping (_ people: [String]) -> Void)  {
+        let usersReference = Database.database().reference().child("Languages").child(targetLanguage)
+        var userUIDs = [String]()
+        usersReference.observeSingleEvent(of: .value, with: { snapshot in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let value = snap.value as? NSDictionary {
+                        userUIDs.append(String(describing: value["uid"]!))
+                    }
+                }
+            }
+            completionHandler(userUIDs)
+        })
+    }
+    
+    static func saveByLanguages(targetLanguages: [String], nativeLanguages: [String]) {
+        for (nativeLanguage) in nativeLanguages {
+            let nativeLanguageReference = Database.database().reference().child("Languages").child(String(describing: nativeLanguage)).childByAutoId()
+            var targetLangsDict: [String:Bool] = [:]
+            for (targetlanguage) in targetLanguages {
+                targetLangsDict[String(describing: targetlanguage)] = true
+            }
+            nativeLanguageReference.updateChildValues(["uid":User.sharedInstance.uid,"NatLangs":targetLangsDict])
+        }
+    }
+    
+    static func saveInterestsInDatabase(uid: String, interests: [String], completionHandler: @escaping (_ success: Bool) -> Void) {
+        let interestsReference = Database.database().reference().child("Users").child(uid).child("Interests")
+        var counter = 0
+        var keys = ["one","two","three","four"]
+        for (interest) in interests {
+            interestsReference.updateChildValues([keys[counter]:String(describing: interest)])
+            counter += 1
+        }
+        completionHandler(true)
     }
     
     static func storeUserInDatabase(uid: String, name: String, profileImageUrl: String, completionHandler: @escaping (_ success: Bool) -> Void) {
         Database.database().reference().child("Users").child(uid).updateChildValues(
             ["fullName": name,
+             "uid": uid,
              "profileImageUrl": profileImageUrl]) { (error, ref) in
                 if (error != nil) {
                     completionHandler(false)
@@ -32,11 +85,10 @@ class FirebaseService {
             }
     }
     
-    static func initiateStartingData(targetLanguages tlangs: [Languages.LanguagesEnum], nativeLanguages natlangs: [Languages.LanguagesEnum], userInterests interests: [Interests.InterestsEnum], completionHandler: @escaping (_ success: Bool) -> Void) {
+    static func initiateStartingData(targetLanguages tlangs: [String], nativeLanguages natlangs: [String], completionHandler: @escaping (_ success: Bool) -> Void) {
         guard let uid = User.sharedInstance.uid else { return }
         let targetLanguageReference = Database.database().reference().child("TargetLanguages")
         let nativeLanguageReference = Database.database().reference().child("NativeLanguages")
-        let interestsReference = Database.database().reference().child("Interests")
         
         var targetLanguageDict: [String:Bool] = [:]
         for (language) in tlangs {
@@ -49,19 +101,7 @@ class FirebaseService {
             nativeLanguagesDict[String(describing: language)] = true
         }
         nativeLanguageReference.child(uid).updateChildValues(nativeLanguagesDict)
-        
-        var interestDict: [String:Bool] = [:]
-        for (interest) in interests {
-            interestDict[String(describing: interest)] = true
-        }
-        interestsReference.child(uid).updateChildValues(interestDict) { (error, ref) -> Void in
-            if (error != nil) {
-                MainFunctions.showErrorMessage(error: error!)
-                completionHandler(false)
-            } else {
-                completionHandler(true)
-            }
-        }
+    
     }
     
 }
