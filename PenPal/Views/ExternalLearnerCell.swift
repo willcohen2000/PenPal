@@ -8,6 +8,11 @@
 
 import UIKit
 import Firebase
+import Kingfisher
+
+protocol clickedTalkToUser {
+    func clickedTalkToUser(_ person: ExternalLearner)
+}
 
 class ExternalLearnerCell: UITableViewCell {
 
@@ -19,6 +24,7 @@ class ExternalLearnerCell: UITableViewCell {
     @IBOutlet weak var interestLabelFour: UILabel!
     @IBOutlet weak var talkWithPersonButton: UIButton!
     
+    var clickedTalkToUserDelegate: clickedTalkToUser?
     var person: ExternalLearner!
     
     override func awakeFromNib() {
@@ -27,7 +33,13 @@ class ExternalLearnerCell: UITableViewCell {
 
     func configureCell(person: ExternalLearner) {
         self.person = person
-        profilePictureImageView.maskCircle(anyImage: UIImage(named: "profilePic")!)
+        if (person.imageURL == "") {
+            profilePictureImageView.image = UIImage(named: "NoProfileImgf")
+            profilePictureImageView.layer.masksToBounds = true
+        } else {
+            profilePictureImageView.kf.setImage(with: URL(string: person.imageURL))
+            profilePictureImageView.maskImageWithImage()
+        }
         userNameLabel.text = "\(person.name!)"
         interestLabelOne.text = "- \(person.interests["one"]!)"
         interestLabelTwo.text = "- \(person.interests["two"]!)"
@@ -37,6 +49,10 @@ class ExternalLearnerCell: UITableViewCell {
     }
     
     @IBAction func talkWithPersonButtonPressed(_ sender: Any) {
+        if clickedTalkToUserDelegate != nil {
+            clickedTalkToUserDelegate?.clickedTalkToUser(person)
+        }
     }
     
 }
+

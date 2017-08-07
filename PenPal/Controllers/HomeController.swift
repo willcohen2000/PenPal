@@ -10,7 +10,7 @@ import UIKit
 import DropDown
 import Firebase
 
-class HomeController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeController: UIViewController {
     
     @IBOutlet weak var dropdownMenu: UIButton!
     @IBOutlet weak var targetLanguageLabel: UILabel!
@@ -19,6 +19,9 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var dropMenuGlobal = DropDown()
     var pulledUsers = [ExternalLearner]()
+    
+    var existingChat: Chat?
+    var selectedUser: PublicUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,31 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         dropMenuGlobal.show()
     }
     
+}
+
+extension HomeController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segues.toChat {
+            if segue.destination is MessageController {
+                let destination = segue.destination as? MessageController
+                let members = [selectedUser, PublicUser(name: User.sharedInstance.name, uid: User.sharedInstance.uid)]
+                destination?.chat = existingChat ?? Chat(members: members as! [PublicUser])
+            }
+        }
+    }
+}
+
+extension HomeController: clickedTalkToUser {
+    func clickedTalkToUser(_ person: ExternalLearner) {
+        ChatService.checkForExistingChat(with: PublicUser(name: person.name, uid: person.postKey)) { (chat) in
+            self.existingChat = chat
+            self.selectedUser = PublicUser(name: person.name, uid: person.postKey)
+            self.performSegue(withIdentifier: Constants.Segues.toChat, sender: self)
+        }
+    }
+}
+
+extension HomeController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -46,13 +74,12 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         let person = pulledUsers[indexPath.row]
         if let cell = homeTableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.homeCell) as? ExternalLearnerCell {
             cell.configureCell(person: person)
+            cell.clickedTalkToUserDelegate = self
             return cell
         } else {
             return ExternalLearnerCell()
         }
     }
-
-
 }
 
 extension HomeController {

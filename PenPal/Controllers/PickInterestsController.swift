@@ -13,7 +13,7 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
 
     @IBOutlet weak var pickInterestsCollectionView: UICollectionView!
     var selected: NSMutableSet = NSMutableSet()
-    var userInterests: [String] = []
+    static var userInterests: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,43 +27,32 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
-        User.sharedInstance.interests = []
-        User.sharedInstance.interests = self.userInterests
-        
-        FirebaseService.saveInterestsInDatabase(uid: User.sharedInstance.uid, interests: self.userInterests) { (success) in
-            if (success) {
-                FirebaseService.saveByLanguages(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages)
-                FirebaseService.initiateStartingData(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages) { (success) -> Void in
-                    if (success) {
-                    } else {
-                        print("2error")
+        if (PickInterestsController.userInterests.count < 4) {
+            MainFunctions.createSimpleAlert(alertTitle: "You have not selected enough interests.", alertMessage: "You must select four interests to continue.", controller: self)
+        } else {
+            User.sharedInstance.interests = []
+            User.sharedInstance.interests = PickInterestsController.userInterests
+            
+            FirebaseService.saveInterestsInDatabase(uid: User.sharedInstance.uid, interests: PickInterestsController.userInterests) { (success) in
+                if (success) {
+                    FirebaseService.saveByLanguages(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages)
+                    FirebaseService.initiateStartingData(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages) { (success) -> Void in
+                        if (success) {
+                            // HANDLE
+                        } else {
+                            // HANDLE
+                        }
                     }
+                    let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                    let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
+                    self.present(vc, animated: true, completion: nil)
+                } else {
+                    // HANDLE ERROR
                 }
-                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
-                self.present(vc, animated: true, completion: nil)
-            } else {
-                // HANDLE ERROR
             }
         }
-        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 extension PickInterestsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -72,7 +61,6 @@ extension PickInterestsController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let interest = Interests.Interests[indexPath.row]
-        
         if let cell = pickInterestsCollectionView.dequeueReusableCell(withReuseIdentifier: "pickInterestCell", for: indexPath) as? PickInterestsCell {
             if selected.contains(interest) {
                 cell.configureCell(interest: interest, isSelectedBool: true)
@@ -90,16 +78,20 @@ extension PickInterestsController: UICollectionViewDataSource {
 
 extension PickInterestsController: pickInterestDelegate {
     func interestSelected(_ interest: String) {
-        selected.add(interest)
-        userInterests.append(interest)
+        if (PickInterestsController.userInterests.count == 4) {
+            MainFunctions.createSimpleAlert(alertTitle: "You already have four interests!", alertMessage: "It appears like you have already selected four interests. You must deselect one to add a new interest.", controller: self)
+        } else {
+            selected.add(interest)
+            PickInterestsController.userInterests.append(interest)
+        }
     }
 }
 
 extension PickInterestsController: unpickInterestDelegate {
     func interestDeselected(_ interest: String) {
         selected.remove(interest)
-        if let interestIndex = userInterests.index(of: interest) {
-            userInterests.remove(at: interestIndex)
+        if let interestIndex = PickInterestsController.userInterests.index(of: interest) {
+            PickInterestsController.userInterests.remove(at: interestIndex)
         }
     }
 }

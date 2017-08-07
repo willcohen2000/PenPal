@@ -14,6 +14,9 @@ target 'PenPal' do
   pod ‘Firebase/Storage’
   pod ‘Firebase/Messaging’
   pod 'DropDown'
+  pod 'Kingfisher'
+  pod ‘SwiftKeychainWrapper’
+  pod 'JSQMessagesViewController'
 
   target 'PenPalTests' do
     inherit! :search_paths

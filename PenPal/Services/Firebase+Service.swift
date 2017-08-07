@@ -12,6 +12,19 @@ import Firebase
 
 class FirebaseService {
     
+    static func observeChats(for user: User = User.sharedInstance, withCompletion completion: @escaping (DatabaseReference, [Chat]) -> Void) -> DatabaseHandle {
+        let ref = Database.database().reference().child("chats").child(user.uid)
+        
+        return ref.observe(.value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion(ref, [])
+            }
+            
+            let chats = snapshot.flatMap(Chat.init)
+            completion(ref, chats)
+        })
+    }
+    
     static func loadUsers(UIDs: [String], completionHandler: @escaping (_ people: [ExternalLearner]) -> Void) {
         let usersReference = Database.database().reference().child("Users")
         var users = [ExternalLearner]()
@@ -48,6 +61,27 @@ class FirebaseService {
             }
             completionHandler(userUIDs)
         })
+    }
+    
+    static func loadSettingsProfilePicture(imageURL: String, completionHandler: @escaping (_ image: UIImage) -> Void) {
+        if (imageURL == "") {
+            if let addNewProfileImage = UIImage(named: "AddProfileImageIcon") {
+                completionHandler(addNewProfileImage)
+            }
+        } else {
+            let storageRef = Storage.storage().reference(forURL: imageURL)
+            storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                if (error == nil) {
+                    if let data = data {
+                        if let profilePicImage = UIImage(data: data) {
+                            completionHandler(profilePicImage)
+                        }
+                    }
+                } else {
+                    // HANDLE ERROR
+                }
+            }
+        }
     }
     
     static func saveByLanguages(targetLanguages: [String], nativeLanguages: [String]) {

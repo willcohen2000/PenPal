@@ -53,7 +53,12 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.10)
   - IQKeyboardManagerSwift (4.0.10)
+  - JSQMessagesViewController (7.3.5):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - Kingfisher (3.10.3)
   - Protobuf (3.3.0)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - DropDown
@@ -63,6 +68,9 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - IQKeyboardManagerSwift
+  - JSQMessagesViewController
+  - Kingfisher
+  - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
@@ -77,8 +85,12 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
   IQKeyboardManagerSwift: 75ba21a23794a1e6b6fe6d9a267ea17f80e06771
+  JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 715316be171bdeb308ea30bb38115e1da5a6713d
+PODFILE CHECKSUM: 9ab8f8302caa297c41aeafdbc88e0bfba7c34573
 
 COCOAPODS: 1.2.1

@@ -36,6 +36,7 @@ class MainFunctions {
         userReference.observeSingleEvent(of: .value, with: { (snapshot) in
             let postDict = snapshot.value as? [String : AnyObject] ?? [:]
             User.sharedInstance.name = postDict["fullName"] as! String
+            User.sharedInstance.imageUrl = postDict["profileImageUrl"] as! String
         })
         
         nativeLanguageReference.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in

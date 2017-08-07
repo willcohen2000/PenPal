@@ -30,7 +30,7 @@ class AuthenticationErrorService {
                 "We couldn't find an account that corresponds to that email. Do you want to create an account?", preferredStyle: UIAlertControllerStyle.alert)
                 wrongPasswordAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
                 wrongPasswordAlert.addAction(UIAlertAction(title: "Create Account", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-                    controller.performSegue(withIdentifier: "goToCreateAccount", sender: nil)
+                    controller.performSegue(withIdentifier: "createAccountSegue", sender: nil)
                 }))
                 controller.present(wrongPasswordAlert, animated: true, completion: nil)
                 break;

@@ -17,14 +17,15 @@ class SignUpController: UIViewController {
     @IBOutlet weak var passwordTextField: TextFieldPadding!
     @IBOutlet weak var confirmPasswordTextField: TextFieldPadding!
     @IBOutlet weak var fullNameTextField: TextFieldPadding!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var gifLoadingImage: UIImageView!
     
     @IBOutlet weak var setProfileImageButton: UIButton!
     
-    var selectedImage: UIImage?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadingView.isHidden = true
+        gifLoadingImage.loadGif(name: "Spinner")
     }
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
@@ -41,10 +42,12 @@ class SignUpController: UIViewController {
         } else {
             Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (user, error) in
                 if let error = error {
+                    self.loadingView.isHidden = true
                     AuthenticationErrorService.signUpErrors(error: error, controller: self)
                     MainFunctions.showErrorMessage(error: error) 
                     return
                 }
+                self.loadingView.isHidden = false
                 FirebaseService.storeUserInDatabase(uid: (user?.uid)!, name: fullName, profileImageUrl: "", completionHandler: { (success) in
                     if (success) {
                         self.performSegue(withIdentifier: Constants.Segues.targetLanguageSegue, sender: nil)
@@ -53,7 +56,8 @@ class SignUpController: UIViewController {
                             User.sharedInstance.name = userName
                         }
                     } else {
-                        // HANDLE ERROR
+                        self.loadingView.isHidden = true
+                        MainFunctions.createSimpleAlert(alertTitle: "Error signing up", alertMessage: "It seems like there was an error signing you up. Please try again soon.", controller: self)
                     }
                 })
             }
@@ -65,35 +69,5 @@ class SignUpController: UIViewController {
     }
 
 }
-
-/*extension SignUpController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let profileImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            setProfileImageButton.maskCircle(anyImage: profileImage)
-            selectedImage = profileImage
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    let storageReference = Storage.storage().reference().child("ProfileImages").child((user?.uid)!)
-    if let profileImage = self.selectedImage {
-        let imageData = UIImageJPEGRepresentation(profileImage, 0.1)
-        storageReference.putData(imageData!, metadata: nil, completion: { (metaData, error) in
-            if (error != nil) {
-                // HANDLE ERROR
-                return
-            } else {
-                
-            }
-        })
-    }
- 
- 
- 
- let pickerController =  UIImagePickerController()
- pickerController.delegate = self
- self.present(pickerController, animated: true, completion: nil)
- 
-}*/
 
 

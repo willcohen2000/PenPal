@@ -18,5 +18,17 @@ final class User {
     var interests: [String]!
     var skillLevelInt: Int = 0
     var uid: String!
+    var imageUrl: String!
+    
+}
+
+class PublicUser {
+    var name: String
+    var uid: String
+    
+    init(name: String, uid: String) {
+        self.name = name
+        self.uid = uid
+    }
     
 }

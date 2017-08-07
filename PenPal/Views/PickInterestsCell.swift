@@ -25,7 +25,6 @@ class PickInterestsCell: UICollectionViewCell {
     var unpickDelegate: unpickInterestDelegate?
     let selectedLanguageColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.3)
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         pickInterestButton.layer.cornerRadius = pickInterestButton.frame.height / 2
@@ -57,9 +56,15 @@ class PickInterestsCell: UICollectionViewCell {
                 unpickDelegate?.interestDeselected(interest)
             }
         } else {
-            self.pickInterestButton.backgroundColor = selectedLanguageColor
-            if pickDelegate != nil {
-                pickDelegate?.interestSelected(interest)
+            if (PickInterestsController.userInterests.count != 4) {
+                self.pickInterestButton.backgroundColor = selectedLanguageColor
+                if pickDelegate != nil {
+                    pickDelegate?.interestSelected(interest)
+                }
+            } else {
+                if pickDelegate != nil {
+                    pickDelegate?.interestSelected(interest)
+                }
             }
         }
     }
