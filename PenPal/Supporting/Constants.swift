@@ -22,6 +22,7 @@ class Constants {
         static let nextSegue: String = "nextSegue"
         static let toSkillSegue: String = "toSkillLevelSegue"
         static let toChat: String = "toChat"
+        static let toCorrections: String = "toCorrections"
     }
     
 }

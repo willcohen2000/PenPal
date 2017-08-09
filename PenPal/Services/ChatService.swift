@@ -18,7 +18,7 @@ class ChatService {
             membersDict[uid] = true
         }
         
-        let lastMessage = "\(message.sender.name): \(message.content)"
+        let lastMessage = "\(message.sender.name!): \(message.content)"
         chat.lastMessage = lastMessage
         let lastMessageSent = message.timestamp.timeIntervalSince1970
         chat.lastMessageSent = message.timestamp
@@ -63,7 +63,7 @@ class ChatService {
         var multiUpdateValue = [String : Any]()
         
         for uid in chat.memberUIDs {
-            let lastMessage = "\(message.sender.name): \(message.content)"
+            let lastMessage = "\(message.sender.name!): \(message.content)"
             multiUpdateValue["chats/\(uid)/\(chatKey)/lastMessage"] = lastMessage
             multiUpdateValue["chats/\(uid)/\(chatKey)/lastMessageSent"] = message.timestamp.timeIntervalSince1970
         }
@@ -91,7 +91,6 @@ class ChatService {
             guard let message = Message(snapshot: snapshot) else {
                 return completion(messagesRef, nil)
             }
-            
             completion(messagesRef, message)
         })
     }

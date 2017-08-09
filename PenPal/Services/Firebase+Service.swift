@@ -25,6 +25,23 @@ class FirebaseService {
         })
     }
     
+    static func postCorrection(forUserUID: String, fromUserName: String, originalMessage: String, correction: String, profileImageURL: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let postCorrectionReference = Database.database().reference().child("Corrections").child(forUserUID).childByAutoId()
+        postCorrectionReference.updateChildValues([
+            "fromUser": fromUserName,
+            "timeOfCorrection": MainFunctions.convertDateToReadable(time: Date()),
+            "originalMessage": originalMessage,
+            "correction": correction,
+            "profileImageURL": profileImageURL
+        ]) { (error, ref) in
+            if (error == nil) {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+    }
+    
     static func loadUsers(UIDs: [String], completionHandler: @escaping (_ people: [ExternalLearner]) -> Void) {
         let usersReference = Database.database().reference().child("Users")
         var users = [ExternalLearner]()

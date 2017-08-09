@@ -75,6 +75,29 @@ class MainFunctions {
         }
     }
     
+    static func removeUserFromChatName(chatTitle: String) -> String {
+        let userName = User.sharedInstance.name
+        var updatedChatTitle: String = chatTitle
+        if let range = chatTitle.range(of: userName!) {
+            updatedChatTitle.removeSubrange(range)
+        }
+        let newChatTitle = updatedChatTitle.replacingOccurrences(of: ",", with: "")
+        return newChatTitle
+    }
+    
+    static func takeObjectOutOfStringArray(object: String, array: [String]) -> [String] {
+        var newArray = array
+        newArray.remove(at: newArray.index(of: object)!)
+        return newArray
+    }
+    
+    static func convertDateToReadable(time: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.short
+        formatter.timeStyle = DateFormatter.Style.short
+        return formatter.string(from: time as Date)
+    }
+    
     // CREATE SIMPLE UIALERT WITHOUT ANY ADDED BUTTONS
     static func createSimpleAlert(alertTitle: String, alertMessage: String, controller: UIViewController) {
         let alert = UIAlertController(title: alertTitle, message:

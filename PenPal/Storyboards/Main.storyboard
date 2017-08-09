@@ -72,17 +72,17 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lDh-Yx-peD">
-                                <rect key="frame" x="46" y="35" width="282" height="169"/>
+                                <rect key="frame" x="46" y="40" width="282" height="194"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-3q-BWw">
-                                        <rect key="frame" x="0.0" y="0.0" width="282" height="95"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="282" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="95" id="dxK-z6-UvL"/>
+                                            <constraint firstAttribute="height" constant="120" id="dxK-z6-UvL"/>
                                             <constraint firstAttribute="width" constant="282" id="qER-cc-czE"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting language learners worldwide." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpN-E3-awS">
-                                        <rect key="frame" x="0.0" y="95" width="282" height="74"/>
+                                        <rect key="frame" x="0.0" y="120" width="282" height="74"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="74" id="Sxb-W2-2RK"/>
                                             <constraint firstAttribute="width" constant="282" id="T57-IF-rOk"/>
@@ -94,7 +94,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="282" id="TpB-JP-Pvm"/>
-                                    <constraint firstAttribute="height" constant="169" id="w8a-PD-nxH"/>
+                                    <constraint firstAttribute="height" constant="194" id="w8a-PD-nxH"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -102,15 +102,24 @@
                         <constraints>
                             <constraint firstItem="Y5S-cT-oUA" firstAttribute="leading" secondItem="xGL-H3-bwl" secondAttribute="leading" id="5dA-tO-gXt"/>
                             <constraint firstItem="I1c-00-ASe" firstAttribute="top" secondItem="xGL-H3-bwl" secondAttribute="topMargin" id="9UX-cw-kA3"/>
+                            <constraint firstItem="lDh-Yx-peD" firstAttribute="top" secondItem="wKW-9j-33d" secondAttribute="bottom" constant="20" id="Yed-tt-F5c"/>
                             <constraint firstItem="7h4-YR-uvT" firstAttribute="top" secondItem="I1c-00-ASe" secondAttribute="bottom" id="d0V-Hj-WJb"/>
                             <constraint firstAttribute="trailing" secondItem="Y5S-cT-oUA" secondAttribute="trailing" id="eGi-ld-kkI"/>
-                            <constraint firstItem="lDh-Yx-peD" firstAttribute="top" secondItem="wKW-9j-33d" secondAttribute="bottom" constant="15" id="epB-Hd-PCk"/>
                             <constraint firstItem="lDh-Yx-peD" firstAttribute="centerX" secondItem="xGL-H3-bwl" secondAttribute="centerX" id="g8M-Wu-Yw2"/>
                             <constraint firstItem="7h4-YR-uvT" firstAttribute="top" secondItem="Y5S-cT-oUA" secondAttribute="bottom" id="iWF-FL-x3B"/>
                             <constraint firstItem="I1c-00-ASe" firstAttribute="leading" secondItem="xGL-H3-bwl" secondAttribute="leading" id="paV-3n-rsP"/>
                             <constraint firstAttribute="trailing" secondItem="I1c-00-ASe" secondAttribute="trailing" id="xKS-nt-PKy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="connecitngLanguageLearnersLabel" destination="tpN-E3-awS" id="FC7-mJ-H8S"/>
+                        <outlet property="loginAndSignUpStackView" destination="Y5S-cT-oUA" id="Sj7-7U-7H0"/>
+                        <outlet property="logoImageView" destination="dMm-3q-BWw" id="CoL-U3-ViM"/>
+                        <outlet property="logoImageViewHeightConstraint" destination="dxK-z6-UvL" id="Hdy-GM-Ll8"/>
+                        <outlet property="logoImageViewWidthConstraint" destination="qER-cc-czE" id="aBI-pk-pgB"/>
+                        <outlet property="logoStackView" destination="lDh-Yx-peD" id="AZ6-D7-7Qm"/>
+                        <outlet property="logoStackViewTopConstraint" destination="Yed-tt-F5c" id="C1W-Gz-mCe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guy-es-570" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -245,6 +254,8 @@
                         <outlet property="gifImageView" destination="oBM-H0-H7d" id="uPj-zZ-AfP"/>
                         <outlet property="loadingView" destination="bNM-lM-3Qg" id="pDj-b2-PhG"/>
                         <outlet property="logInButton" destination="gTe-Bi-M7u" id="Lq0-NH-kLX"/>
+                        <outlet property="logoImageView" destination="SDR-O2-54D" id="rkz-G3-VZI"/>
+                        <outlet property="logoImageViewHeightConstraint" destination="OgD-f9-9nd" id="LJ1-W9-fwx"/>
                         <outlet property="passwordTextField" destination="PsY-V8-789" id="NYV-1q-slw"/>
                         <segue destination="8lA-t4-8CG" kind="show" identifier="createAccountSegue" id="cN4-Rd-Ijb"/>
                     </connections>
@@ -830,6 +841,6 @@
         <image name="PasswordField" width="651" height="139"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cN4-Rd-Ijb"/>
+        <segue reference="85g-zv-lg3"/>
     </inferredMetricsTieBreakers>
 </document>

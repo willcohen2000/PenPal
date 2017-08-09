@@ -12,18 +12,19 @@ class ChatCell: UITableViewCell {
 
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var chatsLastMessageLabel: UILabel!
+    @IBOutlet weak var timeStampLabel: UILabel!
     
     var chat: Chat!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     func configureCell(chat: Chat) {
         self.chat = chat
-        usersNameLabel.text = chat.title
-        chatsLastMessageLabel.text = chat.lastMessage
+        self.usersNameLabel.text = MainFunctions.removeUserFromChatName(chatTitle: chat.title)
+        if let lastMessageSentDate = chat.lastMessageSent {
+            timeStampLabel.text = MainFunctions.convertDateToReadable(time: lastMessageSentDate)
+        }
+        if let lastChatMessage = chat.lastMessage {
+            chatsLastMessageLabel.text = lastChatMessage
+        }
     }
 
 }
