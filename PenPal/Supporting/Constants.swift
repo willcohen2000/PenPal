@@ -15,7 +15,19 @@ class Constants {
         static let homeCell: String = "HomeCell"
         static let editInterestCell: String = "editInterestCell"
         static let chatCell: String = "chatCell"
+        static let correctionCell: String = "CorrectionCell"
+        static let newTargetLanguageCell: String = "newTargetLanguageCell"
     }
+    
+    static let languageAbbreviations = [
+        "english":"en",
+        "french":"fr",
+        "spanish":"es",
+        "italin":"it",
+        "japanese":"ja",
+        "russian":"ru",
+        "german":"de"
+    ]
     
     struct Segues {
         static let targetLanguageSegue: String = "toTargetLanguagePick"
@@ -23,6 +35,8 @@ class Constants {
         static let toSkillSegue: String = "toSkillLevelSegue"
         static let toChat: String = "toChat"
         static let toCorrections: String = "toCorrections"
+        static let toFullCorrection: String = "toFullCorrection"
+        static let toEditTargetLanguage: String = "toAddNewTargetLanguageSegue"
     }
     
 }

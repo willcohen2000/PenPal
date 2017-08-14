@@ -58,6 +58,7 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
   - Kingfisher (3.10.3)
   - Protobuf (3.3.0)
+  - ROGoogleTranslate (0.0.5)
   - SwiftKeychainWrapper (3.0.1)
   - UITextView+Placeholder (1.2.0)
 
@@ -71,6 +72,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
   - Kingfisher
+  - ROGoogleTranslate
   - SwiftKeychainWrapper
   - UITextView+Placeholder
 
@@ -91,9 +93,10 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  ROGoogleTranslate: 344d579487c21af1ae54138baa68605b861ba84e
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: 9ce5114f5edfffde84873f052a19c50c7abf6ea4
+PODFILE CHECKSUM: 331ef1e08b99e96ae4936388509461592ee7e244
 
 COCOAPODS: 1.2.1

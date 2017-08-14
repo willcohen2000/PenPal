@@ -17,20 +17,27 @@ class HomeController: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var dropDownMenuHoldingView: UIView!
     
+    @IBOutlet weak var loadingImageView: UIImageView!
+    @IBOutlet weak var noCompatibleUsersLabel: UILabel!
+    
     var dropMenuGlobal = DropDown()
     var pulledUsers = [ExternalLearner]()
-    
     var existingChat: Chat?
     var selectedUser: PublicUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadingImageView.loadGif(name: "StandardLoadingAnimation")
         homeTableView.delegate = self
         homeTableView.dataSource = self
         initiateDropDownMenu()
         loadUsersTableView()
+        self.noCompatibleUsersLabel.isHidden = true
         
+    }
+    
+    func refresh(sender: AnyObject) {
+        loadUsersTableView()
     }
     
     @IBAction func dropdownMenuButtonPressed(_ sender: Any) {
@@ -62,6 +69,7 @@ extension HomeController: clickedTalkToUser {
 }
 
 extension HomeController: UITableViewDataSource, UITableViewDelegate {
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -80,6 +88,7 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
             return ExternalLearnerCell()
         }
     }
+    
 }
 
 extension HomeController {
@@ -87,17 +96,22 @@ extension HomeController {
         self.pulledUsers.removeAll()
         if let targetLanguage = targetLanguageLabel.text {
             FirebaseService.findCompatibleUsers(targetLanguage: targetLanguage, nativeLanguages: User.sharedInstance.nativeLanguages, completionHandler: { (users) in
-                for (uid) in users {
-                    let usersReference = Database.database().reference().child("Users")
-                    usersReference.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                        let value = snapshot.value as? NSDictionary
-                        let name = value?["fullName"] as? String ?? ""
-                        let interests = value?["Interests"] as? [String:String] ?? [:]
-                        let imageUrl = value?["profileImageUrl"] as? String ?? ""
-                        let postKey = uid
-                        self.pulledUsers.append(ExternalLearner(name: name, interests: interests, imageURL: imageUrl, postKey: postKey))
-                        self.homeTableView.reloadData()
-                    })
+                self.loadingImageView.isHidden = true
+                if (users.count != 0) {
+                    for (uid) in users {
+                        let usersReference = Database.database().reference().child("Users")
+                        usersReference.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                            let value = snapshot.value as? NSDictionary
+                            let name = value?["fullName"] as? String ?? ""
+                            let interests = value?["Interests"] as? [String:String] ?? [:]
+                            let imageUrl = value?["profileImageUrl"] as? String ?? ""
+                            let postKey = uid
+                            self.pulledUsers.append(ExternalLearner(name: name, interests: interests, imageURL: imageUrl, postKey: postKey))
+                            self.homeTableView.reloadData()
+                        })
+                    }
+                } else {
+                    self.noCompatibleUsersLabel.isHidden = false
                 }
             })
         }

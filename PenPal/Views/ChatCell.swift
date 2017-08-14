@@ -13,6 +13,7 @@ class ChatCell: UITableViewCell {
     @IBOutlet weak var usersNameLabel: UILabel!
     @IBOutlet weak var chatsLastMessageLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var chat: Chat!
     

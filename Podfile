@@ -18,6 +18,7 @@ target 'PenPal' do
   pod ‘SwiftKeychainWrapper’
   pod 'JSQMessagesViewController'
   pod 'UITextView+Placeholder'
+  pod 'ROGoogleTranslate'
 
   target 'PenPalTests' do
     inherit! :search_paths

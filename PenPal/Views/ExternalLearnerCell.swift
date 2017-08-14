@@ -33,9 +33,10 @@ class ExternalLearnerCell: UITableViewCell {
 
     func configureCell(person: ExternalLearner) {
         self.person = person
+        
         if (person.imageURL == "") {
-            profilePictureImageView.image = UIImage(named: "NoProfileImgf")
-            profilePictureImageView.layer.masksToBounds = true
+            profilePictureImageView.image = UIImage(named: "NoProfileImg")
+            profilePictureImageView.maskImageWithImage()
         } else {
             profilePictureImageView.kf.setImage(with: URL(string: person.imageURL))
             profilePictureImageView.maskImageWithImage()

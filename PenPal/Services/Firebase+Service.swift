@@ -25,6 +25,86 @@ class FirebaseService {
         })
     }
     
+    static func saveTranslation(userUID: String, correctionUID: String, translation: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let correctionReference = Database.database().reference().child("Corrections").child(userUID).child(correctionUID)
+        correctionReference.updateChildValues([
+            "translation":translation
+        ]) { (error, ref) in
+            if (error == nil) {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+    }
+    
+    static func loadCorrections(userUID: String, completionHandler: @escaping (_ corrections: [Correction]) -> Void) {
+        let correctionsReference = Database.database().reference().child("Corrections").child(userUID)
+        var pulledCorrections = [Correction]()
+        correctionsReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let correction = Correction(postkey: key, postData: postDict)
+                        pulledCorrections.append(correction)
+                    }
+                }
+            }
+            completionHandler(pulledCorrections)
+        })
+    }
+    
+    static func saveUserInterests(userUID: String, interests: [String], completionHandler: @escaping (_ success: Bool) -> Void) {
+        let userInterestReference = Database.database().reference().child("Users").child(userUID).child("Interests")
+        userInterestReference.updateChildValues([
+            "one": interests[0],
+            "two": interests[1],
+            "three": interests[2],
+            "four": interests[3]
+        ]) { (error, ref) in
+            if (error == nil) {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+        
+    }
+    
+    static func saveUserTargetLanguages(userUID: String, targetLanguages: [String], completionHandler: @escaping (_ success: Bool) -> Void) {
+        let targetLanguageReference = Database.database().reference().child("TargetLanguages").child(userUID)
+        var targetLanguageDict = [String: Bool]()
+        for (language) in targetLanguages {
+            targetLanguageDict[language] = true
+        }
+        targetLanguageReference.updateChildValues(targetLanguageDict) { (error, ref) in
+            if (error == nil) {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
+    }
+    
+    static func getUserIntrerests(userUID: String, completionHandler: @escaping (_ interests: [String]) -> Void) {
+        let userInterestReference = Database.database().reference().child("Users").child(userUID).child("Interests")
+        var pulledInterests = [String]()
+        userInterestReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshot {
+                    if let interest = snap.value {
+                        pulledInterests.append(interest as! String)
+                    }
+                }
+            }
+            completionHandler(pulledInterests)
+        }) { (error) in
+            MainFunctions.showErrorMessage(error: error)
+            completionHandler([])
+        }
+    }
+    
     static func postCorrection(forUserUID: String, fromUserName: String, originalMessage: String, correction: String, profileImageURL: String, completionHandler: @escaping (_ success: Bool) -> Void) {
         let postCorrectionReference = Database.database().reference().child("Corrections").child(forUserUID).childByAutoId()
         postCorrectionReference.updateChildValues([

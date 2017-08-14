@@ -36,7 +36,7 @@ class AuthenticationErrorService {
                 break;
             default:
                 let loginFailedAlert = UIAlertController(title: "Error Logging In", message:
-                "There was an error logging you in. Please try again soon.", preferredStyle: UIAlertControllerStyle.alert)
+                "There was an error logging you in. Please try again soon. \n\nError: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 loginFailedAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
                 controller.present(loginFailedAlert, animated: true, completion: nil)
                 break;
@@ -53,7 +53,7 @@ class AuthenticationErrorService {
                 break;
             default:
                 let generalErrorAlert = UIAlertController(title: "We are having trouble signing you up.", message:
-                "We are having trouble signing you up, please try again soon.", preferredStyle: UIAlertControllerStyle.alert)
+                "We are having trouble signing you up, please try again soon. \n\nError: \(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.alert)
                 generalErrorAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
                 controller.present(generalErrorAlert, animated: true, completion: nil)
                 break;

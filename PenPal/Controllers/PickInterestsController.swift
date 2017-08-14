@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PickInterestsController: UIViewController, UICollectionViewDelegate {
+class PickInterestsController: UIViewController {
 
     @IBOutlet weak var pickInterestsCollectionView: UICollectionView!
     var selected: NSMutableSet = NSMutableSet()
@@ -54,7 +54,7 @@ class PickInterestsController: UIViewController, UICollectionViewDelegate {
     }
 }
 
-extension PickInterestsController: UICollectionViewDataSource {
+extension PickInterestsController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Interests.Interests.count
     }

@@ -18,26 +18,36 @@ class SettingsController: UIViewController {
     @IBOutlet weak var myLanguagesCollectionView: UICollectionView!
     
     @IBOutlet weak var lowerSettingsView: ShadowView!
-
     
     var selectedImage: UIImage?
     
+    override func viewDidAppear(_ animated: Bool) {
+        myLanguagesCollectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadSettingsView()
         myLanguagesCollectionView.delegate = self
         myLanguagesCollectionView.dataSource = self
-        FirebaseService.loadSettingsProfilePicture(imageURL: User.sharedInstance.imageUrl) { (profileImage) in
-            if (profileImage == UIImage(named: "AddProfileImageIcon")) {
-                self.profilePictureButton.setImage(UIImage(named: "AddProfileImageIcon"), for: .normal)
-                self.profilePictureButton.layer.borderColor = UIColor.black.cgColor
-                self.profilePictureButton.layer.borderWidth = 0.5
-                self.profilePictureButton.layer.cornerRadius = self.profilePictureButton.frame.size.height / 2
-            } else {
-                self.profilePictureButton.maskCircle(anyImage: profileImage)
-                self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
+        if (User.sharedInstance.imageUrl) != nil {
+            FirebaseService.loadSettingsProfilePicture(imageURL: User.sharedInstance.imageUrl) { (profileImage) in
+                if (profileImage == UIImage(named: "AddProfileImageIcon")) {
+                    self.profilePictureButton.setImage(UIImage(named: "AddProfileImageIcon"), for: .normal)
+                    self.profilePictureButton.layer.borderColor = UIColor.black.cgColor
+                    self.profilePictureButton.layer.borderWidth = 0.5
+                    self.profilePictureButton.layer.cornerRadius = self.profilePictureButton.frame.size.height / 2
+                } else {
+                    self.profilePictureButton.maskCircle(anyImage: profileImage)
+                    self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
+                }
             }
+        } else {
+            self.profilePictureButton.maskCircle(anyImage: UIImage(named: "AddProfileImageIcon")!)
+            self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
         }
+        
         
     }
     
@@ -53,6 +63,21 @@ class SettingsController: UIViewController {
 
 }
 
+extension SettingsController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == Constants.Segues.toEditTargetLanguage) {
+            if let nextVC = segue.destination as? AddNewTargetLanguageController {
+                var languagesDataSource = [String]()
+                for (language) in Languages.languages {
+                    if (!User.sharedInstance.targetLanguages.contains(language)) {
+                        languagesDataSource.append(language)
+                    }
+                }
+                nextVC.targetLanguages = languagesDataSource
+            }
+        }
+    }
+}
 
 extension SettingsController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

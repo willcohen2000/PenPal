@@ -87,7 +87,7 @@ class MessageController: JSQMessagesViewController {
     func addViewOnTop() {
         let selectableView = ShadowView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 75))
         selectableView.backgroundColor = .white
-        let moreInfoButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 50, y: 38, width: 36, height: 6))
+        let moreInfoButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 46, y: 38, width: 36, height: 6))
         moreInfoButton.setImage(UIImage(named: "MoreInfoIcon"), for: .normal)
         moreInfoButton.contentMode = .scaleAspectFit
         moreInfoButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.moreInfoButtonPressed(_sender:))))
@@ -95,7 +95,7 @@ class MessageController: JSQMessagesViewController {
         backButton.setImage(UIImage(named: "StandardBackButton"), for: .normal)
         backButton.contentMode = .scaleAspectFit
         backButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backButtonPressed(_:))))
-        let messageNameLabel = UILabel(frame: CGRect(x: 30, y: 28, width: self.view.frame.width - 60, height: 30))
+        let messageNameLabel = UILabel(frame: CGRect(x: 30, y: 28, width: (UIScreen.main.bounds.width - 55), height: 30))
         messageNameLabel.text = MainFunctions.removeUserFromChatName(chatTitle: self.chat.title)
         messageNameLabel.textAlignment = .center
         messageNameLabel.font = UIFont(name: "Roboto-Thin", size: 25)

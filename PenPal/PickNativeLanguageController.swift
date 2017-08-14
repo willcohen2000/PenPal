@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickNativeLanguageController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,pickNativeLanguageDelegate, unpickNativeLanguageDelegate {
+class PickNativeLanguageController: UIViewController {
 
     @IBOutlet weak var pickNativeLanguageCollectionView: UICollectionView!
     var nativeLanguages: [String] = []
@@ -19,32 +19,6 @@ class PickNativeLanguageController: UIViewController, UICollectionViewDataSource
         pickNativeLanguageCollectionView.dataSource = self
         
         pickNativeLanguageCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Languages.languages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let post = Languages.languages[indexPath.row]
-        if let cell = pickNativeLanguageCollectionView.dequeueReusableCell(withReuseIdentifier: "pickNativeLanguageCell", for: indexPath) as? PickNativeLanguageCell {
-            cell.pickDelegate = self
-            cell.unpickDelegate = self
-            cell.configureCell(language: post)
-            return cell
-        } else {
-            return PickNativeLanguageCell()
-        }
-    }
-    
-    func nativeLanguageSelected(_ language: String) {
-        nativeLanguages.append(language)
-    }
-    
-    func nativeLanguageDeselected(_ language: String) {
-        if let languageIndex = nativeLanguages.index(of: language) {
-            nativeLanguages.remove(at: languageIndex)
-        }
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
@@ -63,4 +37,36 @@ class PickNativeLanguageController: UIViewController, UICollectionViewDataSource
     
 }
 
+extension PickNativeLanguageController: pickNativeLanguageDelegate, unpickNativeLanguageDelegate {
+    
+    func nativeLanguageSelected(_ language: String) {
+        nativeLanguages.append(language)
+    }
+    
+    func nativeLanguageDeselected(_ language: String) {
+        if let languageIndex = nativeLanguages.index(of: language) {
+            nativeLanguages.remove(at: languageIndex)
+        }
+    }
+    
+}
 
+extension PickNativeLanguageController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Languages.languages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let post = Languages.languages[indexPath.row]
+        if let cell = pickNativeLanguageCollectionView.dequeueReusableCell(withReuseIdentifier: "pickNativeLanguageCell", for: indexPath) as? PickNativeLanguageCell {
+            cell.pickDelegate = self
+            cell.unpickDelegate = self
+            cell.configureCell(language: post)
+            return cell
+        } else {
+            return PickNativeLanguageCell()
+        }
+    }
+    
+}

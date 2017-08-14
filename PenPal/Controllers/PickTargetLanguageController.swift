@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickTargetLanguageController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, pickTargetLanguageDelegate, unpickTargetLanguageDelegate {
+class PickTargetLanguageController: UIViewController {
 
     @IBOutlet weak var pickTargetLanguageCollectionView: UICollectionView!
     var targetLanguages: [String] = []
@@ -20,6 +20,34 @@ class PickTargetLanguageController: UIViewController, UICollectionViewDelegate, 
         
         pickTargetLanguageCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        if (targetLanguages.count != 0) {
+            User.sharedInstance.targetLanguages = []
+            User.sharedInstance.targetLanguages = targetLanguages
+            self.performSegue(withIdentifier: Constants.Segues.nextSegue, sender: nil)
+        } else {
+            MainFunctions.createSimpleAlert(alertTitle: "No Languages Selected", alertMessage: "You need to select at least one language to continue.", controller: self)
+        }
+    }
+    
+}
+
+extension PickTargetLanguageController: pickTargetLanguageDelegate, unpickTargetLanguageDelegate {
+    
+    func targetLanguageSelected(_ language: String) {
+        targetLanguages.append(language)
+    }
+    
+    func targetLanguageDeselected(_ language: String) {
+        if let languageIndex = targetLanguages.index(of: language) {
+            targetLanguages.remove(at: languageIndex)
+        }
+    }
+    
+}
+
+extension PickTargetLanguageController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Languages.languages.count
@@ -37,29 +65,7 @@ class PickTargetLanguageController: UIViewController, UICollectionViewDelegate, 
         }
     }
     
-    func targetLanguageSelected(_ language: String) {
-        targetLanguages.append(language)
-    }
-    
-    func targetLanguageDeselected(_ language: String) {
-        if let languageIndex = targetLanguages.index(of: language) {
-            targetLanguages.remove(at: languageIndex)
-        }
-    }
-    
-    @IBAction func nextButtonPressed(_ sender: Any) {
-        if (targetLanguages.count != 0) {
-            User.sharedInstance.targetLanguages = []
-            User.sharedInstance.targetLanguages = targetLanguages
-            self.performSegue(withIdentifier: Constants.Segues.nextSegue, sender: nil)
-        } else {
-            MainFunctions.createSimpleAlert(alertTitle: "No Languages Selected", alertMessage: "You need to select at least one language to continue.", controller: self)
-        }
-    }
-    
-
 }
-
 
 
 
