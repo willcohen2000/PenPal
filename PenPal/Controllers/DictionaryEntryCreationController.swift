@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+import FirebaseDatabase
 
 class DictionaryEntryCreationController: UIViewController {
 
@@ -29,16 +29,8 @@ class DictionaryEntryCreationController: UIViewController {
     @IBAction func createNewDictionaryEntryButtonPressed(_ sender: Any) {
         guard let term = termTextView.text else { return }
         guard let definition = definitionTextView.text else { return }
+        let userDictionaryReference = Database.database().reference().child("Dictionary").child(User.sharedInstance.uid)
         
-        let realm = try! Realm()
-        try! realm.write {
-            let dictEntry = DictionaryEntry()
-            dictEntry.term = term
-            dictEntry.definition = definition
-            realm.add(dictEntry)
-        }
-        
-        self.dismiss(animated: true, completion: nil)
     }
     
 }

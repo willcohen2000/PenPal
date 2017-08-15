@@ -162,6 +162,13 @@ class FirebaseService {
         completionHandler(users)
     }
     
+    static func uploadDictionaryEntry(userUID: String, entry: DictionaryEntry, completiomHandler: @escaping (_ success: Bool) -> Void) {
+        let userDictionaryReference = Database.database().reference().child("Dictionary").child(userUID)
+        userDictionaryReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+        }, withCancel: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>)
+    }
+    
     static func findCompatibleUsers(targetLanguage: String, nativeLanguages: [String], completionHandler: @escaping (_ people: [String]) -> Void)  {
         let usersReference = Database.database().reference().child("Languages").child(targetLanguage)
         var userUIDs = [String]()

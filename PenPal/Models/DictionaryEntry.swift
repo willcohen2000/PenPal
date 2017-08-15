@@ -7,11 +7,15 @@
 //
 
 import Foundation
-import RealmSwift
 
-class DictionaryEntry: Object {
+class DictionaryEntry {
     
-    dynamic var term = ""
-    dynamic var definition = ""
+    var term = ""
+    var definition = ""
+    
+    init(term: String, definition: String) {
+        self.term = term
+        self.definition = definition
+    }
     
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class DictionaryController: UIViewController {
 
@@ -24,10 +23,7 @@ class DictionaryController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let realm = try! Realm()
-        let userDictResults = realm.objects(DictionaryEntry.self)
-        userDictionaryArray = Array(userDictResults)
-        dictionaryTableView.reloadData()
+        
     }
     
     private func customizeAddDictionaryButton() {
