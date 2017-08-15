@@ -39,7 +39,7 @@ class AddNewTargetLanguageController: UIViewController {
                     }
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    // HANDLE
+                    MainFunctions.createSimpleAlert(alertTitle: "Could not save your target language.", alertMessage: "It appears like we can not correctly save your new language. Please try again later.", controller: self)
                 }
             })
         } else {

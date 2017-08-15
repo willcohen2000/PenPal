@@ -74,13 +74,30 @@ class FirebaseService {
     
     static func saveUserTargetLanguages(userUID: String, targetLanguages: [String], completionHandler: @escaping (_ success: Bool) -> Void) {
         let targetLanguageReference = Database.database().reference().child("TargetLanguages").child(userUID)
+        let languageReference = Database.database().reference().child("Languages")
         var targetLanguageDict = [String: Bool]()
+        var allTargetLanguagesDict = [String:Bool]()
+        for (language) in User.sharedInstance.targetLanguages {
+            allTargetLanguagesDict[language] = true
+        }
         for (language) in targetLanguages {
             targetLanguageDict[language] = true
+            allTargetLanguagesDict[language] = true
         }
+
         targetLanguageReference.updateChildValues(targetLanguageDict) { (error, ref) in
             if (error == nil) {
-                completionHandler(true)
+                var counter = 0
+                for (languageDict) in allTargetLanguagesDict {
+                    languageReference.child(languageDict.key).child(userUID).child("TargetLangs").updateChildValues(allTargetLanguagesDict, withCompletionBlock: { (error, ref) in
+                        if (error == nil) {
+                            counter += 1
+                            if (counter == targetLanguages.count) {
+                                completionHandler(true)
+                            }
+                        }
+                    })
+                }
             } else {
                 completionHandler(false)
             }
@@ -152,7 +169,17 @@ class FirebaseService {
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for (snap) in snapshot {
                     if let value = snap.value as? NSDictionary {
-                        userUIDs.append(String(describing: value["uid"]!))
+                        let userNativeLanguageDict = value["TargetLangs"] as? NSDictionary
+                        if let userNativeLanguageDict = userNativeLanguageDict {
+                            for (dict) in userNativeLanguageDict {
+                                if (User.sharedInstance.nativeLanguages.contains(dict.key as! String)) {
+                                    let compatibleUserUID = String(describing: value["uid"]!)
+                                    if (compatibleUserUID != User.sharedInstance.uid) {
+                                        userUIDs.append(compatibleUserUID)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -160,7 +187,7 @@ class FirebaseService {
         })
     }
     
-    static func loadSettingsProfilePicture(imageURL: String, completionHandler: @escaping (_ image: UIImage) -> Void) {
+    static func loadSettingsProfilePicture(imageURL: String, completionHandler: @escaping (_ image: UIImage?) -> Void) {
         if (imageURL == "") {
             if let addNewProfileImage = UIImage(named: "AddProfileImageIcon") {
                 completionHandler(addNewProfileImage)
@@ -175,7 +202,7 @@ class FirebaseService {
                         }
                     }
                 } else {
-                    // HANDLE ERROR
+                    completionHandler(nil)
                 }
             }
         }
@@ -183,12 +210,12 @@ class FirebaseService {
     
     static func saveByLanguages(targetLanguages: [String], nativeLanguages: [String]) {
         for (nativeLanguage) in nativeLanguages {
-            let nativeLanguageReference = Database.database().reference().child("Languages").child(String(describing: nativeLanguage)).childByAutoId()
+            let nativeLanguageReference = Database.database().reference().child("Languages").child(String(describing: nativeLanguage)).child(User.sharedInstance.uid)
             var targetLangsDict: [String:Bool] = [:]
             for (targetlanguage) in targetLanguages {
                 targetLangsDict[String(describing: targetlanguage)] = true
             }
-            nativeLanguageReference.updateChildValues(["uid":User.sharedInstance.uid,"NatLangs":targetLangsDict])
+            nativeLanguageReference.updateChildValues(["uid":User.sharedInstance.uid,"TargetLangs":targetLangsDict])
         }
     }
     
@@ -231,7 +258,14 @@ class FirebaseService {
         for (language) in natlangs {
             nativeLanguagesDict[String(describing: language)] = true
         }
-        nativeLanguageReference.child(uid).updateChildValues(nativeLanguagesDict)
+ 
+        nativeLanguageReference.child(uid).updateChildValues(nativeLanguagesDict) { (error, ref) in
+            if (error == nil) {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        }
     
     }
     

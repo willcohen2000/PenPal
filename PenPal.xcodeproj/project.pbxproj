@@ -38,6 +38,9 @@
 		6E632DCA1F17C10000765AB7 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E632DC91F17C10000765AB7 /* HomeController.swift */; };
 		6E6E20A81F192EC60032ADBC /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E20A71F192EC60032ADBC /* CircleImage.swift */; };
 		6E6E20AA1F1941520032ADBC /* PickTargetLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6E20A91F1941520032ADBC /* PickTargetLanguageController.swift */; };
+		6E717D101F42335600AD050D /* DictionaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E717D0F1F42335600AD050D /* DictionaryCell.swift */; };
+		6E717D121F42342F00AD050D /* DictionaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E717D111F42342F00AD050D /* DictionaryEntry.swift */; };
+		6E717D141F42361C00AD050D /* DictionaryEntryCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E717D131F42361C00AD050D /* DictionaryEntryCreationController.swift */; };
 		6E76286D1F3B404B00883DD6 /* Spinner.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E76286C1F3B404B00883DD6 /* Spinner.gif */; };
 		6E76286F1F3B58F900883DD6 /* CorrectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76286E1F3B58F900883DD6 /* CorrectionsController.swift */; };
 		6E7628711F3B5C6900883DD6 /* CorrectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7628701F3B5C6900883DD6 /* CorrectionCell.swift */; };
@@ -99,6 +102,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6E717D1B1F428B6000AD050D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1F1854E8843286F2D5A9183C /* Pods-PenPal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenPal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PenPal/Pods-PenPal.debug.xcconfig"; sourceTree = "<group>"; };
 		26B93E4619FC6C8558668078 /* Pods_PenPalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenPalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +153,9 @@
 		6E632DC91F17C10000765AB7 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = Controllers/HomeController.swift; sourceTree = "<group>"; };
 		6E6E20A71F192EC60032ADBC /* CircleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		6E6E20A91F1941520032ADBC /* PickTargetLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickTargetLanguageController.swift; path = Controllers/PickTargetLanguageController.swift; sourceTree = "<group>"; };
+		6E717D0F1F42335600AD050D /* DictionaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryCell.swift; path = Views/DictionaryCell.swift; sourceTree = "<group>"; };
+		6E717D111F42342F00AD050D /* DictionaryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryEntry.swift; path = Models/DictionaryEntry.swift; sourceTree = "<group>"; };
+		6E717D131F42361C00AD050D /* DictionaryEntryCreationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryEntryCreationController.swift; path = Controllers/DictionaryEntryCreationController.swift; sourceTree = "<group>"; };
 		6E76286C1F3B404B00883DD6 /* Spinner.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Spinner.gif; path = Rescources/Spinner.gif; sourceTree = "<group>"; };
 		6E76286E1F3B58F900883DD6 /* CorrectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CorrectionsController.swift; path = Controllers/CorrectionsController.swift; sourceTree = "<group>"; };
 		6E7628701F3B5C6900883DD6 /* CorrectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CorrectionCell.swift; path = Views/CorrectionCell.swift; sourceTree = "<group>"; };
@@ -385,6 +404,7 @@
 				6ED4BCBA1F38A082008E119E /* Chat.swift */,
 				6ED4BCBC1F38A144008E119E /* Message.swift */,
 				6E7628721F3B5D9400883DD6 /* Correction.swift */,
+				6E717D111F42342F00AD050D /* DictionaryEntry.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -421,6 +441,7 @@
 				6ED4BCC91F38B972008E119E /* Chat & Messages */,
 				6ED4BCB91F37F794008E119E /* Settings */,
 				6E1AFBE41F292E870065D9B9 /* DictionaryController.swift */,
+				6E717D131F42361C00AD050D /* DictionaryEntryCreationController.swift */,
 				6E632DC91F17C10000765AB7 /* HomeController.swift */,
 				6E76286E1F3B58F900883DD6 /* CorrectionsController.swift */,
 				6E7628761F3B9F1400883DD6 /* FullCorrectionController.swift */,
@@ -460,6 +481,7 @@
 				6E7628701F3B5C6900883DD6 /* CorrectionCell.swift */,
 				6EEDACCE1F41E46D00EC12FA /* EditInterestsCell.swift */,
 				6EEDACD01F41F9F800EC12FA /* AddNewTargetLanguageCell.swift */,
+				6E717D0F1F42335600AD050D /* DictionaryCell.swift */,
 			);
 			name = "TV/CV Cells";
 			sourceTree = "<group>";
@@ -511,6 +533,7 @@
 				6E8C70E01F1657F90015C107 /* Resources */,
 				E8D2747D95E53C9BF3445EC8 /* [CP] Embed Pods Frameworks */,
 				4BAC25ED120CF83C115BD984 /* [CP] Copy Pods Resources */,
+				6E717D1B1F428B6000AD050D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -811,6 +834,7 @@
 				6EEFD9791F2A6E8B00913452 /* GifPlaying+Helper.swift in Sources */,
 				6ED4BCCD1F38C26B008E119E /* MessageController.swift in Sources */,
 				6E7628731F3B5D9400883DD6 /* Correction.swift in Sources */,
+				6E717D121F42342F00AD050D /* DictionaryEntry.swift in Sources */,
 				6E6E20A81F192EC60032ADBC /* CircleImage.swift in Sources */,
 				6E82CB881F17E4D500EA6173 /* ShadowView.swift in Sources */,
 				6E82CB861F17E4A600EA6173 /* ShadowTableView.swift in Sources */,
@@ -832,9 +856,11 @@
 				6ED4BCBF1F38A583008E119E /* ChatService.swift in Sources */,
 				6EE81B941F18648C00C5CF67 /* InitialLandingPage.swift in Sources */,
 				6E58DBCA1F19022E0031E78B /* TextFieldPadding.swift in Sources */,
+				6E717D141F42361C00AD050D /* DictionaryEntryCreationController.swift in Sources */,
 				6E8C70E61F1657F90015C107 /* AppDelegate.swift in Sources */,
 				6E1E9B381F26D825006C2338 /* AuthenticationError+Service.swift in Sources */,
 				6ED4BCD11F3A37FC008E119E /* ShadowButton.swift in Sources */,
+				6E717D101F42335600AD050D /* DictionaryCell.swift in Sources */,
 				6EDA589E1F1D44FF0071B3F1 /* Interests.swift in Sources */,
 				6ED4BCC81F38B595008E119E /* ChatCell.swift in Sources */,
 				6EDA58971F1CF7EA0071B3F1 /* PickLanguageCell.swift in Sources */,

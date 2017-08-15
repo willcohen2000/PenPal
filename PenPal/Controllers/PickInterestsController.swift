@@ -38,16 +38,15 @@ class PickInterestsController: UIViewController {
                     FirebaseService.saveByLanguages(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages)
                     FirebaseService.initiateStartingData(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages) { (success) -> Void in
                         if (success) {
-                            // HANDLE
+                            let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                            let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
+                            self.present(vc, animated: true, completion: nil)
                         } else {
-                            // HANDLE
+                            MainFunctions.createSimpleAlert(alertTitle: "Unable to save your data.", alertMessage: "It seems like we are currently having issues signing you up. Please try again later.", controller: self)
                         }
                     }
-                    let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                    let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
-                    self.present(vc, animated: true, completion: nil)
                 } else {
-                    // HANDLE ERROR
+                    MainFunctions.createSimpleAlert(alertTitle: "Unable to save your data.", alertMessage: "It seems like we are currently having issues signing you up. Please try again later.", controller: self)
                 }
             }
         }

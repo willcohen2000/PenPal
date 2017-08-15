@@ -39,8 +39,13 @@ class SettingsController: UIViewController {
                     self.profilePictureButton.layer.borderWidth = 0.5
                     self.profilePictureButton.layer.cornerRadius = self.profilePictureButton.frame.size.height / 2
                 } else {
-                    self.profilePictureButton.maskCircle(anyImage: profileImage)
-                    self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
+                    if let profileImage = profileImage {
+                        self.profilePictureButton.maskCircle(anyImage: profileImage)
+                        self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
+                    } else {
+                        self.profilePictureButton.maskCircle(anyImage: UIImage(named: "AddProfileImageIcon")!)
+                        self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
+                    }
                 }
             }
         } else {

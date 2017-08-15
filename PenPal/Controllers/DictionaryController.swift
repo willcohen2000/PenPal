@@ -7,16 +7,55 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DictionaryController: UIViewController {
 
+    @IBOutlet weak var addDictionaryItemButton: UIButton!
+    @IBOutlet weak var dictionaryTableView: UITableView!
+    
+    var userDictionaryArray = [DictionaryEntry]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
+        customizeAddDictionaryButton()
+        dictionaryTableView.delegate = self
+        dictionaryTableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let realm = try! Realm()
+        let userDictResults = realm.objects(DictionaryEntry.self)
+        userDictionaryArray = Array(userDictResults)
+        dictionaryTableView.reloadData()
+    }
+    
+    private func customizeAddDictionaryButton() {
+        addDictionaryItemButton.layer.cornerRadius = addDictionaryItemButton.frame.height / 2
+        addDictionaryItemButton.layer.borderColor = UIColor.black.cgColor
+        addDictionaryItemButton.layer.borderWidth = 0.5
     }
 
-    
+}
 
+extension DictionaryController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userDictionaryArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let entry = userDictionaryArray[indexPath.row]
+        if let cell = dictionaryTableView.dequeueReusableCell(withIdentifier: "dictionaryCell") as? DictionaryCell {
+            cell.configureCell(dictionary: entry)
+            return cell
+        } else {
+            return DictionaryCell()
+        }
+    }
+    
 }

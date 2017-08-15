@@ -22,6 +22,7 @@ class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUpButton.layer.cornerRadius = 15
         loadingView.isHidden = true
         gifLoadingImage.loadGif(name: "Spinner")
     }

@@ -58,6 +58,11 @@ PODS:
   - JSQSystemSoundPlayer (2.0.1)
   - Kingfisher (3.10.3)
   - Protobuf (3.3.0)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
   - ROGoogleTranslate (0.0.5)
   - SwiftKeychainWrapper (3.0.1)
   - UITextView+Placeholder (1.2.0)
@@ -72,6 +77,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
   - Kingfisher
+  - RealmSwift
   - ROGoogleTranslate
   - SwiftKeychainWrapper
   - UITextView+Placeholder
@@ -93,10 +99,12 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   ROGoogleTranslate: 344d579487c21af1ae54138baa68605b861ba84e
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
 
-PODFILE CHECKSUM: 331ef1e08b99e96ae4936388509461592ee7e244
+PODFILE CHECKSUM: a9b239ef1334cfee8cc7f1c3769c9a33246d084e
 
 COCOAPODS: 1.2.1
