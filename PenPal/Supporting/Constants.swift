@@ -37,6 +37,7 @@ class Constants {
         static let toCorrections: String = "toCorrections"
         static let toFullCorrection: String = "toFullCorrection"
         static let toEditTargetLanguage: String = "toAddNewTargetLanguageSegue"
+        static let loggedOutSegue: String = "loggedOutSegue"
     }
     
 }

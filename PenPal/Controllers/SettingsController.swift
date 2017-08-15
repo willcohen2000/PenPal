@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import SwiftKeychainWrapper
 
 class SettingsController: UIViewController {
 
@@ -16,6 +16,7 @@ class SettingsController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var myLanguagesCollectionView: UICollectionView!
+    @IBOutlet weak var signOutButton: UIButton!
     
     @IBOutlet weak var lowerSettingsView: ShadowView!
     
@@ -56,14 +57,33 @@ class SettingsController: UIViewController {
         
     }
     
-    @IBAction func editMyFourThingsButtonPressed(_ sender: Any) {
+    private func loadSettingsView() {
+        editMyFourThingsButton.layer.borderColor = UIColor.black.cgColor
+        editMyFourThingsButton.layer.cornerRadius = editMyFourThingsButton.frame.height / 2
+        editMyFourThingsButton.layer.borderWidth = 1.0
         
+        signOutButton.layer.borderColor = UIColor.black.cgColor
+        signOutButton.layer.cornerRadius = 10.0
+        signOutButton.layer.borderWidth = 0.5
+        
+        nameLabel.text = User.sharedInstance.name
     }
     
     @IBAction func profilePictureButtonPressed(_ sender: Any) {
         let pickerController =  UIImagePickerController()
         pickerController.delegate = self
         self.present(pickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func signOutButtonPressed(_ sender: Any) {
+        let logOutAlert = UIAlertController(title: "Are you sure you want to log out?", message:
+            "", preferredStyle: UIAlertControllerStyle.alert)
+        logOutAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
+        logOutAlert.addAction(UIAlertAction(title: "Sign Me Out", style: UIAlertActionStyle.destructive, handler: { (UIAlertAction) in
+            let _ = KeychainWrapper.standard.removeObject(forKey: "uid")
+            self.performSegue(withIdentifier: Constants.Segues.loggedOutSegue, sender: nil)
+        }))
+        self.present(logOutAlert, animated: true, completion: nil)
     }
 
 }
@@ -123,14 +143,5 @@ extension SettingsController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-    }
-}
-
-extension SettingsController {
-    func loadSettingsView() {
-        editMyFourThingsButton.layer.borderColor = UIColor.black.cgColor
-        editMyFourThingsButton.layer.cornerRadius = editMyFourThingsButton.frame.height / 2
-        editMyFourThingsButton.layer.borderWidth = 1.0
-        nameLabel.text = User.sharedInstance.name
     }
 }

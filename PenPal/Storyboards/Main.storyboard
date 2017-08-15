@@ -22,7 +22,7 @@
         <!--Initial Landing Page-->
         <scene sceneID="AGq-AN-3Iz">
             <objects>
-                <viewController id="VwY-hF-jyG" customClass="InitialLandingPage" customModule="PenPal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="initialPage" id="VwY-hF-jyG" customClass="InitialLandingPage" customModule="PenPal" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wKW-9j-33d"/>
                         <viewControllerLayoutGuide type="bottom" id="7h4-YR-uvT"/>
@@ -97,6 +97,27 @@
                                     <constraint firstAttribute="height" constant="194" id="w8a-PD-nxH"/>
                                 </constraints>
                             </stackView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O9k-d7-Toe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="osz-R8-d0O">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oId-ux-fO4">
+                                            <rect key="frame" x="97" y="285.5" width="181" height="96"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="181" id="PxG-IT-Tem"/>
+                                                <constraint firstAttribute="height" constant="96" id="qnE-3s-wvz"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oId-ux-fO4" firstAttribute="centerX" secondItem="osz-R8-d0O" secondAttribute="centerX" id="03g-y0-MmX"/>
+                                        <constraint firstItem="oId-ux-fO4" firstAttribute="centerY" secondItem="osz-R8-d0O" secondAttribute="centerY" id="iZN-H8-a2F"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -104,15 +125,21 @@
                             <constraint firstItem="I1c-00-ASe" firstAttribute="top" secondItem="xGL-H3-bwl" secondAttribute="topMargin" id="9UX-cw-kA3"/>
                             <constraint firstItem="lDh-Yx-peD" firstAttribute="top" secondItem="wKW-9j-33d" secondAttribute="bottom" constant="20" id="Yed-tt-F5c"/>
                             <constraint firstItem="7h4-YR-uvT" firstAttribute="top" secondItem="I1c-00-ASe" secondAttribute="bottom" id="d0V-Hj-WJb"/>
+                            <constraint firstAttribute="trailing" secondItem="O9k-d7-Toe" secondAttribute="trailing" id="dUm-og-2Oz"/>
                             <constraint firstAttribute="trailing" secondItem="Y5S-cT-oUA" secondAttribute="trailing" id="eGi-ld-kkI"/>
                             <constraint firstItem="lDh-Yx-peD" firstAttribute="centerX" secondItem="xGL-H3-bwl" secondAttribute="centerX" id="g8M-Wu-Yw2"/>
                             <constraint firstItem="7h4-YR-uvT" firstAttribute="top" secondItem="Y5S-cT-oUA" secondAttribute="bottom" id="iWF-FL-x3B"/>
                             <constraint firstItem="I1c-00-ASe" firstAttribute="leading" secondItem="xGL-H3-bwl" secondAttribute="leading" id="paV-3n-rsP"/>
+                            <constraint firstItem="O9k-d7-Toe" firstAttribute="top" secondItem="xGL-H3-bwl" secondAttribute="top" id="ruy-d6-lP5"/>
+                            <constraint firstItem="7h4-YR-uvT" firstAttribute="top" secondItem="O9k-d7-Toe" secondAttribute="bottom" id="v2F-Su-mZA"/>
                             <constraint firstAttribute="trailing" secondItem="I1c-00-ASe" secondAttribute="trailing" id="xKS-nt-PKy"/>
+                            <constraint firstItem="O9k-d7-Toe" firstAttribute="leading" secondItem="xGL-H3-bwl" secondAttribute="leading" id="zxm-CC-2Zs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="connecitngLanguageLearnersLabel" destination="tpN-E3-awS" id="FC7-mJ-H8S"/>
+                        <outlet property="loadingImageView" destination="oId-ux-fO4" id="TdN-J4-hK7"/>
+                        <outlet property="loadingPreviouslyLoggedInUserView" destination="O9k-d7-Toe" id="FMy-5x-Kew"/>
                         <outlet property="loginAndSignUpStackView" destination="Y5S-cT-oUA" id="Sj7-7U-7H0"/>
                         <outlet property="logoImageView" destination="dMm-3q-BWw" id="CoL-U3-ViM"/>
                         <outlet property="logoImageViewHeightConstraint" destination="dxK-z6-UvL" id="Hdy-GM-Ll8"/>
@@ -123,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guy-es-570" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-44" y="159"/>
+            <point key="canvasLocation" x="-44" y="158.77061469265368"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="usS-I9-06f">

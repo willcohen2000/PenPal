@@ -23,7 +23,14 @@ class DictionaryController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        FirebaseService.retrieveDictionaryEntries(userUID: User.sharedInstance.uid) { (dictionaryEntries) in
+            if let dictEntries = dictionaryEntries {
+                self.userDictionaryArray = dictEntries
+                self.dictionaryTableView.reloadData()
+            } else {
+                // HANDLE
+            }
+        }
     }
     
     private func customizeAddDictionaryButton() {

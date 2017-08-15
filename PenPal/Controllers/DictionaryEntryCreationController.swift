@@ -18,18 +18,25 @@ class DictionaryEntryCreationController: UIViewController {
         super.viewDidLoad()
 
         termTextView.placeholder = "Remember - this dictionary works best with nouns and verbs!"
-        definitionTextView.placeholder = "We reccomend that you keep your definitions short and consise. This will help you to remember it quicker."
+        definitionTextView.placeholder = "We recommend that you keep your definitions short and consise. This will help you to remember it quicker."
         
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+     
     @IBAction func createNewDictionaryEntryButtonPressed(_ sender: Any) {
         guard let term = termTextView.text else { return }
         guard let definition = definitionTextView.text else { return }
-        let userDictionaryReference = Database.database().reference().child("Dictionary").child(User.sharedInstance.uid)
+        
+        FirebaseService.uploadDictionaryEntry(userUID: User.sharedInstance.uid, entry: DictionaryEntry(term: term, definition: definition)) { (success) in
+            if (success) {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                // HANDLE
+            }
+        }
         
     }
     

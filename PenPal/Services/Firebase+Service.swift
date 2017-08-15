@@ -162,11 +162,41 @@ class FirebaseService {
         completionHandler(users)
     }
     
-    static func uploadDictionaryEntry(userUID: String, entry: DictionaryEntry, completiomHandler: @escaping (_ success: Bool) -> Void) {
+    static func retrieveDictionaryEntries(userUID: String, completionHandler: @escaping (_ dictionaryEntries: [DictionaryEntry]?) -> Void) {
         let userDictionaryReference = Database.database().reference().child("Dictionary").child(userUID)
+        var dictEntries = [DictionaryEntry]()
         userDictionaryReference.observeSingleEvent(of: .value, with: { (snapshot) in
-            
-        }, withCancel: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>)
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                        let dictionaryEntry = DictionaryEntry(postkey: key, postData: postDict)
+                        dictEntries.append(dictionaryEntry)
+                    }
+                }
+            }
+            completionHandler(dictEntries)
+        }) { (error) in
+            completionHandler(nil)
+        }
+    }
+    
+    static func uploadDictionaryEntry(userUID: String, entry: DictionaryEntry, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let userDictionaryReference = Database.database().reference().child("Dictionary").child(userUID)
+        let dictionaryEntryDict = [
+            "term": entry.term,
+            "definition": entry.definition
+        ]
+        userDictionaryReference.childByAutoId().updateChildValues(dictionaryEntryDict) { (error, ref) in
+            if (error == nil) {
+                completionHandler(true)
+            } else {
+                if let error = error {
+                    MainFunctions.showErrorMessage(error: error)
+                }
+                completionHandler(false)
+            }
+        }
     }
     
     static func findCompatibleUsers(targetLanguage: String, nativeLanguages: [String], completionHandler: @escaping (_ people: [String]) -> Void)  {

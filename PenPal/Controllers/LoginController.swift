@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class LoginController: UIViewController {
 
@@ -67,9 +68,12 @@ class LoginController: UIViewController {
             if error == nil {
                 MainFunctions.loadSingletonData(uid: (user?.uid)!, completionHandler: { (success) in
                     if (success) {
+                        KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
                         let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
                         let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
                         self.present(vc, animated: true, completion: nil)
+                    } else {
+                        // HANDLE
                     }
                 })
             } else {

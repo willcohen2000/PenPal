@@ -96,7 +96,7 @@
                                         <rect key="frame" x="10" y="110" width="355" height="418"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zo8-ie-ic1">
-                                                <rect key="frame" x="10" y="10" width="335" height="45"/>
+                                                <rect key="frame" x="10" y="50" width="335" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThingsToTalkAboutIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-WE-2D0">
                                                         <rect key="frame" x="0.0" y="0.0" width="39" height="45"/>
@@ -144,14 +144,14 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2g4-Kt-Kfn">
-                                                <rect key="frame" x="10" y="70" width="335" height="1"/>
+                                                <rect key="frame" x="10" y="110" width="335" height="1"/>
                                                 <color key="backgroundColor" red="0.88235294117647056" green="0.87061226367950439" blue="0.87060552835464478" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="VoT-FY-QpT"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aFf-3O-nci">
-                                                <rect key="frame" x="10" y="86" width="335" height="45"/>
+                                                <rect key="frame" x="10" y="126" width="335" height="45"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LanguageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zB7-br-PzE">
                                                         <rect key="frame" x="0.0" y="0.0" width="39" height="45"/>
@@ -193,7 +193,7 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7ld-93-Tkd">
-                                                <rect key="frame" x="10" y="141" width="335" height="267"/>
+                                                <rect key="frame" x="10" y="181" width="335" height="227"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AU3-cC-bfT">
                                                     <size key="itemSize" width="157" height="66"/>
@@ -233,6 +233,19 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oO8-vu-zjA">
+                                                <rect key="frame" x="260" y="10" width="85" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Y5U-UA-cqa"/>
+                                                    <constraint firstAttribute="width" constant="85" id="hBh-Rh-jVp"/>
+                                                </constraints>
+                                                <state key="normal" title="Sign Out">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.7535827262" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signOutButtonPressed:" destination="zPE-ce-tyr" eventType="touchUpInside" id="g7W-Pc-sXo"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -243,8 +256,10 @@
                                             <constraint firstAttribute="trailing" secondItem="aFf-3O-nci" secondAttribute="trailing" constant="10" id="Mfr-fg-nNS"/>
                                             <constraint firstItem="zo8-ie-ic1" firstAttribute="leading" secondItem="yGf-a9-7qZ" secondAttribute="leading" constant="10" id="MqK-Jz-LhC"/>
                                             <constraint firstItem="aFf-3O-nci" firstAttribute="leading" secondItem="yGf-a9-7qZ" secondAttribute="leading" constant="10" id="N8E-Vj-f7Q"/>
-                                            <constraint firstItem="zo8-ie-ic1" firstAttribute="top" secondItem="yGf-a9-7qZ" secondAttribute="top" constant="10" id="Px2-RM-vqC"/>
+                                            <constraint firstItem="zo8-ie-ic1" firstAttribute="top" secondItem="yGf-a9-7qZ" secondAttribute="top" constant="50" id="Px2-RM-vqC"/>
+                                            <constraint firstItem="oO8-vu-zjA" firstAttribute="top" secondItem="yGf-a9-7qZ" secondAttribute="top" constant="10" id="RL0-93-Dp4"/>
                                             <constraint firstAttribute="trailing" secondItem="2g4-Kt-Kfn" secondAttribute="trailing" constant="10" id="Rog-Wb-9rt"/>
+                                            <constraint firstAttribute="trailing" secondItem="oO8-vu-zjA" secondAttribute="trailing" constant="10" id="ZeX-UI-hGH"/>
                                             <constraint firstAttribute="trailing" secondItem="zo8-ie-ic1" secondAttribute="trailing" constant="10" id="btl-X8-DMS"/>
                                             <constraint firstAttribute="bottom" secondItem="7ld-93-Tkd" secondAttribute="bottom" constant="10" id="mOc-B9-gtM"/>
                                             <constraint firstAttribute="trailing" secondItem="7ld-93-Tkd" secondAttribute="trailing" constant="10" id="rnl-lp-TPK"/>
@@ -282,6 +297,8 @@
                         <outlet property="myLanguagesCollectionView" destination="7ld-93-Tkd" id="hkB-nJ-NEi"/>
                         <outlet property="nameLabel" destination="1Qe-X0-s3P" id="G9g-Sm-bYi"/>
                         <outlet property="profilePictureButton" destination="w89-q8-D3L" id="acq-qV-bzR"/>
+                        <outlet property="signOutButton" destination="oO8-vu-zjA" id="rSO-3d-VI4"/>
+                        <segue destination="uKk-8s-f02" kind="show" identifier="loggedOutSegue" id="vj9-dt-L41"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Dk-Zr-8Nf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,6 +444,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQj-7o-Jah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3543" y="466"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="4Nu-nQ-xur">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="uKk-8s-f02" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFN-Ze-EtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2851" y="-67"/>
         </scene>
         <!--Chats Controller-->
         <scene sceneID="4Xm-c5-BR7">

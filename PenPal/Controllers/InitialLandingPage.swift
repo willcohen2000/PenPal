@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+import Firebase
 
 class InitialLandingPage: UIViewController {
 
@@ -16,6 +18,9 @@ class InitialLandingPage: UIViewController {
     @IBOutlet weak var connecitngLanguageLearnersLabel: UILabel!
     @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoImageViewWidthConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var loadingPreviouslyLoggedInUserView: UIVisualEffectView!
+    @IBOutlet weak var loadingImageView: UIImageView!
     
     @IBOutlet weak var loginAndSignUpStackView: UIStackView!
     
@@ -35,6 +40,27 @@ class InitialLandingPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingPreviouslyLoggedInUserView.isHidden = true
+        
+        if (KeychainWrapper.standard.string(forKey: "uid") != nil) {
+            Auth.auth().addStateDidChangeListener({ (auth, user) in
+                if (user != nil) {
+                    self.loadingImageView.loadGif(name: "Spinner")
+                    self.loadingPreviouslyLoggedInUserView.isHidden = false
+                    MainFunctions.loadSingletonData(uid: (user?.uid)!, completionHandler: { (success) in
+                        if (success) {
+                            KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
+                            let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                            let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
+                            self.present(vc, animated: true, completion: nil)
+                        } else {
+                            // HANDLE
+                        }
+                    })
+                }
+            })
+        }
         
         loginAndSignUpStackView.alpha = 0
         connecitngLanguageLearnersLabel.textColor = UIColor.clear
