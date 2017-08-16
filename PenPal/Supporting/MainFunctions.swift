@@ -12,20 +12,6 @@ import Firebase
 
 class MainFunctions {
     
-    // ADDS PADDING TO TEXT FIELDS SO TEXT IS NOT BLOCKED BY ICON
-    static func extractLeftPadding(UIScreenWidth: Int) -> Int {
-        switch(UIScreenWidth) {
-        case 320:
-            return 50
-        case 375:
-            return 60
-        case 414:
-            return 65
-        default:
-            return 0
-        }
-    }
-    
     // LOADS SINGLETON DATA
     static func loadSingletonData(uid: String, completionHandler: @escaping (_ success: Bool) -> Void) {
         User.sharedInstance.uid = uid

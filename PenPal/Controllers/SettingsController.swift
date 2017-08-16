@@ -54,7 +54,6 @@ class SettingsController: UIViewController {
             self.profilePictureButton.layer.borderColor = UIColor.clear.cgColor
         }
         
-        
     }
     
     private func loadSettingsView() {

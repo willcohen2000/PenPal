@@ -9,12 +9,20 @@
 import UIKit
 
 class TextFieldPadding: UITextField {
-
-    //320 -> 50
-    //375 -> 60
-    //414 -> 65
     
-    let padding = UIEdgeInsets(top: 0, left: CGFloat(MainFunctions.extractLeftPadding(UIScreenWidth: Int(UIScreen.main.bounds.width))), bottom: 0, right: 10);
+    static var leftSidePaddingRatio: Float {
+        get {
+            if (UIScreen.main.bounds.width > 414) {
+                return 0.10
+            } else if (UIScreen.main.bounds.width == 1024.0) {
+                return 0.20
+            } else {
+                return 0.15
+            }
+        }
+    }
+    
+    let padding = UIEdgeInsets(top: 0, left: CGFloat(UIScreen.main.bounds.width * CGFloat(TextFieldPadding.leftSidePaddingRatio)), bottom: 0, right: 10);
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)

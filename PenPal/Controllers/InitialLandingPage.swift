@@ -40,7 +40,7 @@ class InitialLandingPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("superstar: \(UIScreen.main.bounds.width)")
         loadingPreviouslyLoggedInUserView.isHidden = true
         
         if (KeychainWrapper.standard.string(forKey: "uid") != nil) {

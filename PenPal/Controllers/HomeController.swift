@@ -94,10 +94,12 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
 extension HomeController {
     func loadUsersTableView() {
         self.pulledUsers.removeAll()
+        self.homeTableView.reloadData()
         if let targetLanguage = targetLanguageLabel.text {
             FirebaseService.findCompatibleUsers(targetLanguage: targetLanguage, nativeLanguages: User.sharedInstance.nativeLanguages, completionHandler: { (users) in
                 self.loadingImageView.isHidden = true
                 if (users.count != 0) {
+                    self.noCompatibleUsersLabel.isHidden = true
                     for (uid) in users {
                         let usersReference = Database.database().reference().child("Users")
                         usersReference.child(uid).observeSingleEvent(of: .value, with: { (snapshot) in

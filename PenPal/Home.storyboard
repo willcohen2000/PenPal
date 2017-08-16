@@ -128,7 +128,6 @@
                                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="editMyFourThingsButtonPressed:" destination="zPE-ce-tyr" eventType="touchUpInside" id="XrN-vD-R66"/>
                                                                     <segue destination="K6u-RM-Qqj" kind="show" id="xYu-bm-TwC"/>
                                                                 </connections>
                                                             </button>
