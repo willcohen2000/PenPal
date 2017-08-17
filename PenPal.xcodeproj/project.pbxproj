@@ -174,6 +174,9 @@
 		6E7A163C1F45DF6E009A5838 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		6E7A163D1F45DF6E009A5838 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Home.strings"; sourceTree = "<group>"; };
 		6E7A163E1F45DF6E009A5838 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		6E7A163F1F45EE18009A5838 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		6E7A16401F45EE18009A5838 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Home.strings; sourceTree = "<group>"; };
+		6E7A16411F45EE18009A5838 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6E82CB851F17E4A600EA6173 /* ShadowTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowTableView.swift; path = Views/ShadowTableView.swift; sourceTree = "<group>"; };
 		6E82CB871F17E4D500EA6173 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = Views/ShadowView.swift; sourceTree = "<group>"; };
 		6E8C70E21F1657F90015C107 /* PenPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -637,6 +640,7 @@
 				de,
 				es,
 				"zh-Hans",
+				ja,
 			);
 			mainGroup = 6E8C70D91F1657F90015C107;
 			productRefGroup = 6E8C70E31F1657F90015C107 /* Products */;
@@ -931,6 +935,7 @@
 				6E7A16341F448E19009A5838 /* de */,
 				6E7A163A1F45D55A009A5838 /* es */,
 				6E7A163D1F45DF6E009A5838 /* zh-Hans */,
+				6E7A16401F45EE18009A5838 /* ja */,
 			);
 			name = Home.storyboard;
 			sourceTree = "<group>";
@@ -942,6 +947,7 @@
 				6E7A16331F448E19009A5838 /* de */,
 				6E7A16391F45D55A009A5838 /* es */,
 				6E7A163C1F45DF6E009A5838 /* zh-Hans */,
+				6E7A163F1F45EE18009A5838 /* ja */,
 			);
 			name = Main.storyboard;
 			path = Storyboards;
@@ -954,6 +960,7 @@
 				6E7A16381F448F5F009A5838 /* de */,
 				6E7A163B1F45D55A009A5838 /* es */,
 				6E7A163E1F45DF6E009A5838 /* zh-Hans */,
+				6E7A16411F45EE18009A5838 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

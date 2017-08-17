@@ -1,0 +1,185 @@
+/* 
+  Localizable.strings
+  PenPal
+
+  Created by Will Cohen on 8/16/17.
+  Copyright © 2017 Will Cohen. All rights reserved.
+*/
+
+// MAIN STORYBOARD
+"Email" = "イーメールアドレス";
+"Password" = "パスワード";
+"Confirm Password" = "パスワードの確認";
+"Full Name" = "フルネーム";
+"Sign Up" = "サインアップ";
+"Go back to home page" = "ホームページに戻る";
+"Log In" = "ログイン";
+"Connecting language learners worldwide" = "世界中の語学学習者をつなぐ";
+"Next" = "次へ";
+"Pick the language(s) you are already fluent in" = "すでに流暢である言語を選択する";
+"Pick the language(s) you are trying to learn" = "学習しようとしている言語を選択する";
+"Pick four interests of yours" = "あなたの4つの利益を選ぶ";
+"What language do you want to add?" = "どの言語を追加しますか？";
+
+// HOME STORYBOARD
+"My Dictionary" = "私の辞書";
+"Add New Entry" = "新しいエントリを追加";
+"No current chats." = "現在のチャットはありません。";
+"Likes to talk about:" = "話すことを好む：";
+"No existing dictionary entries." = "既存の辞書のエントリはありません。";
+"Target Language" = "ターゲット言語";
+"Talk with" = "話す";
+"No compatible users." = "互換性のないユーザーはいません。";
+"You do not have any corrections yet." = "まだ訂正はありません。";
+"Sign Out" = "サインアウト";
+"Edit" = "編集";
+"Edit my four things to talk about" = "私の4つのことを編集して話す";
+"Languages I am learning" = "私が学んでいる言語";
+"Done" = "完了";
+"Term" = "期間";
+"Definition" = "定義";
+"Save to Dictionary" = "辞書に保存";
+"Your Message" = "あなたのメッセージ";
+"Their Message" = "彼らのメッセージ";
+"Translate" = "翻訳";
+"Translated" = "翻訳済み";
+"What is wrong with this message?" = "このメッセージの何が間違っていますか？";
+"Remember - the more detailed the better!" = "覚えている - より詳細なより良い！";
+"Send Correction" = "訂正を送る";
+"View This Correction" = "この修正を見る";
+"Block User" = "ユーザをブロックする";
+
+// POP UPS
+"Are you sure you want to block this user?" = "このユーザーをブロックしてもよろしいですか？";
+"Please confirm that you would like to block this user." = "このユーザーをブロックすることを確認してください。";
+"Block This User" = "このユーザーをブロックする";
+"No, Don't Block This User" = "いいえ、このユーザーをブロックしないでください";
+
+"Passwords Do Not Match" = "パスワードは一致しません";
+"It seems like you have entered in two different passwords." = "2つの異なるパスワードを入力したようです。";
+"Okay" = "はい";
+
+"Password too short." = "パスワードが短すぎます。";
+"Passwords must contain at least six characters." = "パスワードは少なくとも6文字でなければなりません。";
+
+"Error signing up" = "エラーサインアップ";
+"It seems like there was an error signing you up. Please try again soon." = "あなたに署名する際にエラーが発生したようです。 もう一度お試しください。";
+
+"No Languages Selected" = "選択された言語がありません";
+"You need to select at least one language to continue." = "続行するには少なくとも1つの言語を選択する必要があります。";
+
+"You have not selected enough interests." = "あなたは十分な利益を選択していない";
+"You must select four interests to continue." = "続けるには4つの関心を選択しなければなりません。";
+
+"Unable to save your data." = "あなたのデータを保存できません。";
+"It seems like we are currently having issues signing you up. Please try again later." = "現在、あなたにサインインする際に問題が発生しているようです。 後でもう一度お試しください。";
+
+"You already have four interests!" = "あなたはすでに4つの利益を持っています！";
+"It appears like you have already selected four interests. You must deselect one to add a new interest." = "既に4つの興味を選択したようです。 新しい興味を追加するには、選択を解除する必要があります。";
+
+
+"Are you sure you want to block this user?" = "このユーザーをブロックしてもよろしいですか？";
+"Please note that this action is not reversible." = "この操作は元に戻すことはできません。";
+"Block This User" = "このユーザーをブロックする";
+"No, Don't Block This User" = "いいえ、このユーザーをブロックしないでください";
+
+"Do you want to correct this message?" = "このメッセージを修正しますか？";
+"Yes!" = "はい！";
+"No Thanks" = "ありがとう";
+
+"Thank you for correcting this message!" = "このメッセージを修正していただきありがとうございます！";
+"We appreciate your contribution, and hope that you continue to correct other mistakes you may encounter." = "あなたの貢献に感謝し、遭遇するかもしれない他の間違いを修正し続けることを願っています";
+
+"Are you sure you want to log out?" = "ログアウトしてもよろしいですか？";
+"Cancel" = "キャンセル";
+"Sign Me Out" = "サインミーアウト";
+
+"Could not save your target language." = "ターゲット言語を保存できませんでした。";
+"It appears like we can not correctly save your new language. Please try again later." = "新しい言語を正しく保存できないようです。 後でもう一度お試しください。";
+
+"No Languages Selected" = "選択された言語がありません" ;
+"You need to select at least one language to continue." = "続行するには少なくとも1つの言語を選択する必要があります。";
+
+"Remember - this dictionary works best with nouns and verbs!" = "覚えておいてください - この辞書は名詞と動詞で最も効果的です！";
+"We recommend that you keep your definitions short and consise. This will help you to remember it quicker." = "定義を短くしておいてください。 これはあなたがそれをより速く覚えておくのに役立ちます。";
+
+"Unable to translate." = "翻訳できません。";
+"We could not successfully translate this message. This may be because you don't have connection." = "このメッセージを正常に翻訳できませんでした。 これはあなたが接続していない可能性があります";
+
+
+"Invalid Email" = "無効なメール";
+"It seems like you have put in an invalid email." = "あなたは無効なメールを入れたようです。";
+
+"Wrong Password" = "間違ったパスワード";
+"It seems like you have entered the wrong password." = "間違ったパスワードを入力したようです。" ;
+
+"No Account Found" = "アカウントが見つかりません";
+"We couldn't find an account that corresponds to that email. Do you want to create an account?" = "そのメールに対応するアカウントが見つかりませんでした。 アカウントを作成しますか？";
+"Create Account" = "アカウントの作成";
+
+"Error Logging In" = "「エラーログイン」";
+"There was an error logging you in. Please try again soon." = "ログイン中にエラーが発生しました。もう一度お試しください。";
+
+"Email is not properly formatted." = "電子メールの形式が正しくありません。";
+"Please enter a valid email to sign up with." = "サインアップするには有効なメールアドレスを入力してください。";
+
+"We are having trouble signing you up." = "「あなたに署名するのが難しい」";
+"We are having trouble signing you up, please try again soon." = "サインアップに問題があります。もう一度お試しください。";
+
+// LANGUAGES
+"English" = "英語";
+"French" = "フランス語";
+"Spanish" = "スペイン語";
+"Italian" = "イタリア語";
+"Japanese" = "日本語";
+"Russian" = "ロシア語";
+"German" = "ドイツ語" ;
+"Chinese" = "中国語";
+
+// INTERESTS
+"Reading" = "読書";
+"TV" = "テレビ";
+"Family" = "家族";
+"Movies" = "映画";
+"Fishing" = "釣り";
+"Computer" = "コンピュータ";
+"Gardening" = "ガーデニング";
+"Walking" = "ウォーキング";
+"Exercise" = "エクササイズ";
+"Music" = "音楽";
+"Entertaining" = "楽しむ";
+"Hunting" = "ハンティング";
+"Sports" = "スポーツ";
+"Shopping" = "ショッピング";
+"Traveling" = "旅する";
+"Sleeping" = "眠っている";
+"Socializing" = "社会化";
+"Sewing" = "縫製";
+"Golf" = "ゴルフ";
+"Religion" = "宗教";
+"Relaxing" = "リラックス";
+"Housework" = "家事";
+"Crafts" = "工芸品";
+"Bicycling" = "サイクリング";
+"Cards" = "カード";
+"Hiking" = "ハイキング";
+"Cooking" = "料理";
+"Food" = "食べ物";
+"Swimming" = "水泳";
+"Camping" = "キャンプ";
+"Skiing" = "スキー";
+"Cars" = "車";
+"Writing" = "書き込み";
+"Boating" = "ボート";
+"Motorcycling" = "オートサイクリング";
+"Animals" = "動物";
+"Bowling" = "ボウリング";
+"Painting" = "絵画";
+"Running" = "実行中";
+"Dancing" = "ダンス";
+"Tennis" = "テニス";
+"Theater" = "シアター";
+"Billiards" = "ビリヤード";
+"Beach" = "ビーチ";
+"Volunteering" = "ボランティア";
+
