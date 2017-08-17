@@ -36,7 +36,7 @@ class PickNativeLanguageCell: UICollectionViewCell {
     
     func configureCell(language: String) {
         self.language = language
-        self.pickNativeLanguageButton.setTitle(String(describing: language), for: .normal)
+        self.pickNativeLanguageButton.setTitle((NSLocalizedString(String(describing: language), comment: "")), for: .normal)
     }
     
     @IBAction func pickNativeLanguageButtonPressed(_ sender: Any) {

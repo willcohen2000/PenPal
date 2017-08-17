@@ -11,11 +11,17 @@ import UIKit
 class EditInterestsController: UIViewController {
     
     @IBOutlet weak var editInterestCollectionView: UICollectionView!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var pickFourInterestLabel: UILabel!
+    
     var selected: NSMutableSet = NSMutableSet()
     static var userInterests: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
+        
         editInterestCollectionView.delegate = self
         editInterestCollectionView.dataSource = self
         editInterestCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
@@ -38,7 +44,7 @@ class EditInterestsController: UIViewController {
     
     @IBAction func finishedEditingButtonPressed(_ sender: Any) {
         if (EditInterestsController.userInterests.count < 4) {
-            MainFunctions.createSimpleAlert(alertTitle: "You have not selected enough interests.", alertMessage: "You must select four interests to continue.", controller: self)
+            MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("You have not selected enough interests.", comment: "You have not selected enough interests."), alertMessage: NSLocalizedString("You must select four interests to continue.", comment: "You must select four interests to continue."), controller: self)
         } else {
             
             User.sharedInstance.interests = []
@@ -54,6 +60,12 @@ class EditInterestsController: UIViewController {
             
         }
     }
+    
+    private func localize() {
+        doneButton.setTitle(NSLocalizedString("Done", comment: "Done"), for: .normal)
+        pickFourInterestLabel.text = NSLocalizedString("Edit my four things to talk about", comment: "Edit my four things to talk about")
+    }
+    
 }
 
 extension EditInterestsController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -81,7 +93,7 @@ extension EditInterestsController: UICollectionViewDataSource, UICollectionViewD
 extension EditInterestsController: editInterestPickDelegate {
     func interestSelected(_ interest: String) {
         if (EditInterestsController.userInterests.count == 4) {
-            MainFunctions.createSimpleAlert(alertTitle: "You already have four interests!", alertMessage: "It appears like you have already selected four interests. You must deselect one to add a new interest.", controller: self)
+            MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("You already have four interests!", comment: "You already have four interests!"), alertMessage: NSLocalizedString("It appears like you have already selected four interests. You must deselect one to add a new interest.", comment: "It appears like you have already selected four interests. You must deselect one to add a new interest."), controller: self)
         } else {
             selected.add(interest)
             EditInterestsController.userInterests.append(interest)

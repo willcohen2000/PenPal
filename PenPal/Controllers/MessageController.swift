@@ -61,16 +61,16 @@ class MessageController: JSQMessagesViewController {
         self.view.addSubview(dropDownView)
         dropMenuGlobal.anchorView = dropDownView
         dropDownView.isHidden = true
-        let dropDownDataSource: [String] = ["Block User"]
+        let dropDownDataSource: [String] = [NSLocalizedString("Block User", comment: "Block User")]
         dropMenuGlobal.dataSource = dropDownDataSource
         dropMenuGlobal.selectionAction = { [unowned self] (index: Int, selectedOption: String) in
-            if (selectedOption == "Block User") {
-                let alert = UIAlertController(title: "Are you sure you want to block this user?", message:
-                    "Please note that this action is not reversible.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Block This User", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            if (selectedOption == NSLocalizedString("Block User", comment: "Block User")) {
+                let alert = UIAlertController(title: NSLocalizedString("Are you sure you want to block this user?", comment: "Are you sure you want to block this user?"), message:
+                    NSLocalizedString("Please note that this action is not reversible.", comment: "Please note that this action is not reversible."), preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Block This User", comment: "Block This User"), style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
                     
                 }))
-                alert.addAction(UIAlertAction(title: "No, Don't Block This User", style: UIAlertActionStyle.destructive,handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("No, Don't Block This User", comment: "No, Don't Block This User"), style: UIAlertActionStyle.destructive,handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -186,13 +186,13 @@ extension MessageController {
         let sender = message.sender
         
         if (User.sharedInstance.uid != sender.uid) {
-            let alert = UIAlertController(title: "Do you want to correct this message?", message:
+            let alert = UIAlertController(title: NSLocalizedString("Do you want to correct this message?", comment: "Do you want to correct this message?"), message:
                 "", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Yes!", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes!", comment: "Yes!"), style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
                 self.selectedMessage = message.content
                 self.performSegue(withIdentifier: Constants.Segues.toCorrections, sender: nil)
             }))
-            alert.addAction(UIAlertAction(title: "No Thanks", style: UIAlertActionStyle.destructive,handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No Thanks", comment: "No Thanks"), style: UIAlertActionStyle.destructive,handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         

@@ -23,6 +23,7 @@ class ExternalLearnerCell: UITableViewCell {
     @IBOutlet weak var interestLabelThree: UILabel!
     @IBOutlet weak var interestLabelFour: UILabel!
     @IBOutlet weak var talkWithPersonButton: UIButton!
+    @IBOutlet weak var likesToTalkAboutLabel: UILabel!
     
     var clickedTalkToUserDelegate: clickedTalkToUser?
     var person: ExternalLearner!
@@ -42,11 +43,12 @@ class ExternalLearnerCell: UITableViewCell {
             profilePictureImageView.maskImageWithImage()
         }
         userNameLabel.text = "\(person.name!)"
-        interestLabelOne.text = "- \(person.interests["one"]!)"
-        interestLabelTwo.text = "- \(person.interests["two"]!)"
-        interestLabelThree.text = "- \(person.interests["three"]!)"
-        interestLabelFour.text = "- \(person.interests["four"]!)"
-        talkWithPersonButton.setTitle("Talk with \(person.name!)", for: .normal)
+        likesToTalkAboutLabel.text = NSLocalizedString("Likes to talk about:", comment: "Likes to talk about")
+        interestLabelOne.text = "- \(NSLocalizedString(person.interests["one"]!, comment: ""))"
+        interestLabelTwo.text = "- \(NSLocalizedString(person.interests["two"]!, comment: ""))"
+        interestLabelThree.text = "- \(NSLocalizedString(person.interests["three"]!, comment: ""))"
+        interestLabelFour.text = "- \(NSLocalizedString(person.interests["four"]!, comment: ""))"
+        talkWithPersonButton.setTitle("\(NSLocalizedString("Talk with", comment: "Talk with/to")) \(person.name!)", for: .normal)
     }
     
     @IBAction func talkWithPersonButtonPressed(_ sender: Any) {

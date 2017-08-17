@@ -19,12 +19,14 @@ class CorrectionCell: UITableViewCell {
     @IBOutlet weak var correctorNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var correctionDateLabel: UILabel!
+    @IBOutlet weak var viewThisCorrectionButton: ShadowButton!
     
     var correctionDelegate: viewCorrectionDelegate?
     var correction: Correction!
     
     func configureCell(_ correction: Correction) {
         self.correction = correction
+        viewThisCorrectionButton.setTitle(NSLocalizedString("View This Correction", comment: ""), for: .normal)
         correctionMessageLabel.text = correction.correction
         correctorNameLabel.text = correction.correctionFromUserName
         correctionDateLabel.text = correction.timeOfCorrection
@@ -35,7 +37,6 @@ class CorrectionCell: UITableViewCell {
             profileImageView.kf.setImage(with: URL(string: correction.profileImageURL))
             profileImageView.maskImageWithImage()
         }
-        
     }
     
     @IBAction func viewCorrectionButtonPressed(_ sender: Any) {

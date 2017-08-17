@@ -37,7 +37,7 @@ class AddNewTargetLanguageCell: UICollectionViewCell {
     
     func configureCell(language: String) {
         self.language = language
-        self.pickLanguageButton.setTitle(String(describing: language), for: .normal)
+        self.pickLanguageButton.setTitle(NSLocalizedString(String(describing: language), comment: ""), for: .normal)
     }
     
     @IBAction func pickLanguageButtonPressed(_ sender: Any) {

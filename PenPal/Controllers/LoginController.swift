@@ -17,18 +17,21 @@ class LoginController: UIViewController {
     @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var emailTextField: TextFieldPadding!
     @IBOutlet weak var passwordTextField: TextFieldPadding!
-    
     @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backToHomePageLabel: UIButton!
     
-    var emailText: String = ""
+    @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
+        
         logInButton.layer.cornerRadius = 15
         loadingView.isHidden = true
         gifImageView.loadGif(name: "Spinner")
         emailTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,13 +53,6 @@ class LoginController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    private func deanimateLogo() {
-        logoImageViewHeightConstraint.constant = 95
-        UIView.animate(withDuration: 1, animations: {
-            self.view.layoutIfNeeded()
-        })
     }
 
     @IBAction func logInButtonPressed(_ sender: Any) {
@@ -90,6 +86,20 @@ class LoginController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    private func deanimateLogo() {
+        logoImageViewHeightConstraint.constant = 95
+        UIView.animate(withDuration: 1, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    private func localize() {
+        backToHomePageLabel.setTitle(NSLocalizedString("Go back to home page", comment: "Go back to home page"), for: .normal)
+        logInButton.setTitle(NSLocalizedString("Log In", comment: "Log In"), for: .normal)
+        emailTextField.placeholder = NSLocalizedString("Email", comment: "Email")
+        passwordTextField.placeholder = NSLocalizedString("Password", comment: "Password")
+    }
+    
 }
 
 extension LoginController: UITextFieldDelegate {

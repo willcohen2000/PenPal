@@ -17,8 +17,8 @@ class DictionaryEntryCreationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        termTextView.placeholder = "Remember - this dictionary works best with nouns and verbs!"
-        definitionTextView.placeholder = "We recommend that you keep your definitions short and consise. This will help you to remember it quicker."
+        termTextView.placeholder = NSLocalizedString("Remember - this dictionary works best with nouns and verbs!", comment: "Remember - this dictionary works best with nouns and verbs!")
+        definitionTextView.placeholder = NSLocalizedString("We recommend that you keep your definitions short and consise. This will help you to remember it quicker.", comment: "We recommend that you keep your definitions short and consise. This will help you to remember it quicker.")
         
     }
 

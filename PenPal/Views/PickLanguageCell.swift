@@ -33,11 +33,10 @@ class PickLanguageCell: UICollectionViewCell {
         pickLanguageButton.layer.borderWidth = 0.5
         pickLanguageButton.layer.borderColor = UIColor.white.cgColor
     }
-
     
     func configureCell(language: String) {
         self.language = language
-        self.pickLanguageButton.setTitle(String(describing: language), for: .normal)
+        self.pickLanguageButton.setTitle(NSLocalizedString(String(describing: language), comment: ""), for: .normal)
     }
     
     @IBAction func pickLanguageButtonPressed(_ sender: Any) {

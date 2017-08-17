@@ -36,7 +36,7 @@ class PickInterestsCell: UICollectionViewCell {
     
     func configureCell(interest: String, isSelectedBool: Bool) {
         self.interest = interest
-        self.pickInterestButton.setTitle(String(describing: interest), for: .normal)
+        self.pickInterestButton.setTitle(NSLocalizedString(String(describing: interest), comment: ""), for: .normal)
         if (isSelectedBool) {
             self.pickInterestButton.backgroundColor = selectedLanguageColor
         } else {

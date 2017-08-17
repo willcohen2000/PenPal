@@ -11,14 +11,21 @@ import UIKit
 class PickNativeLanguageController: UIViewController {
 
     @IBOutlet weak var pickNativeLanguageCollectionView: UICollectionView!
+    @IBOutlet weak var pickLanguageYouAreAlreadyFluentInLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    
     var nativeLanguages: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
+        
         pickNativeLanguageCollectionView.delegate = self
         pickNativeLanguageCollectionView.dataSource = self
         
         pickNativeLanguageCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
+        
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
@@ -27,12 +34,17 @@ class PickNativeLanguageController: UIViewController {
             User.sharedInstance.nativeLanguages = nativeLanguages
             self.performSegue(withIdentifier: Constants.Segues.nextSegue, sender: nil)
         } else {
-            MainFunctions.createSimpleAlert(alertTitle: "No Languages Selected", alertMessage: "You need to select at least one language to continue.", controller: self)
+            MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("No Languages Selected", comment: "No Languages Selected"), alertMessage: NSLocalizedString("You need to select at least one language to continue.", comment: "You need to select at least one language to continue."), controller: self)
         }
     }
     
     @IBAction func backArrowButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func localize() {
+        pickLanguageYouAreAlreadyFluentInLabel.text = NSLocalizedString("Pick the language(s) you are already fluent in", comment: "Choose your target language(s)")
+        nextButton.setTitle(NSLocalizedString("Next", comment: "Next/Continue"), for: .normal)
     }
     
 }

@@ -16,17 +16,19 @@ class HomeController: UIViewController {
     @IBOutlet weak var targetLanguageLabel: UILabel!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var dropDownMenuHoldingView: UIView!
-    
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var noCompatibleUsersLabel: UILabel!
+    @IBOutlet weak var targetLanguageStaticLabel: UILabel!
     
     var dropMenuGlobal = DropDown()
     var pulledUsers = [ExternalLearner]()
     var existingChat: Chat?
     var selectedUser: PublicUser?
+    var dropDownDS = [String:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        localize()
         loadingImageView.loadGif(name: "StandardLoadingAnimation")
         homeTableView.delegate = self
         homeTableView.dataSource = self
@@ -36,12 +38,17 @@ class HomeController: UIViewController {
         
     }
     
-    func refresh(sender: AnyObject) {
+    private func refresh(sender: AnyObject) {
         loadUsersTableView()
     }
     
     @IBAction func dropdownMenuButtonPressed(_ sender: Any) {
         dropMenuGlobal.show()
+    }
+    
+    private func localize() {
+        targetLanguageStaticLabel.text = "\(NSLocalizedString("Target Language", comment: "Target Language")):"
+        noCompatibleUsersLabel.text = NSLocalizedString("No compatible users.", comment: "No compatioble users")
     }
     
 }
@@ -95,7 +102,7 @@ extension HomeController {
     func loadUsersTableView() {
         self.pulledUsers.removeAll()
         self.homeTableView.reloadData()
-        if let targetLanguage = targetLanguageLabel.text {
+        if let targetLanguage = dropDownDS[targetLanguageLabel.text!] {
             FirebaseService.findCompatibleUsers(targetLanguage: targetLanguage, nativeLanguages: User.sharedInstance.nativeLanguages, completionHandler: { (users) in
                 self.loadingImageView.isHidden = true
                 if (users.count != 0) {
@@ -123,12 +130,22 @@ extension HomeController {
         dropMenuGlobal.anchorView = dropDownMenuHoldingView
         dropDownMenuHoldingView.isHidden = true
         
-        var dropDownDataSource: [String] = []
-        for (interest) in User.sharedInstance.targetLanguages {
-            dropDownDataSource.append(String(describing: interest))
+        var dropDownDataSource: [String:String] = [:]
+        if let targetLanguages = User.sharedInstance.targetLanguages {
+            for (language) in targetLanguages {
+                dropDownDataSource[NSLocalizedString(String(describing: language), comment: "")] = String(describing: language)
+            }
         }
-        dropMenuGlobal.dataSource = dropDownDataSource
-        self.targetLanguageLabel.text = dropDownDataSource[0]
+        self.dropDownDS = dropDownDataSource
+        
+        var translatedLanguageArray = [String]()
+        for (translatedLanguage) in dropDownDataSource {
+            translatedLanguageArray.append(translatedLanguage.key)
+        }
+        
+        dropMenuGlobal.dataSource = translatedLanguageArray
+        self.targetLanguageLabel.text = translatedLanguageArray[0]
+        
         dropMenuGlobal.selectionAction = { [unowned self] (index: Int, selectedLanguage: String) in
             self.targetLanguageLabel.text = selectedLanguage
             self.loadUsersTableView()

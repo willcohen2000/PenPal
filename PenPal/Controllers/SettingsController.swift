@@ -17,8 +17,9 @@ class SettingsController: UIViewController {
     @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var myLanguagesCollectionView: UICollectionView!
     @IBOutlet weak var signOutButton: UIButton!
-    
     @IBOutlet weak var lowerSettingsView: ShadowView!
+    @IBOutlet weak var editMyFourThingsToTalkAboutLabel: UILabel!
+    @IBOutlet weak var languagesImLearningLabel: UILabel!
     
     var selectedImage: UIImage?
     
@@ -29,6 +30,7 @@ class SettingsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
         loadSettingsView()
         myLanguagesCollectionView.delegate = self
         myLanguagesCollectionView.dataSource = self
@@ -57,6 +59,8 @@ class SettingsController: UIViewController {
     }
     
     private func loadSettingsView() {
+        self.profilePictureButton.setImage(UIImage(named: "User"), for: .normal)
+        
         editMyFourThingsButton.layer.borderColor = UIColor.black.cgColor
         editMyFourThingsButton.layer.cornerRadius = editMyFourThingsButton.frame.height / 2
         editMyFourThingsButton.layer.borderWidth = 1.0
@@ -75,14 +79,21 @@ class SettingsController: UIViewController {
     }
     
     @IBAction func signOutButtonPressed(_ sender: Any) {
-        let logOutAlert = UIAlertController(title: "Are you sure you want to log out?", message:
+        let logOutAlert = UIAlertController(title: NSLocalizedString("Are you sure you want to log out?", comment: "Are you sure you want to log out?"), message:
             "", preferredStyle: UIAlertControllerStyle.alert)
-        logOutAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
-        logOutAlert.addAction(UIAlertAction(title: "Sign Me Out", style: UIAlertActionStyle.destructive, handler: { (UIAlertAction) in
+        logOutAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: UIAlertActionStyle.default,handler: nil))
+        logOutAlert.addAction(UIAlertAction(title: NSLocalizedString("Sign Me Out", comment: "Sign Me Out"), style: UIAlertActionStyle.destructive, handler: { (UIAlertAction) in
             let _ = KeychainWrapper.standard.removeObject(forKey: "uid")
             self.performSegue(withIdentifier: Constants.Segues.loggedOutSegue, sender: nil)
         }))
         self.present(logOutAlert, animated: true, completion: nil)
+    }
+    
+    private func localize() {
+        editMyFourThingsButton.setTitle(NSLocalizedString("Edit", comment: "Edit"), for: .normal)
+        signOutButton.setTitle(NSLocalizedString("Sign Out", comment: "Sign Out/Log Out"), for: .normal)
+        editMyFourThingsToTalkAboutLabel.text = NSLocalizedString("Edit my four things to talk about", comment: "Edit my four things to talk about")
+        languagesImLearningLabel.text = NSLocalizedString("Languages I am learning", comment: "Languages I'm learning")
     }
 
 }
@@ -133,14 +144,10 @@ extension SettingsController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let language = User.sharedInstance.targetLanguages[indexPath.row]
         if let cell = myLanguagesCollectionView.dequeueReusableCell(withReuseIdentifier: "myLanguages", for: indexPath) as? MyLanguagesCollectionViewCell {
-            cell.languageButton.setTitle(language, for: .normal)
+            cell.languageButton.setTitle(NSLocalizedString(language, comment: ""), for: .normal)
             return cell
         } else {
             return PickNativeLanguageCell()
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
     }
 }

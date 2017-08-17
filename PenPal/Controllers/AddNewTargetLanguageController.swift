@@ -11,6 +11,8 @@ import UIKit
 class AddNewTargetLanguageController: UIViewController {
     
     @IBOutlet weak var pickNewTargetLanguageCollectionView: UICollectionView!
+    @IBOutlet weak var languagesYouAreFluentInLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
     
     var targetLanguages: [String] = []
     var selectedLanguages: [String] = []
@@ -18,9 +20,9 @@ class AddNewTargetLanguageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
         pickNewTargetLanguageCollectionView.delegate = self
         pickNewTargetLanguageCollectionView.dataSource = self
-        
         pickNewTargetLanguageCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         
     }
@@ -39,12 +41,17 @@ class AddNewTargetLanguageController: UIViewController {
                     }
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    MainFunctions.createSimpleAlert(alertTitle: "Could not save your target language.", alertMessage: "It appears like we can not correctly save your new language. Please try again later.", controller: self)
+                    MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Could not save your target language.", comment: "Could not save your target language."), alertMessage: NSLocalizedString("It appears like we can not correctly save your new language. Please try again later.", comment: "It appears like we can not correctly save your new language. Please try again later."), controller: self)
                 }
             })
         } else {
-            MainFunctions.createSimpleAlert(alertTitle: "No Languages Selected", alertMessage: "You need to select at least one language to continue.", controller: self)
+            MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("No Languages Selected", comment: "No Languages Selected"), alertMessage: NSLocalizedString("You need to select at least one language to continue.", comment: "You need to select at least one language to continue."), controller: self)
         }
+    }
+    
+    private func localize() {
+        nextButton.setTitle(NSLocalizedString("Done", comment: "Done"), for: .normal)
+        languagesYouAreFluentInLabel.text = NSLocalizedString("What language do you want to add?", comment: "What language do you want to add?")
     }
     
 }
@@ -66,7 +73,6 @@ extension AddNewTargetLanguageController: pickNewTargetLanguageDelegate, unpickN
 extension AddNewTargetLanguageController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("hello \(targetLanguages.count)")
         return targetLanguages.count
     }
     

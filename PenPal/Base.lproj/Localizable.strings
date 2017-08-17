@@ -1,0 +1,183 @@
+/* 
+  Localizable.strings
+  PenPal
+
+  Created by Will Cohen on 8/16/17.
+  Copyright © 2017 Will Cohen. All rights reserved.
+*/
+
+// MAIN STORYBOARD
+"Email" = "Email";
+"Password" = "Password";
+"Confirm Password" = "Confirm Password";
+"Full Name" = "Full Name";
+"Sign Up" = "Sign Up";
+"Go back to home page" = "Go back to home page";
+"Log In" = "Log In";
+"Connecting language learners worldwide" = "Connecting language learners worldwide";
+"Next" = "Next";
+"Pick the language(s) you are already fluent in" = "Pick the language(s) you are already fluent in";
+"Pick the language(s) you are trying to learn" = "Pick the language(s) you are trying to learn";
+"Pick four interests of yours" = "Pick four interests of yours";
+"What language do you want to add?" = "What language do you want to add?";
+
+// HOME STORYBOARD
+"My Dictionary" = "My Dictionary";
+"Add New Entry" = "Add New Entry";
+"Likes to talk about:" = "Likes to talk about:";
+"No current chats." = "No current chats.";
+"No existing dictionary entries." = "No existing dictionary entries.";
+"Target Language" = "Target Language";
+"Talk with" = "Talk with";
+"No compatible users." = "No compatible users.";
+"You do not have any corrections yet." = "You do not have any corrections yet.";
+"Sign Out" = "Sign Out";
+"Edit" = "Edit";
+"Edit my four things to talk about" = "Edit my four things to talk about";
+"Languages I am learning" = "Languages I am learning";
+"Done" = "Done";
+"Term" = "Term";
+"Definition" = "Definition";
+"Save to Dictionary" = "Save to Dictionary";
+"Your Message" = "Your Message";
+"Their Message" = "Their Message";
+"Translate" = "Translate";
+"What is wrong with this message?" = "What's wrong with this message?";
+"Remember - the more detailed the better!" = "Remember - the more detailed the better!";
+"Send Correction" = "Send Correction";
+"View This Correction" = "View This Correction";
+"Translated" = "Translated";
+"Block User" = "Block User";
+
+// POP UPS
+"Are you sure you want to block this user?" = "Are you sure you want to block this user?";
+"Please confirm that you would like to block this user." = "Please confirm that you would like to block this user.";
+"Block This User" = "Block This User";
+"No, Don't Block This User" = "No, Don't Block This User";
+
+"Passwords Do Not Match" = "Passwords Do Not Match";
+"It seems like you have entered in two different passwords." = "It seems like you have entered in two different passwords.";
+"Okay" = "Okay";
+
+"Password too short." = "Password too short.";
+"Passwords must contain at least six characters." = "Passwords must contain at least six characters.";
+
+"Error signing up" = "Error signing up";
+"It seems like there was an error signing you up. Please try again soon." = "It seems like there was an error signing you up. Please try again soon.";
+
+"No Languages Selected" = "No Languages Selected";
+"You need to select at least one language to continue." = "You need to select at least one language to continue.";
+
+"You have not selected enough interests." = "You have not selected enough interests.";
+"You must select four interests to continue." = "You must select four interests to continue.";
+
+"Unable to save your data." = "Unable to save your data.";
+"It seems like we are currently having issues signing you up. Please try again later." = "It seems like we are currently having issues signing you up. Please try again later.";
+
+"You already have four interests!" = "You already have four interests!";
+"It appears like you have already selected four interests. You must deselect one to add a new interest." = "It appears like you have already selected four interests. You must deselect one to add a new interest.";
+
+"Are you sure you want to block this user?" = "Are you sure you want to block this user?";
+"Please note that this action is not reversible." = "Please note that this action is not reversible.";
+"Block This User" = "Block This User";
+"No, Don't Block This User" = "No, Don't Block This User";
+
+"Do you want to correct this message?" = "Do you want to correct this message?";
+"Yes!" = "Yes!";
+"No Thanks" = "No Thanks";
+
+"Thank you for correcting this message!" = "Thank you for correcting this message!";
+"We appreciate your contribution, and hope that you continue to correct other mistakes you may encounter." = "We appreciate your contribution, and hope that you continue to correct other mistakes you may encounter.";
+
+"Are you sure you want to log out?" = "Are you sure you want to log out?";
+"Cancel" = "Cancel";
+"Sign Me Out" = "Sign Me Out";
+
+"Could not save your target language." = "Could not save your target language.";
+"It appears like we can not correctly save your new language. Please try again later." = "It appears like we can not correctly save your new language. Please try again later.";
+
+"No Languages Selected" = "No Languages Selected";
+"You need to select at least one language to continue." = "You need to select at least one language to continue.";
+
+"Remember - this dictionary works best with nouns and verbs!" = "Remember - this dictionary works best with nouns and verbs!";
+"We recommend that you keep your definitions short and consise. This will help you to remember it quicker." = "We recommend that you keep your definitions short and consise. This will help you to remember it quicker.";
+
+"Unable to translate." = "Unable to translate.";
+"We could not successfully translate this message. This may be because you don't have connection." = "We could not successfully translate this message. This may be because you don't have connection.";
+
+"Invalid Email" = "Invalid Email";
+"It seems like you have put in an invalid email." = "It seems like you have put in an invalid email.";
+
+"Wrong Password" = "Wrong Password";
+"It seems like you have entered the wrong password." = "It seems like you have entered the wrong password.";
+
+"No Account Found" = "No Account Found";
+"We couldn't find an account that corresponds to that email. Do you want to create an account?" = "We couldn't find an account that corresponds to that email. Do you want to create an account?";
+"Create Account" = "Create Account";
+
+"Error Logging In" = "Error Logging In";
+"There was an error logging you in. Please try again soon." = "There was an error logging you in. Please try again soon.";
+
+"Email is not properly formatted." = "Email is not properly formatted.";
+"Please enter a valid email to sign up with." = "Please enter a valid email to sign up with.";
+
+"We are having trouble signing you up." = "We are having trouble signing you up.";
+"We are having trouble signing you up, please try again soon." = "We are having trouble signing you up, please try again soon.";
+
+// LANGUAGES
+"English" = "English";
+"French" = "French";
+"Spanish" = "Spanish";
+"Italian" = "Italian";
+"Japanese" = "Japanese";
+"Russian" = "Russian";
+"German" = "German";
+"Chinese" = "Chinese";
+
+// INTERESTS
+"Reading" = "Reading";
+"TV" = "TV";
+"Family" = "Family";
+"Movies" = "Movies";
+"Fishing" = "Fishing";
+"Computer" = "Computer";
+"Gardening" = "Gardening";
+"Walking" = "Walking";
+"Exercise" = "Exercise";
+"Music" = "Music";
+"Entertaining" = "Entertaining";
+"Hunting" = "Hunting";
+"Sports" = "Sports";
+"Shopping" = "Shopping";
+"Traveling" = "Traveling";
+"Sleeping" = "Sleeping";
+"Socializing" = "Socializing";
+"Sewing" = "Sewing";
+"Golf" = "Golf";
+"Religion" = "Religion";
+"Relaxing" = "Relaxing";
+"Housework" = "Housework";
+"Crafts" = "Crafts";
+"Bicycling" = "Bicycling";
+"Cards" = "Cards";
+"Hiking" = "Hiking";
+"Cooking" = "Cooking";
+"Food" = "Food";
+"Swimming" = "Swimming";
+"Camping" = "Camping";
+"Skiing" = "Skiing";
+"Cars" = "Cars";
+"Writing" = "Writing";
+"Boating" = "Boating";
+"Motorcycling" = "Motorcycling";
+"Animals" = "Animals";
+"Bowling" = "Bowling";
+"Painting" = "Painting";
+"Running" = "Runnining";
+"Dancing" = "Dancing";
+"Tennis" = "Tennis";
+"Theater" = "Theater";
+"Billiards" = "Billiards";
+"Beach" = "Beach";
+"Volunteering" = "Volunteering";
+

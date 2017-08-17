@@ -1,0 +1,185 @@
+/* 
+  Localizable.strings
+  PenPal
+
+  Created by Will Cohen on 8/16/17.
+  Copyright © 2017 Will Cohen. All rights reserved.
+*/
+
+// MAIN STORYBOARD
+"Email" = "Correo electrónico";
+"Password" = "Contraseña";
+"Confirm Password" = "Confirmar contraseña";
+"Full Name" = "Nombre completo";
+"Sign Up" = "Registrarse";
+"Go back to home page" = "Volver a la página principal";
+"Log In" = "Iniciar sesión";
+"Connecting language learners worldwide" = "Conectar aprendices de idiomas en todo el mundo";
+"Next" = "Siguiente";
+"Pick the language(s) you are already fluent in" = "Escoja los idiomas en los que ya está fluyendo";
+"Pick the language(s) you are trying to learn" = "Escoja el idioma que está intentando aprender";
+"Pick four interests of yours" = "Elige cuatro intereses tuyos";
+"What language do you want to add?" = "¿Qué idioma quieres agregar?";
+
+// HOME STORYBOARD
+"My Dictionary" = "Mi diccionario";
+"Add New Entry" = "Añadir nueva entrada";
+"No current chats." = " No hay chats actuales.";
+"Likes to talk about:" = "Le gusta hablar de:";
+"No existing dictionary entries." = "No hay entradas de diccionario existentes.";
+"Target Language" = "Idioma de destino";
+"Talk with" = "Hablar con";
+"No compatible users." = "No hay usuarios compatibles.";
+"You do not have any corrections yet." = "Todavía no tienes ninguna corrección.";
+"Sign Out" = "Salir";
+"Edit" = "Editar";
+"Edit my four things to talk about" = "Editar mis cuatro cosas para hablar de";
+"Languages I am learning" = "Idiomas que estoy aprendiendo";
+"Done" = "Hecho";
+"Term" = "Term";
+"Definition" = "Definición";
+"Save to Dictionary" = "Guardar en diccionario";
+"Your Message" = "Tu mensaje" ;
+"Their Message" = "Their Message";
+"Translate" = "Traducir";
+"Translated" = "Traducido";
+"What is wrong with this message?" = "¿Qué hay de malo en este mensaje?";
+"Remember - the more detailed the better!" = "Recuerda: cuanto más detallado mejor!";
+"Send Correction" = "Corrección de envío";
+"View This Correction" = "Ver esta corrección";
+"Block User" = "Bloquear usuario";
+
+// POP UPS
+"Are you sure you want to block this user?" = "¿Estás seguro de que quieres bloquear a este usuario?";
+"Please confirm that you would like to block this user." = "Por favor, confirme que desea bloquear este usuario.";
+"Block This User" = "Bloquear este usuario";
+"No, Don't Block This User" = "No, no bloquee este usuario";
+
+"Passwords Do Not Match" = "Las contraseñas no coinciden";
+"It seems like you have entered in two different passwords." = "Parece que has entrado en dos contraseñas diferentes.";
+"Okay" = "Bien";
+
+"Password too short." = "Contraseña demasiado corta.";
+"Passwords must contain at least six characters." = "Las contraseñas deben contener al menos seis caracteres.";
+
+"Error signing up" = "Error al registrarse";
+"It seems like there was an error signing you up. Please try again soon." = "Parece que hubo un error al registrarte. Vuelve a intentarlo pronto.";
+
+"No Languages Selected" = "No hay idiomas seleccionados";
+"You need to select at least one language to continue." = "Debe seleccionar al menos un idioma para continuar.";
+
+"You have not selected enough interests." = "No has seleccionado intereses suficientes.";
+"You must select four interests to continue." = "Debes seleccionar cuatro intereses para continuar.";
+
+"Unable to save your data." = "No se pueden guardar los datos.";
+"It seems like we are currently having issues signing you up. Please try again later." = "Parece que actualmente tenemos problemas para registrarte. Vuelve a intentarlo más tarde.";
+
+"You already have four interests!" = "¡Ya tienes cuatro intereses!";
+"It appears like you have already selected four interests. You must deselect one to add a new interest." = "Parece que ya has seleccionado cuatro intereses, debes anular la selección de uno para añadir un nuevo interés.";
+
+
+"Are you sure you want to block this user?" = "¿Estás seguro de que quieres bloquear a este usuario?";
+"Please note that this action is not reversible." = "Tenga en cuenta que esta acción no es reversible.";
+"Block This User" = "Bloquear este usuario";
+"No, Don't Block This User" = "No, no bloquee este usuario";
+
+"Do you want to correct this message?" = "¿Desea corregir este mensaje?";
+"Yes!" = "¡Sí!";
+"No Thanks" = "No gracias";
+
+"Thank you for correcting this message!" = "¡Gracias por corregir este mensaje!" ;
+"We appreciate your contribution, and hope that you continue to correct other mistakes you may encounter." = "Agradecemos su contribución y esperamos que continúe corrigiendo otros errores que pueda encontrar.";
+
+"Are you sure you want to log out?" = "¿Seguro que quieres salir?";
+"Cancel" = "Cancelar";
+"Sign Me Out" = "Desconectar";
+
+"Could not save your target language." = "No se pudo guardar el idioma de destino.";
+"It appears like we can not correctly save your new language. Please try again later." = "Parece que no podemos guardar correctamente tu nuevo idioma. Vuelve a intentarlo más tarde.";
+
+"No Languages Selected" = "No hay idiomas seleccionados";
+"You need to select at least one language to continue." = "Debe seleccionar al menos un idioma para continuar.";
+
+"Remember - this dictionary works best with nouns and verbs!" = "Recuerde: ¡este diccionario funciona mejor con nombres y verbos!";
+"We recommend that you keep your definitions short and consise. This will help you to remember it quicker." = "Le recomendamos que mantenga sus definiciones cortas y consisen Esto le ayudará a recordarla más rápido.";
+
+"Unable to translate." = "No se puede traducir.";
+"We could not successfully translate this message. This may be because you don't have connection." = "No hemos podido traducir correctamente este mensaje, ya que no tienes conexión.";
+
+
+"Invalid Email" = "Email no válido";
+"It seems like you have put in an invalid email." = "Parece que has puesto un correo electrónico no válido.";
+
+"Wrong Password" = "Contraseña equivocada";
+"It seems like you have entered the wrong password." = "Parece que has ingresado la contraseña incorrecta.";
+
+"No Account Found" = "No se encontró ninguna cuenta";
+"We couldn't find an account that corresponds to that email. Do you want to create an account?" = "No hemos podido encontrar una cuenta que corresponda a ese correo electrónico. ¿Desea crear una cuenta?";
+"Create Account" = "Crear cuenta";
+
+"Error Logging In" = "Error al iniciar sesión";
+"There was an error logging you in. Please try again soon." = "Se ha producido un error al iniciar sesión. Vuelve a intentarlo pronto.";
+
+"Email is not properly formatted." = "El correo electrónico no está correctamente formateado.";
+"Please enter a valid email to sign up with." = "Por favor, introduzca un correo electrónico válido para registrarse.";
+
+"We are having trouble signing you up." = "Estamos teniendo problemas para registrarte.";
+"We are having trouble signing you up, please try again soon." = "Estamos teniendo problemas para registrarte, por favor, inténtalo de nuevo pronto.";
+
+// LANGUAGES
+"English" = "Inglés";
+"French" = "Francés";
+"Spanish" = "Spanish";
+"Italian" = "Italiano";
+"Japanese" = "Japonés";
+"Russian" = "Ruso";
+"German" = "Alemán";
+"Chinese" = "Chino";
+
+// INTERESTS
+"Reading" = "Lectura";
+"TV" = "TV";
+"Family" = "Familia";
+"Movies" = "Películas";
+"Fishing" = "Pesca";
+"Computer" = "Computadora";
+"Gardening" = "Jardinería";
+"Walking" = "Caminar";
+"Exercise" = "Ejercicio";
+"Music" = "Música";
+"Entertaining" = "Entretenido";
+"Hunting" = "Caza";
+"Sports" = "Deportes" ;
+"Shopping" = "Compras";
+"Traveling" = "Viajando";
+"Sleeping" = "Durmiendo";
+"Socializing" = "Socializar";
+"Sewing" = "Costura";
+"Golf" = "Golf";
+"Religion" = "Religión";
+"Relaxing" = "Relajante";
+"Housework" = "Trabajo de casa";
+"Crafts" = "Artesanía";
+"Bicycling" = "Bicicleta";
+"Cards" = "Tarjetas";
+"Hiking" = "Senderismo";
+"Cooking" = "Cocinar";
+"Food" = "Alimentos";
+"Swimming" = "Natación";
+"Camping" = "Camping";
+"Skiing" = "Esquí";
+"Cars" = "Coches";
+"Writing" = "Escritura";
+"Boating" = "Navegación";
+"Motorcycling" = "Motociclismo";
+"Animals" = "Animales";
+"Bowling" = "Bolos";
+"Painting" = "Pintura";
+"Running" = "Running";
+"Dancing" = "Bailando";
+"Tennis" = "Tenis";
+"Theater" = "Teatro";
+"Billiards" = "Billar";
+"Beach" = "Playa";
+"Volunteering" = "Trabajar como voluntario";
+

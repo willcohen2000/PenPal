@@ -12,6 +12,8 @@ import FirebaseDatabase
 class ChatsController: UIViewController {
 
     @IBOutlet weak var chatsListTableView: UITableView!
+    @IBOutlet weak var noCurrentChatsLabel: UILabel!
+    @IBOutlet weak var loadChatsImageView: UIImageView!
     
     var chats = [Chat]()
     var userChatsHandle: DatabaseHandle = 0
@@ -20,14 +22,26 @@ class ChatsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
+        
+        loadChatsImageView.loadGif(name: "StandardLoadingAnimation")
+        
         chatsListTableView.delegate = self
         chatsListTableView.dataSource = self
         chatsListTableView.tableFooterView = UIView()
         
+        noCurrentChatsLabel.isHidden = true
+        
         userChatsHandle = FirebaseService.observeChats { [weak self] (ref, chats) in
             self?.userChatsRef = ref
             self?.chats = chats
+            self?.loadChatsImageView.isHidden = true
             
+            if (chats.count == 0) {
+                self?.noCurrentChatsLabel.isHidden = false
+            } else {
+                self?.noCurrentChatsLabel.isHidden = true
+            }
             DispatchQueue.main.async {
                 self?.chatsListTableView.reloadData()
             }
@@ -37,6 +51,10 @@ class ChatsController: UIViewController {
 
     deinit {
         userChatsRef?.removeObserver(withHandle: userChatsHandle)
+    }
+    
+    private func localize() {
+        noCurrentChatsLabel.text = NSLocalizedString("No current chats.", comment: "No current chats")
     }
 
 }

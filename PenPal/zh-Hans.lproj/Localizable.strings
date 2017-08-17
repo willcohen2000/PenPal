@@ -1,0 +1,184 @@
+/* 
+  Localizable.strings
+  PenPal
+
+  Created by Will Cohen on 8/16/17.
+  Copyright © 2017 Will Cohen. All rights reserved.
+*/
+
+// MAIN STORYBOARD
+"Email" = "电子邮件";
+"Password" = "密码";
+"Confirm Password" = "确认密码";
+"Full Name" = "全名";
+"Sign Up" = "注册";
+"Go back to home page" = "回到主页";
+"Log In" = "登录";
+"Connecting language learners worldwide" = "连接全球语言学习者";
+"Next" = "下一个";
+"Pick the language(s) you are already fluent in" = "选择你已经流利的语言";
+"Pick the language(s) you are trying to learn" = "选择你正在学习的语言";
+"Pick four interests of yours" = "选择你的四大利益";
+"What language do you want to add?" = "你想添加什么语言";
+
+// HOME STORYBOARD
+"My Dictionary" = "我的字典";
+"Add New Entry" = "添加新条目";
+"No current chats." = "没有目前的聊天";
+"Likes to talk about:" = "喜欢谈论:";
+"No existing dictionary entries." = "没有现有的字典条目";
+"Target Language" = "目标语言";
+"Talk with" = "正在说话";
+"No compatible users." = "没有兼容用户";
+"You do not have any corrections yet." = "你还没有修正";
+"Sign Out" = "退出";
+"Edit" = "编辑";
+"Edit my four things to talk about" = "编辑我的四件事要谈";
+"Languages I am learning" = "我正在学习的语言";
+"Done" = "完成";
+"Term" = "期限";
+"Definition" = "定义";
+"Save to Dictionary" = "保存到词典";
+"Your Message" = "你的消息";
+"Their Message" = "他们的消息";
+"Translate" = "翻译";
+"Translated" = "翻译";
+"What is wrong with this message?" = "这个消息有什么问题?";
+"Remember - the more detailed the better!" = "记住 - 越详细越好！";
+"Send Correction" = "发送校正";
+"View This Correction" = "查看此修正";
+"Block User" = "阻止用户";
+
+// POP UPS
+"Are you sure you want to block this user?" = "你确定要阻止这个用户吗？";
+"Please confirm that you would like to block this user." = "请确认您要阻止此用户。";
+"Block This User" = "阻止此用户";
+"No, Don't Block This User" = "不，不要阻止这个用户";
+
+"Passwords Do Not Match" = "密码不匹配";
+"It seems like you have entered in two different passwords." = "看来你已经输入了两个不同的密码。";
+"Okay" = "好吧";
+
+"Password too short." = "密码太短。";
+"Passwords must contain at least six characters." = "密码必须至少包含六个字符。";
+
+"Error signing up" = "注册错误";
+"It seems like there was an error signing you up. Please try again soon." = "看起来你签了一个错误，请稍后重试。";
+
+"No Languages Selected" = "没有选择语言";
+"You need to select at least one language to continue." = "你需要选择至少一种语言来继续。";
+
+"You have not selected enough interests." = "你没有选择足够的兴趣。";
+"You must select four interests to continue." = "你必须选择四个利益来继续。";
+
+"Unable to save your data." = "无法保存您的数据";
+"It seems like we are currently having issues signing you up. Please try again later." = "看来我们目前有问题签约，请稍后再试。";
+
+"You already have four interests!" = "你已经有四个兴趣了！";
+"It appears like you have already selected four interests. You must deselect one to add a new interest." = "看来你已经选择了四个兴趣，你必须取消选择一个来增加新兴趣。";
+
+
+"Are you sure you want to block this user?" = "你确定要阻止这个用户吗？";
+"Please note that this action is not reversible." = "请注意，这一行动是不可逆转的。";
+"Block This User" = "阻止此用户";
+"No, Don't Block This User" = "不，不要阻止这个用户";
+
+"Do you want to correct this message?" = "你要纠正这个消息吗？";
+"Yes!" = "是！";
+"No Thanks" = "不谢谢";
+
+"Thank you for correcting this message!" = "谢谢你纠正这个消息！";
+"We appreciate your contribution, and hope that you continue to correct other mistakes you may encounter." = "我们感谢您的贡献，并希望您继续纠正您可能遇到的其他错误。";
+
+"Are you sure you want to log out?" = "您确定要退出？";
+"Cancel" = "取消";
+"Sign Me Out" = "我出来";
+
+"Could not save your target language." = "无法保存您的目标语言";
+"It appears like we can not correctly save your new language. Please try again later." = "看来我们无法正确保存您的新语言，请稍后再试。";
+
+"No Languages Selected" = "没有选择语言";
+"You need to select at least one language to continue." = "你需要选择至少一种语言来继续。";
+
+"Remember - this dictionary works best with nouns and verbs!" = "记住 - 这本字典最适合名词和动词！";
+"We recommend that you keep your definitions short and consise. This will help you to remember it quicker." = "我们建议您将您的定义简短易用，这将有助于您更快地记住它。";
+
+"Unable to translate." = "无法翻译";
+"We could not successfully translate this message. This may be because you don't have connection." = "我们无法成功翻译此消息，这可能是因为您没有连接。";
+
+
+"Invalid Email" = "电子邮件无效";
+"It seems like you have put in an invalid email." = "看来你已经放了一封无效的电子邮件。";
+
+"Wrong Password" = "错误的密码";
+"It seems like you have entered the wrong password." = "看来你输入错误的密码。";
+
+"No Account Found" = "找不到帐户";
+"We couldn't find an account that corresponds to that email. Do you want to create an account?" = "我们找不到与该电子邮件相对应的帐户，您要创建一个帐户吗？";
+"Create Account" = "创建帐户";
+
+"Error Logging In" = "登录错误";
+"There was an error logging you in. Please try again soon." = "在您登录时出错，请稍后再试。";
+
+"Email is not properly formatted." = "电子邮件格式不正确";
+"Please enter a valid email to sign up with." = "请输入有效的电子邮件注册。";
+
+"We are having trouble signing you up." = "我们很难注册你。";
+"We are having trouble signing you up, please try again soon." = "我们很难注册，请稍后重试。";
+
+// LANGUAGES
+"English" = "英文";
+"French" = "法语";
+"Spanish" = "西班牙语";
+"Italian" = "意大利语";
+"Japanese" = "日语";
+"Russian" = "俄罗斯";
+"German" = "德语";
+"Chinese" = "中文";
+
+// INTERESTS
+"Reading" = "阅读";
+"TV" = "电视";
+"Family" = "家庭";
+"Movies" = "电影";
+"Fishing" = "钓鱼";
+"Computer" = "电脑";
+"Gardening" = "园艺";
+"Walking" = "走";
+"Exercise" = "练习";
+"Music" = "音乐";
+"Entertaining" = "娱乐";
+"Hunting" = "狩猎";
+"Sports" = "体育";
+"Shopping" = "购物";
+"Traveling" = "旅行";
+"Sleeping" = "睡觉";
+"Socializing" = "社会化";
+"Sewing" = "缝";
+"Golf" = "高尔夫";
+"Religion" = "宗教";
+"Relaxing" = "放松";
+"Housework" = "家务";
+"Crafts" = "工艺品";
+"Bicycling" = "骑自行车";
+"Cards" = "卡";
+"Hiking" = "徒步旅行";
+"Cooking" = "烹饪";
+"Food" = "食物";
+"Swimming" = "游泳";
+"Camping" = "露营";
+"Skiing" = "滑雪";
+"Cars" = "汽车";
+"Writing" = "写";
+"Boating" = "划船";
+"Motorcycling" = "摩托车";
+"Animals" = "动物";
+"Bowling" = "保龄球";
+"Painting" = "绘画";
+"Running" = "跑";
+"Dancing" = "跳舞";
+"Tennis" = "网球";
+"Theater" = "剧院";
+"Billiards" = "台球";
+"Beach" = "海滩";
+"Volunteering" = "志愿服务";

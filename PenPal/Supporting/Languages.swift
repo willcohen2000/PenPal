@@ -18,7 +18,8 @@ struct Languages {
         "Italian",
         "Japanese",
         "Russian",
-        "German"
+        "German",
+        "Chinese"
     ]
     
 }

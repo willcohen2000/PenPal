@@ -12,31 +12,51 @@ class DictionaryController: UIViewController {
 
     @IBOutlet weak var addDictionaryItemButton: UIButton!
     @IBOutlet weak var dictionaryTableView: UITableView!
+    @IBOutlet weak var loadingImageView: UIImageView!
+    @IBOutlet weak var noExitsingDictionaryEntriesLabel: UILabel!
+    @IBOutlet weak var myDictionaryLabel: UILabel!
     
     var userDictionaryArray = [DictionaryEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        localize()
         customizeAddDictionaryButton()
+        loadingImageView.loadGif(name: "StandardLoadingAnimation")
+        noExitsingDictionaryEntriesLabel.isHidden = true
         dictionaryTableView.delegate = self
         dictionaryTableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         FirebaseService.retrieveDictionaryEntries(userUID: User.sharedInstance.uid) { (dictionaryEntries) in
             if let dictEntries = dictionaryEntries {
                 self.userDictionaryArray = dictEntries
+                self.loadingImageView.isHidden = true
+                if (dictEntries.count == 0) {
+                    self.noExitsingDictionaryEntriesLabel.isHidden = false
+                } else {
+                    self.noExitsingDictionaryEntriesLabel.isHidden = true
+                }
                 self.dictionaryTableView.reloadData()
             } else {
                 // HANDLE
             }
         }
+        
     }
     
     private func customizeAddDictionaryButton() {
         addDictionaryItemButton.layer.cornerRadius = addDictionaryItemButton.frame.height / 2
         addDictionaryItemButton.layer.borderColor = UIColor.black.cgColor
         addDictionaryItemButton.layer.borderWidth = 0.5
+    }
+    
+    private func localize() {
+        myDictionaryLabel.text = NSLocalizedString("My Dictionary", comment: "My Dictionary")
+        addDictionaryItemButton.setTitle(NSLocalizedString("Add New Entry", comment: "Add New Entry"), for: .normal)
+        noExitsingDictionaryEntriesLabel.text = NSLocalizedString("No existing dictionary entries.", comment: "No existing dictionary entries")
     }
 
 }

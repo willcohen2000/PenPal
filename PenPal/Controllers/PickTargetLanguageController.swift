@@ -11,10 +11,16 @@ import UIKit
 class PickTargetLanguageController: UIViewController {
 
     @IBOutlet weak var pickTargetLanguageCollectionView: UICollectionView!
+    @IBOutlet weak var pickTheLanguagesYouAreTryingToLearnLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    
     var targetLanguages: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
+        
         pickTargetLanguageCollectionView.delegate = self
         pickTargetLanguageCollectionView.dataSource = self
         
@@ -27,8 +33,13 @@ class PickTargetLanguageController: UIViewController {
             User.sharedInstance.targetLanguages = targetLanguages
             self.performSegue(withIdentifier: Constants.Segues.nextSegue, sender: nil)
         } else {
-            MainFunctions.createSimpleAlert(alertTitle: "No Languages Selected", alertMessage: "You need to select at least one language to continue.", controller: self)
+            MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("No Languages Selected", comment: "No Languages Selected"), alertMessage: NSLocalizedString("You need to select at least one language to continue.", comment: "You need to select at least one language to continue."), controller: self)
         }
+    }
+    
+    private func localize() {
+        pickTheLanguagesYouAreTryingToLearnLabel.text = NSLocalizedString("Pick the language(s) you are trying to learn", comment: "Choose your target language(s)")
+        nextButton.setTitle(NSLocalizedString("Next", comment: "Next/Continue"), for: .normal)
     }
     
 }

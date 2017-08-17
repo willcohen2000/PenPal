@@ -12,17 +12,18 @@ import Firebase
 
 class InitialLandingPage: UIViewController {
 
-    @IBOutlet weak var logoStackViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoStackView: UIStackView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var connecitngLanguageLearnersLabel: UILabel!
-    @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var logoImageViewWidthConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var loadingPreviouslyLoggedInUserView: UIVisualEffectView!
     @IBOutlet weak var loadingImageView: UIImageView!
-    
     @IBOutlet weak var loginAndSignUpStackView: UIStackView!
+    
+    @IBOutlet weak var logoStackViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoImageViewWidthConstraint: NSLayoutConstraint!
     
     var didCompleteAnimation: Bool = false
     
@@ -40,7 +41,9 @@ class InitialLandingPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("superstar: \(UIScreen.main.bounds.width)")
+         
+        localize()
+        
         loadingPreviouslyLoggedInUserView.isHidden = true
         
         if (KeychainWrapper.standard.string(forKey: "uid") != nil) {
@@ -66,8 +69,14 @@ class InitialLandingPage: UIViewController {
         connecitngLanguageLearnersLabel.textColor = UIColor.clear
         loadUpAnimation()
     }
+    
+    private func localize() {
+        connecitngLanguageLearnersLabel.text = NSLocalizedString("Connecting language learners worldwide", comment: "")
+        logInButton.setTitle(NSLocalizedString("Log In", comment: "Log In"), for: .normal)
+        signUpButton.setTitle(NSLocalizedString("Sign Up", comment: "Register/Sign Up"), for: .normal)
+    }
 
-    func loadUpAnimation() {
+    private func loadUpAnimation() {
         logoStackViewTopConstraint.constant = 20
         UIView.animate(withDuration: 1.0, animations: {
             self.view.layoutIfNeeded()

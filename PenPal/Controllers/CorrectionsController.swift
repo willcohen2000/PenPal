@@ -19,6 +19,9 @@ class CorrectionsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localize()
+        
         doNotHaveCorrectionsLabel.isHidden = true
         loadingView.loadGif(name: "StandardLoadingAnimation")
         
@@ -36,6 +39,10 @@ class CorrectionsController: UIViewController {
         correctionsTableView.delegate = self
         correctionsTableView.dataSource = self
         
+    }
+    
+    private func localize() {
+        doNotHaveCorrectionsLabel.text = NSLocalizedString("You do not have any corrections yet.", comment: "")
     }
 
 }

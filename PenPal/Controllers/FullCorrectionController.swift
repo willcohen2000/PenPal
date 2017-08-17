@@ -15,6 +15,7 @@ class FullCorrectionController: UIViewController {
     @IBOutlet weak var correctionLabel: UITextView!
     @IBOutlet weak var correctionFromLabel: UILabel!
     @IBOutlet weak var translateButton: UIButton!
+    @IBOutlet weak var yourMessageLabel: UILabel!
     
     let translator = ROGoogleTranslate()
     var correction: Correction!
@@ -24,6 +25,8 @@ class FullCorrectionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        localize()
+        
         userMessageLabel.text = correction.originalMessage
         correctionLabel.text = correction.correction
         
@@ -44,20 +47,20 @@ class FullCorrectionController: UIViewController {
         
         if let translation = correction.translation {
             self.correctionLabel.text = translation
-            self.translateButton.setTitle("Translated", for: .normal)
+            self.translateButton.setTitle(NSLocalizedString("Translated", comment: "Translated"), for: .normal)
         } else {
             if let correction = correctionLabel.text {
                 params.text = correction
-                translateButton.setTitle("Translating...", for: .normal)
+                translateButton.setTitle("\(NSLocalizedString("Translate", comment: "Translate"))...", for: .normal)
                 translator.translate(params: params) { (result) in
                     DispatchQueue.main.async {
                         FirebaseService.saveTranslation(userUID: User.sharedInstance.uid, correctionUID: self.correction.postKey, translation: result, completionHandler: { (success) in
                             if (success) {
                                 self.didTranslate = true
                                 self.correctionLabel.text = result
-                                self.translateButton.setTitle("Translated", for: .normal)
+                                self.translateButton.setTitle(NSLocalizedString("Translated", comment: "Translated"), for: .normal)
                             } else {
-                                MainFunctions.createSimpleAlert(alertTitle: "Unable to translate.", alertMessage: "We could not successfully translate this message. This may be because you don't have connection.", controller: self)
+                                MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Unable to translate.", comment: "Unable to translate."), alertMessage: NSLocalizedString("We could not successfully translate this message. This may be because you don't have connection.", comment: "We could not successfully translate this message. This may be because you don't have connection."), controller: self)
                             }
                         })
                     }
@@ -71,5 +74,12 @@ class FullCorrectionController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    private func localize() {
+        translateButton.setTitle(NSLocalizedString("Translate", comment: "Translate"), for: .normal)
+        yourMessageLabel.text = NSLocalizedString("Your Message", comment: "Your Message")
+        correctionFromLabel.text = NSLocalizedString("Their Message", comment: "Their Message")
+    }
+    
 }
+
+
