@@ -46,6 +46,20 @@ class MainFunctions {
         })
     }
     
+    static func loadCriticalUserInfo(userUID: String, completionHandler: @escaping (_ success: Bool) -> Void) {
+        let userReference = Database.database().reference().child("Users").child(userUID)
+        
+        userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            User.sharedInstance.name = postDict["fullName"] as! String
+            User.sharedInstance.imageUrl = postDict["profileImageUrl"] as! String
+            completionHandler(true)
+        }) { (error) in
+            completionHandler(false)
+        }
+        
+    }
+    
     // ADD ERROR BORDER AROUND TEXT FIELD -> TAKE AWAY BORDER AROUND TEXT FIELD
     static func textFieldError(textFields: [UITextField]) {
         for (textField) in textFields {

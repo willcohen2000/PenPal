@@ -1,0 +1,193 @@
+/* 
+  Localizable.strings
+  PenPal
+
+  Created by Will Cohen on 8/16/17.
+  Copyright © 2017 Will Cohen. All rights reserved.
+*/
+
+// MAIN STORYBOARD
+"Email" = "Эл. адрес";
+"Password" = "Пароль";
+"Confirm Password" = "Подтвердить пароль";
+"Full Name" = "Полное имя";
+"Sign Up" = "Зарегистрироваться";
+"Go back to home page" = "Вернитесь на главную страницу";
+"Log In" = "Вход";
+"Connecting language learners worldwide" = "Подключение учащихся по всему миру";
+"Next" = "Следующий";
+"Pick the language(s) you are already fluent in" = "Выберите язык, на котором вы уже свободно говорите";
+"Pick the language(s) you are trying to learn" = "Выберите язык, который вы пытаетесь изучить";
+"Pick four interests of yours" = "Возьми четыре твоих собственных";
+"What language do you want to add?" = "На каком языке вы хотите добавить?";
+
+// HOME STORYBOARD
+"My Dictionary" = "Мой словарь";
+"Add New Entry" = "Добавить новую запись";
+"No current chats." = "Нет текущих чатов";
+"Likes to talk about:" = "Любит говорить о:";
+"No existing dictionary entries." = "Нет существующих записей в словаре";
+"Target Language" = "Выбранный язык";
+"Talk with" = "Разговор с";
+"No compatible users." = "Нет совместимых пользователей";
+"You do not have any corrections yet." = "У вас пока нет никаких исправлений";
+"Sign Out" = "Выйти";
+"Edit" = "Изменить";
+"Edit my four things to talk about" = "Отредактируйте мои четыре вещи, чтобы говорить о";
+"Languages I am learning" = "Языки, которые я изучаю";
+"Done" = "Готово";
+"Term" = "Срок";
+"Definition" = "Определение";
+"Save to Dictionary" = "Сохранить в словаре";
+"Your Message" = "Ваше сообщение";
+"Their Message" = "Их сообщение";
+"Translate" = "Перевести";
+"Translated" = "Переведено";
+"What is wrong with this message?" = "Что не так с этим сообщением?";
+"Remember - the more detailed the better!" = "Помните - чем лучше, тем лучше!";
+"Send Correction" = "Отправить исправление";
+"View This Correction" = "Просмотреть эту коррекцию";
+"Block User" = "Заблокировать пользователя";
+
+// POP UPS
+"No user found with this email" = "Не найдено ни одного пользователя с этим электронным адресом";
+"We cannot find a user with this email. Please try again with a different email." = "Мы не можем найти пользователя с этим электронным письмом. Повторите попытку с другим адресом электронной почты.";
+
+"Send Email" = "Отправить электронное письмо";
+"Forgot your password?" = "Забыли пароль?";
+"Please enter the email you signed up with to change your password." = "Чтобы изменить пароль, введите адрес электронной почты, с которым вы зарегистрировались.";
+
+"Are you sure you want to block this user?" = "Вы уверены, что хотите заблокировать этого пользователя?";
+"Please confirm that you would like to block this user." = "Пожалуйста, подтвердите, что вы хотели бы заблокировать этого пользователя";
+"Block This User" = "Заблокировать этого пользователя";
+"No, Don't Block This User" = "Нет, не блокируйте этого пользователя";
+
+"Passwords Do Not Match" = "Пароли не совпадают";
+"It seems like you have entered in two different passwords." = "Похоже, вы ввели два разных пароля";
+"Okay" = "Хорошо";
+
+"Password too short." = "Пароль слишком короткий.";
+"Passwords must contain at least six characters." = "Пароли должны содержать не менее шести символов";
+
+"Error signing up" = "Ошибка регистрации";
+"It seems like there was an error signing you up. Please try again soon." = "Кажется, произошла ошибка, связанная с вами. Повторите попытку в ближайшее время";
+
+"No Languages Selected" = "Нет выбранных языков";
+"You need to select at least one language to continue." = "Для продолжения нужно выбрать хотя бы один язык";
+
+"You have not selected enough interests." = "Вы не выбрали достаточно интересов";
+"You must select four interests to continue." = "Вы должны выбрать четыре вопроса для продолжения";
+
+"Unable to save your data." = "Невозможно сохранить данные";
+"It seems like we are currently having issues signing you up. Please try again later." = "Похоже, у нас в настоящее время возникают проблемы с подписью. Повторите попытку позже";
+
+"You already have four interests!" = "У вас уже есть четыре интереса!";
+"It appears like you have already selected four interests. You must deselect one to add a new interest." = "Похоже, вы уже выбрали четыре интереса. Вы должны отменить выбор, чтобы добавить новый интерес";
+
+
+"Are you sure you want to block this user?" = "Вы уверены, что хотите заблокировать этого пользователя?";
+"Please note that this action is not reversible." = "Обратите внимание, что это действие не является обратимым";
+"Block This User" = "Заблокировать этого пользователя";
+"No, Don't Block This User" = "Нет, не блокируйте этого пользователя";
+
+"Do you want to correct this message?" = "Вы хотите исправить это сообщение?";
+"Yes!" = "Да!";
+"No Thanks" = "Нет благодарности";
+
+"Thank you for correcting this message!" = "Спасибо за исправление этого сообщения!";
+"We appreciate your contribution, and hope that you continue to correct other mistakes you may encounter." = "Мы ценим ваш вклад и надеемся, что вы продолжите исправлять другие ошибки, с которыми вы можете столкнуться";
+
+"Are you sure you want to log out?" = "Вы действительно хотите выйти?";
+"Cancel" = "Отмена";
+"Sign Me Out" = "Оставить";
+
+"Could not save your target language." = "Не удалось сохранить целевой язык";
+"It appears like we can not correctly save your new language. Please try again later." = "Похоже, мы не можем правильно сохранить ваш новый язык. Повторите попытку позже";
+
+"No Languages Selected" = "Нет выбранных языков";
+"You need to select at least one language to continue." = "Для продолжения нужно выбрать хотя бы один язык";
+
+"Remember - this dictionary works best with nouns and verbs!" = "Помните - этот словарь лучше всего работает с существительными и глаголами!";
+"We recommend that you keep your definitions short and consise. This will help you to remember it quicker." = "Мы рекомендуем, чтобы ваши определения были короткими и понятными, это поможет вам быстрее запомнить его";
+
+"Unable to translate." = "Невозможно перевести";
+"We could not successfully translate this message. This may be because you don't have connection." = "Мы не смогли успешно перевести это сообщение, возможно, потому, что у вас нет связи";
+
+
+"Invalid Email" = "Неверный адрес электронной почты";
+"It seems like you have put in an invalid email." = "Похоже, вы положили недействительный адрес электронной почты";
+
+"Wrong Password" = "Неверный пароль";
+"It seems like you have entered the wrong password." = "Похоже, вы ввели неправильный пароль";
+
+"No Account Found" = "Нет учетной записи";
+"We couldn't find an account that corresponds to that email. Do you want to create an account?" = "Мы не смогли найти учетную запись, соответствующую этому письму. Вы хотите создать учетную запись?";
+"Create Account" = "Создать учетную запись";
+
+"Error Logging In" = "Ошибка входа в систему";
+"There was an error logging you in. Please try again soon." = "Внесено сообщение об ошибке. Повторите попытку в ближайшее время";
+
+"Email is not properly formatted." = "Электронная почта неправильно отформатирована";
+"Please enter a valid email to sign up with." = "Пожалуйста, введите действительное электронное письмо, чтобы зарегистрироваться";
+
+"We are having trouble signing you up." = "У нас возникают проблемы с подписью на вас";
+"We are having trouble signing you up, please try again soon." = "У нас возникли проблемы с подпиской на вас, пожалуйста, попробуйте еще раз в ближайшее время";
+
+// LANGUAGES
+"English" = "Английский";
+"French" = "Французский";
+"Spanish" = "Испанский";
+"Italian" = "Итальянская";
+"Japanese" = "Японский";
+"Russian" = "Русский";
+"German" = "Немецкий";
+"Chinese" = "Китайский";
+
+// INTERESTS
+"Reading" = "Чтение";
+"TV" = "Телевидение";
+"Family" = "Семья";
+"Movies" = "Кино";
+"Fishing" = "Ловит рыбу";
+"Computer" = "Компьютер";
+"Gardening" = "Садоводство";
+"Walking" = "Гулять пешком";
+"Exercise" = "Упражнение";
+"Music" = "Музыка";
+"Entertaining" = "Развлекательный";
+"Hunting" = "Охота";
+"Sports" = "Виды спорта";
+"Shopping" = "Покупка";
+"Traveling" = "Путешествие";
+"Sleeping" = "Спать";
+"Socializing" = "Общаться";
+"Sewing" = "Шитье";
+"Golf" = "Гольф";
+"Religion" = "Религия";
+"Relaxing" = "Расслабляющий";
+"Housework" = "Домашние дела";
+"Crafts" = "Рукоделие";
+"Bicycling" = "Велосипед";
+"Cards" = "Карты";
+"Hiking" = "Пеший туризм";
+"Cooking" = "Готовка";
+"Food" = "Продукты питания";
+"Swimming" = "Плавание";
+"Camping" = "Кемпинг";
+"Skiing" = "Горнолыжный спорт";
+"Cars" = "Легковые автомобили";
+"Writing" = "Письмо";
+"Boating" = "Хождение";
+"Motorcycling" = "Мотоспорт";
+"Animals" = "Животные";
+"Bowling" = "Боулинг";
+"Painting" = "Картина";
+"Running" = "Бег";
+"Dancing" = "Танцы";
+"Tennis" = "Большой теннис";
+"Theater" = "Театр";
+"Billiards" = "Бильярд";
+"Beach" = "Пляж";
+"Volunteering" = "Добровольчество";
+
+

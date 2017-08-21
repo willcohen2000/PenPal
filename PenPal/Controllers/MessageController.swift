@@ -9,7 +9,6 @@
 import UIKit
 import JSQMessagesViewController
 import FirebaseDatabase.FIRDatabase
-import DropDown
 
 class MessageController: JSQMessagesViewController {
 
@@ -17,7 +16,6 @@ class MessageController: JSQMessagesViewController {
     var messages = [Message]()
     var selectedMessage: String = ""
     
-    var dropMenuGlobal = DropDown()
     
     @IBOutlet weak var topView: UIView!
     
@@ -48,58 +46,27 @@ class MessageController: JSQMessagesViewController {
         self.topContentAdditionalInset = 80
         super.collectionView.backgroundColor = Colors.standardGray
         
-        initiateDropDownMenu()
-        
     }
     
     deinit {
         messagesRef?.removeObserver(withHandle: messagesHandle)
     }
     
-    func initiateDropDownMenu() {
-        let dropDownView = UIView(frame: CGRect(x: 0, y: 75, width: UIScreen.main.bounds.width, height: 100))
-        self.view.addSubview(dropDownView)
-        dropMenuGlobal.anchorView = dropDownView
-        dropDownView.isHidden = true
-        let dropDownDataSource: [String] = [NSLocalizedString("Block User", comment: "Block User")]
-        dropMenuGlobal.dataSource = dropDownDataSource
-        dropMenuGlobal.selectionAction = { [unowned self] (index: Int, selectedOption: String) in
-            if (selectedOption == NSLocalizedString("Block User", comment: "Block User")) {
-                let alert = UIAlertController(title: NSLocalizedString("Are you sure you want to block this user?", comment: "Are you sure you want to block this user?"), message:
-                    NSLocalizedString("Please note that this action is not reversible.", comment: "Please note that this action is not reversible."), preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Block This User", comment: "Block This User"), style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
-                    
-                }))
-                alert.addAction(UIAlertAction(title: NSLocalizedString("No, Don't Block This User", comment: "No, Don't Block This User"), style: UIAlertActionStyle.destructive,handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-    }
-    
     func backButtonPressed(_ sender: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func moreInfoButtonPressed(_sender: UITapGestureRecognizer) {
-        dropMenuGlobal.show()
     }
     
     func addViewOnTop() {
         let selectableView = ShadowView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 75))
         selectableView.backgroundColor = .white
-        let moreInfoButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 46, y: 38, width: 36, height: 6))
-        moreInfoButton.setImage(UIImage(named: "MoreInfoIcon"), for: .normal)
-        moreInfoButton.contentMode = .scaleAspectFit
-        moreInfoButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.moreInfoButtonPressed(_sender:))))
         let backButton = UIButton(frame: CGRect(x: 10, y: 28, width: 15, height: 30))
         backButton.setImage(UIImage(named: "StandardBackButton"), for: .normal)
         backButton.contentMode = .scaleAspectFit
         backButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backButtonPressed(_:))))
-        let messageNameLabel = UILabel(frame: CGRect(x: 30, y: 28, width: (UIScreen.main.bounds.width - 55), height: 30))
+        let messageNameLabel = UILabel(frame: CGRect(x: 30, y: 28, width: (UIScreen.main.bounds.width - 60), height: 30))
         messageNameLabel.text = MainFunctions.removeUserFromChatName(chatTitle: self.chat.title)
         messageNameLabel.textAlignment = .center
         messageNameLabel.font = UIFont(name: "Roboto-Thin", size: 25)
-        selectableView.addSubview(moreInfoButton)
         selectableView.addSubview(messageNameLabel)
         selectableView.addSubview(backButton)
         view.addSubview(selectableView)
@@ -110,7 +77,6 @@ class MessageController: JSQMessagesViewController {
         senderId = User.sharedInstance.uid
         senderDisplayName = User.sharedInstance.name
         title = chat.title
-        self.showLoadEarlierMessagesHeader = true
         inputToolbar.contentView.leftBarButtonItem = nil
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero

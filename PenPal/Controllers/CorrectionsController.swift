@@ -17,14 +17,7 @@ class CorrectionsController: UIViewController {
     var selectedCorrection: Correction!
     var corrections = [Correction]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        localize()
-        
-        doNotHaveCorrectionsLabel.isHidden = true
-        loadingView.loadGif(name: "StandardLoadingAnimation")
-        
+    override func viewDidAppear(_ animated: Bool) {
         FirebaseService.loadCorrections(userUID: User.sharedInstance.uid) { (corrections) in
             self.loadingView.isHidden = true
             self.corrections = corrections
@@ -35,6 +28,15 @@ class CorrectionsController: UIViewController {
             }
             
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        localize()
+        
+        doNotHaveCorrectionsLabel.isHidden = true
+        loadingView.loadGif(name: "StandardLoadingAnimation")
         
         correctionsTableView.delegate = self
         correctionsTableView.dataSource = self

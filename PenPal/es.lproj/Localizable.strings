@@ -50,6 +50,13 @@
 "Block User" = "Bloquear usuario";
 
 // POP UPS
+"No user found with this email" = "No se ha encontrado ningún usuario con este correo electrónico";
+"We cannot find a user with this email. Please try again with a different email." = "No podemos encontrar un usuario con este correo electrónico. Inténtalo de nuevo con un correo electrónico diferente.";
+
+"Send Email" = "Enviar correo electrónico";
+"Forgot your password?" = "¿Olvidaste tu contraseña?";
+"Please enter the email you signed up with to change your password." = "Ingrese el correo electrónico con el que se registró para cambiar su contraseña.";
+
 "Are you sure you want to block this user?" = "¿Estás seguro de que quieres bloquear a este usuario?";
 "Please confirm that you would like to block this user." = "Por favor, confirme que desea bloquear este usuario.";
 "Block This User" = "Bloquear este usuario";

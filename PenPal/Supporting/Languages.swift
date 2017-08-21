@@ -12,14 +12,14 @@ import UIKit
 struct Languages {
     
     static var languages: [String] = [
-        "English",
-        "French",
-        "Spanish",
+        "English",     // TRANSLATED
+        "French",      // TRANSLATED
+        "Spanish",     // TRANSLATED
         "Italian",
-        "Japanese",
+        "Japanese",    // TRANSLATED
         "Russian",
-        "German",
-        "Chinese"
+        "German",      // TRANSLATED
+        "Chinese"      // TRANSLATED
     ]
     
 }

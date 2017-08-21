@@ -1,0 +1,180 @@
+
+/* Class = "UILabel"; text = "Mariano Montori"; ObjectID = "1Qe-X0-s3P"; */
+"1Qe-X0-s3P.text" = "Mariano Montori";
+
+/* Class = "UILabel"; text = "Edit my four things to talk about"; ObjectID = "1yW-Ub-pPu"; */
+"1yW-Ub-pPu.text" = "Edit my four things to talk about";
+
+/* Class = "UILabel"; text = "Pick four interests of yours."; ObjectID = "2Hd-Xc-VUI"; */
+"2Hd-Xc-VUI.text" = "Pick four interests of yours.";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "2io-jU-80c"; */
+"2io-jU-80c.text" = "PenPal";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "4n4-CY-ZNj"; */
+"4n4-CY-ZNj.text" = "PenPal";
+
+/* Class = "UILabel"; text = "- Politics"; ObjectID = "5ms-zv-07v"; */
+"5ms-zv-07v.text" = "- Politics";
+
+/* Class = "UILabel"; text = "- History"; ObjectID = "7Ju-KM-HMb"; */
+"7Ju-KM-HMb.text" = "- History";
+
+/* Class = "UILabel"; text = "French"; ObjectID = "7Ms-iD-WRC"; */
+"7Ms-iD-WRC.text" = "French";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8RC-Dn-8d8"; */
+"8RC-Dn-8d8.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "Aay-3j-uzE"; */
+"Aay-3j-uzE.text" = "PenPal";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "AnZ-jh-HfJ"; */
+"AnZ-jh-HfJ.text" = "Time";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "BnE-mT-c77"; */
+"BnE-mT-c77.text" = "PenPal";
+
+/* Class = "UILabel"; text = "Text Message X"; ObjectID = "Cdw-2g-Mn0"; */
+"Cdw-2g-Mn0.text" = "Text Message X";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "ChP-4D-cC1"; */
+"ChP-4D-cC1.text" = "PenPal";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "DYp-3Q-JAC"; */
+"DYp-3Q-JAC.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "W0RD X"; ObjectID = "EMD-Sp-Hfs"; */
+"EMD-Sp-Hfs.text" = "W0RD X";
+
+/* Class = "UILabel"; text = "Target Language:"; ObjectID = "GM9-7N-qjG"; */
+"GM9-7N-qjG.text" = "Target Language:";
+
+/* Class = "UILabel"; text = "Likes to talk about:"; ObjectID = "Giq-Ge-brL"; */
+"Giq-Ge-brL.text" = "Likes to talk about:";
+
+/* Class = "UIButton"; normalTitle = "Send Correction"; ObjectID = "GoD-EZ-abj"; */
+"GoD-EZ-abj.normalTitle" = "Send Correction";
+
+/* Class = "UILabel"; text = "Term"; ObjectID = "His-Hd-ajc"; */
+"His-Hd-ajc.text" = "Term";
+
+/* Class = "UILabel"; text = "What language do you want to add?"; ObjectID = "HoR-o7-ddv"; */
+"HoR-o7-ddv.text" = "What language do you want to add?";
+
+/* Class = "UILabel"; text = "Tara Watts - Lvl 5"; ObjectID = "Ht6-rJ-PAc"; */
+"Ht6-rJ-PAc.text" = "Tara Watts - Lvl 5";
+
+/* Class = "UILabel"; text = "- Technology"; ObjectID = "IdH-lB-YeQ"; */
+"IdH-lB-YeQ.text" = "- Technology";
+
+/* Class = "UINavigationItem"; title = "dfdf"; ObjectID = "J0l-4x-GfH"; */
+"J0l-4x-GfH.title" = "dfdf";
+
+/* Class = "UILabel"; text = "No current chats."; ObjectID = "Lkh-n8-dN2"; */
+"Lkh-n8-dN2.text" = "No current chats.";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "OZT-bX-gHc"; */
+"OZT-bX-gHc.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "- Travel"; ObjectID = "Ol4-lA-ksc"; */
+"Ol4-lA-ksc.text" = "- Travel";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "RcO-eo-iHP"; */
+"RcO-eo-iHP.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "No compatible users."; ObjectID = "ShB-Rg-DfX"; */
+"ShB-Rg-DfX.text" = "No compatible users.";
+
+/* Class = "UIButton"; normalTitle = "Done!"; ObjectID = "UBC-DJ-nYj"; */
+"UBC-DJ-nYj.normalTitle" = "Done!";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "Uba-lt-jGd"; */
+"Uba-lt-jGd.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Their Correction"; ObjectID = "Vtc-oz-WlG"; */
+"Vtc-oz-WlG.text" = "Their Correction";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WIm-cJ-sqQ"; */
+"WIm-cJ-sqQ.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WNm-gE-9jM"; */
+"WNm-gE-9jM.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Remember - the more detailed the better!"; ObjectID = "Wqg-nk-BU6"; */
+"Wqg-nk-BU6.text" = "Remember - the more detailed the better!";
+
+/* Class = "UILabel"; text = "User Name X"; ObjectID = "YAs-dh-x0k"; */
+"YAs-dh-x0k.text" = "User Name X";
+
+/* Class = "UILabel"; text = "Chat's Last Message X"; ObjectID = "ZFp-Gn-rDC"; */
+"ZFp-Gn-rDC.text" = "Chat's Last Message X";
+
+/* Class = "UILabel"; text = "Definition"; ObjectID = "a4e-G1-yuO"; */
+"a4e-G1-yuO.text" = "Definition";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "boP-6M-kyA"; */
+"boP-6M-kyA.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Talk with Tara"; ObjectID = "dUg-yF-pDj"; */
+"dUg-yF-pDj.normalTitle" = "Talk with Tara";
+
+/* Class = "UILabel"; text = "No existing dictionary entries."; ObjectID = "eoa-RE-rzV"; */
+"eoa-RE-rzV.text" = "No existing dictionary entries.";
+
+/* Class = "UIButton"; normalTitle = "View This Correction"; ObjectID = "fAu-EW-TxE"; */
+"fAu-EW-TxE.normalTitle" = "View This Correction";
+
+/* Class = "UILabel"; text = "DEFINITION X"; ObjectID = "gDm-U3-Qzl"; */
+"gDm-U3-Qzl.text" = "DEFINITION X";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "gRp-Mt-dJ6"; */
+"gRp-Mt-dJ6.text" = "PenPal";
+
+/* Class = "UILabel"; text = "Languages i'm learning"; ObjectID = "hOw-V4-I5R"; */
+"hOw-V4-I5R.text" = "Languages i'm learning";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "ink-En-1qX"; */
+"ink-En-1qX.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "You do not have any corrections yet."; ObjectID = "jtO-CJ-qbU"; */
+"jtO-CJ-qbU.text" = "You do not have any corrections yet.";
+
+/* Class = "UILabel"; text = "What's wrong with this message?"; ObjectID = "kx9-dg-jSu"; */
+"kx9-dg-jSu.text" = "What's wrong with this message?";
+
+/* Class = "UILabel"; text = "Your Message"; ObjectID = "mW5-Fs-IFO"; */
+"mW5-Fs-IFO.text" = "Your Message";
+
+/* Class = "UIButton"; normalTitle = "Sign Out"; ObjectID = "oO8-vu-zjA"; */
+"oO8-vu-zjA.normalTitle" = "Sign Out";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "uCC-HN-5IP"; */
+"uCC-HN-5IP.text" = "PenPal";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vaZ-HG-ebd"; */
+"vaZ-HG-ebd.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Translate"; ObjectID = "w09-id-4gf"; */
+"w09-id-4gf.normalTitle" = "Translate";
+
+/* Class = "UIButton"; normalTitle = "Save to Dictionary"; ObjectID = "w0e-1w-bWN"; */
+"w0e-1w-bWN.normalTitle" = "Save to Dictionary";
+
+/* Class = "UIButton"; normalTitle = "Add New Entry"; ObjectID = "whp-oN-BQh"; */
+"whp-oN-BQh.normalTitle" = "Add New Entry";
+
+/* Class = "UILabel"; text = "My Dictionary"; ObjectID = "wzN-ai-NWL"; */
+"wzN-ai-NWL.text" = "My Dictionary";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xIX-WI-bCQ"; */
+"xIX-WI-bCQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "PenPal"; ObjectID = "xO2-8m-gls"; */
+"xO2-8m-gls.text" = "PenPal";
+
+/* Class = "UILabel"; text = "DATE X"; ObjectID = "xtA-ez-Asv"; */
+"xtA-ez-Asv.text" = "DATE X";
+
+/* Class = "UILabel"; text = "User's Name X"; ObjectID = "yQI-58-De9"; */
+"yQI-58-De9.text" = "User's Name X";

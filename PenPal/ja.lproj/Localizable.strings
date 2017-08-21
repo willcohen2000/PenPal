@@ -50,6 +50,13 @@
 "Block User" = "ユーザをブロックする";
 
 // POP UPS
+"No user found with this email" = "このメールでユーザーが見つかりません";
+"We cannot find a user with this email. Please try again with a different email." = "このメールでユーザーを見つけることはできません。 別のメールで再度お試しください。";
+
+"Send Email" = "メールを送る";
+"Forgot your password?" = "パスワードをお忘れですか？";
+"Please enter the email you signed up with to change your password." = "パスワードを変更するには、登録したメールアドレスを入力してください。";
+
 "Are you sure you want to block this user?" = "このユーザーをブロックしてもよろしいですか？";
 "Please confirm that you would like to block this user." = "このユーザーをブロックすることを確認してください。";
 "Block This User" = "このユーザーをブロックする";

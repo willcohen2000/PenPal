@@ -50,6 +50,13 @@
 "Block User" = "阻止用户";
 
 // POP UPS
+"No user found with this email" = "没有用户发现这封电子邮件";
+"We cannot find a user with this email. Please try again with a different email." = "我们找不到使用此电子邮件的用户。 请使用其他电子邮件重试。";
+
+"Send Email" = "发电子邮件";
+"Forgot your password?" = "忘记密码了吗?";
+"Please enter the email you signed up with to change your password." = "请输入您注册的电子邮件以更改密码。";
+
 "Are you sure you want to block this user?" = "你确定要阻止这个用户吗？";
 "Please confirm that you would like to block this user." = "请确认您要阻止此用户。";
 "Block This User" = "阻止此用户";

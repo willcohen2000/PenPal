@@ -19,7 +19,6 @@ class FullCorrectionController: UIViewController {
     
     let translator = ROGoogleTranslate()
     var correction: Correction!
-    
     var didTranslate: Bool = false
     
     override func viewDidLoad() {

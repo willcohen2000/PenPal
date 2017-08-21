@@ -1,0 +1,66 @@
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "4ta-5e-7eO"; */
+"4ta-5e-7eO.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Go back to home page"; ObjectID = "6xd-jZ-GZS"; */
+"6xd-jZ-GZS.normalTitle" = "Go back to home page";
+
+/* Class = "UILabel"; text = "Pick the language(s) you are already fluent in."; ObjectID = "8Y2-nw-Auw"; */
+"8Y2-nw-Auw.text" = "Pick the language(s) you are already fluent in.";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "A1o-Ov-Hb0"; */
+"A1o-Ov-Hb0.placeholder" = "Confirm Password";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "HRl-hs-BeI"; */
+"HRl-hs-BeI.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "J9n-vQ-Rzn"; */
+"J9n-vQ-Rzn.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "PsY-V8-789"; */
+"PsY-V8-789.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Go back to home page"; ObjectID = "Rw3-IH-YWO"; */
+"Rw3-IH-YWO.normalTitle" = "Go back to home page";
+
+/* Class = "UILabel"; text = "Pick the language(s) you are trying to learning."; ObjectID = "TmM-Nj-RaH"; */
+"TmM-Nj-RaH.text" = "Pick the language(s) you are trying to learning.";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "Wha-tN-upm"; */
+"Wha-tN-upm.normalTitle" = "Sign Up";
+
+/* Class = "UILabel"; text = "Pick four interests of yours."; ObjectID = "ZPs-xO-DUK"; */
+"ZPs-xO-DUK.text" = "Pick four interests of yours.";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "bGQ-7k-C5j"; */
+"bGQ-7k-C5j.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "byh-6R-JW5"; */
+"byh-6R-JW5.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "fWy-vO-Quk"; */
+"fWy-vO-Quk.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "gTe-Bi-M7u"; */
+"gTe-Bi-M7u.normalTitle" = "Log In";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "jZG-RH-WGR"; */
+"jZG-RH-WGR.normalTitle" = "Sign Up";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "oXU-UT-1mI"; */
+"oXU-UT-1mI.normalTitle" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "sxM-06-4Px"; */
+"sxM-06-4Px.normalTitle" = "Log In";
+
+/* Class = "UILabel"; text = "Connecting language learners worldwide."; ObjectID = "tpN-E3-awS"; */
+"tpN-E3-awS.text" = "Connecting language learners worldwide.";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "vdA-lQ-EYR"; */
+"vdA-lQ-EYR.placeholder" = "Full Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "woe-uu-X3u"; */
+"woe-uu-X3u.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "yol-Bv-rpS"; */
+"yol-Bv-rpS.placeholder" = "Email";

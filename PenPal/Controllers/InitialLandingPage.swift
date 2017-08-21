@@ -51,16 +51,25 @@ class InitialLandingPage: UIViewController {
                 if (user != nil) {
                     self.loadingImageView.loadGif(name: "Spinner")
                     self.loadingPreviouslyLoggedInUserView.isHidden = false
-                    MainFunctions.loadSingletonData(uid: (user?.uid)!, completionHandler: { (success) in
-                        if (success) {
-                            KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
-                            let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                            let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
-                            self.present(vc, animated: true, completion: nil)
-                        } else {
-                            // HANDLE
-                        }
-                    })
+                    if (KeychainWrapper.standard.bool(forKey: "setUserInformation") == false) {
+                        MainFunctions.loadCriticalUserInfo(userUID: (user?.uid)!, completionHandler: { (success) in
+                            if (success) {
+                                User.sharedInstance.uid = (user?.uid)!
+                                self.performSegue(withIdentifier: "toSignUp", sender: nil)
+                            }
+                        })
+                    } else {
+                        MainFunctions.loadSingletonData(uid: (user?.uid)!, completionHandler: { (success) in
+                            if (success) {
+                                KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
+                                let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                                let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
+                                self.present(vc, animated: true, completion: nil)
+                            } else {
+                                // HANDLE
+                            }
+                        })
+                    }
                 }
             })
         }

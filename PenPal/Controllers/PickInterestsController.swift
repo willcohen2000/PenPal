@@ -8,18 +8,23 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class PickInterestsController: UIViewController {
 
     @IBOutlet weak var pickInterestsCollectionView: UICollectionView!
     @IBOutlet weak var pickFourInterestsLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingImageView: UIImageView!
     
     var selected: NSMutableSet = NSMutableSet()
     static var userInterests: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingView.isHidden = true
+        loadingImageView.loadGif(name: "Spinner")
         localize()
         pickInterestsCollectionView.delegate = self
         pickInterestsCollectionView.dataSource = self
@@ -34,6 +39,7 @@ class PickInterestsController: UIViewController {
         if (PickInterestsController.userInterests.count < 4) {
             MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("You have not selected enough interests.", comment: "You have not selected enough interests."), alertMessage: NSLocalizedString("You must select four interests to continue.", comment: "You must select four interests to continue."), controller: self)
         } else {
+            loadingView.isHidden = false
             User.sharedInstance.interests = []
             User.sharedInstance.interests = PickInterestsController.userInterests
             
@@ -42,14 +48,17 @@ class PickInterestsController: UIViewController {
                     FirebaseService.saveByLanguages(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages)
                     FirebaseService.initiateStartingData(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages) { (success) -> Void in
                         if (success) {
+                            KeychainWrapper.standard.set(true, forKey: "setUserInformation")
                             let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
                             let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
                             self.present(vc, animated: true, completion: nil)
                         } else {
+                            self.loadingView.isHidden = true
                             MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Unable to save your data.", comment: "Unable to save your data."), alertMessage: NSLocalizedString("It seems like we are currently having issues signing you up. Please try again later.", comment: "It seems like we are currently having issues signing you up. Please try again later."), controller: self)
                         }
                     }
                 } else {
+                    self.loadingView.isHidden = true
                     MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Unable to save your data.", comment: "Unable to save your data."), alertMessage: NSLocalizedString("It seems like we are currently having issues signing you up. Please try again later.", comment: "It seems like we are currently having issues signing you up. Please try again later."), controller: self)
                 }
             }

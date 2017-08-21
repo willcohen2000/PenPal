@@ -55,6 +55,7 @@ class SignUpController: UIViewController {
                 FirebaseService.storeUserInDatabase(uid: (user?.uid)!, name: fullName, profileImageUrl: "", completionHandler: { (success) in
                     if (success) {
                         KeychainWrapper.standard.set((user?.uid)!, forKey: "uid")
+                        KeychainWrapper.standard.set(false, forKey: "setUserInformation")
                         self.performSegue(withIdentifier: Constants.Segues.targetLanguageSegue, sender: nil)
                         User.sharedInstance.uid = user?.uid
                         if let userName = self.fullNameTextField.text {

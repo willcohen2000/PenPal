@@ -212,7 +212,9 @@ class FirebaseService {
                                 if (User.sharedInstance.nativeLanguages.contains(dict.key as! String)) {
                                     let compatibleUserUID = String(describing: value["uid"]!)
                                     if (compatibleUserUID != User.sharedInstance.uid) {
-                                        userUIDs.append(compatibleUserUID)
+                                        if (!userUIDs.contains(compatibleUserUID)) {
+                                            userUIDs.append(compatibleUserUID)
+                                        }
                                     }
                                 }
                             }

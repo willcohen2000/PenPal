@@ -16,7 +16,6 @@ final class User {
     var targetLanguages: [String]!
     var nativeLanguages: [String]!
     var interests: [String]!
-    var skillLevelInt: Int = 0
     var uid: String!
     var imageUrl: String!
     

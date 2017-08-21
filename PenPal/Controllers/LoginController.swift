@@ -54,6 +54,40 @@ class LoginController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
+        let forgotPasswordAlert = UIAlertController(title: NSLocalizedString("Forgot your password?", comment: "Forgot your password?"), message: NSLocalizedString("Please enter the email you signed up with to change your password.", comment: "Please enter the email you signed up with to change your password."), preferredStyle: .alert)
+        
+        forgotPasswordAlert.addTextField { (textField) in
+            textField.placeholder = "Email"
+        }
+        
+        forgotPasswordAlert.addAction(UIAlertAction(title: NSLocalizedString("Send Email", comment: "send email"), style: .default, handler: { (_) in
+            let getEmailTextField = forgotPasswordAlert.textFields![0] as UITextField
+            if let emailText = getEmailTextField.text {
+                Auth.auth().sendPasswordReset(withEmail: emailText) { error in
+                    if (error == nil) {
+                        let successAlert = UIAlertController(title: "EmailSent!", message: "", preferredStyle: .alert)
+                        successAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        self.present(successAlert, animated: true, completion: nil)
+                    } else {
+                        if let error = error {
+                            if (error.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted.") {
+                                let noUserAlert = UIAlertController(title: NSLocalizedString("No user found with this email", comment: "No user found with this email"), message: NSLocalizedString("We cannot find a user with this email. Please try again with a different email.", comment: "We cannot find a user with this email. Please try again with a different email."), preferredStyle: .alert)
+                                noUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"), style: .default, handler: nil))
+                                self.present(noUserAlert, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }))
+        
+        forgotPasswordAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .destructive, handler: nil))
+        
+        self.present(forgotPasswordAlert, animated: true, completion: nil)
+    }
 
     @IBAction func logInButtonPressed(_ sender: Any) {
         let userEmail: String = emailTextField.text!
@@ -69,7 +103,7 @@ class LoginController: UIViewController {
                         let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
                         self.present(vc, animated: true, completion: nil)
                     } else {
-                        // HANDLE
+                        
                     }
                 })
             } else {
