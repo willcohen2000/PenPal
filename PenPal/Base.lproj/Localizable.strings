@@ -58,7 +58,7 @@
 "Please enter the email you signed up with to change your password." = "Please enter the email you signed up with to change your password.";
 
 "Are you sure you want to block this user?" = "Are you sure you want to block this user?";
-"Please confirm that you would like to block this user." = "Please confirm that you would like to block this user.";
+"Please confirm that you would like to permanently block this user." = "Please confirm that you would like to permanently block this user.";
 "Block This User" = "Block This User";
 "No, Don't Block This User" = "No, Don't Block This User";
 

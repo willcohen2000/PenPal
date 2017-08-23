@@ -213,7 +213,11 @@ class FirebaseService {
                                     let compatibleUserUID = String(describing: value["uid"]!)
                                     if (compatibleUserUID != User.sharedInstance.uid) {
                                         if (!userUIDs.contains(compatibleUserUID)) {
-                                            userUIDs.append(compatibleUserUID)
+                                            let defaults = UserDefaults.standard
+                                            let blockedUsers = defaults.object(forKey: "blockedUsers") as? [String] ?? [String]()
+                                            if (!blockedUsers.contains(compatibleUserUID)) {
+                                                userUIDs.append(compatibleUserUID)
+                                            }
                                         }
                                     }
                                 }

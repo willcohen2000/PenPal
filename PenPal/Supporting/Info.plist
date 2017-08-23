@@ -2,12 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Click &apos;OK&apos; to take a profile image photo.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>PenPal</string>
+	<string>Langex</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -19,15 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>2.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>2.2</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Click 'OK' to take a profile image photo.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Click &apos;OK&apos; to select a profile image from your photo library.</string>
+	<string>Click 'OK' to select a profile image from your photo library.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-MediumItalic.ttf</string>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1498,7 +1498,7 @@
                                                                         <constraint firstAttribute="width" constant="65" id="GIc-Qv-PJe"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tara Watts - Lvl 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht6-rJ-PAc">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tara Watts - Lvl 5 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht6-rJ-PAc">
                                                                     <rect key="frame" x="85" y="10" width="265" height="65"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.74759154520000004" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1549,6 +1549,17 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.74855013420000005" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaQ-8s-MLS">
+                                                                    <rect key="frame" x="307" y="5" width="40" height="18"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="40" id="2qQ-KR-SrV"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="pKg-14-ipQ"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="MoreInfoIcon"/>
+                                                                    <connections>
+                                                                        <action selector="flagUserButtonPressed:" destination="Yg4-ad-1A2" eventType="touchUpInside" id="QMa-xk-juP"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -1563,6 +1574,7 @@
                                                                 <constraint firstItem="5ms-zv-07v" firstAttribute="leading" secondItem="LGX-6y-Uyu" secondAttribute="leading" constant="35" id="IxY-kd-X87"/>
                                                                 <constraint firstItem="5ms-zv-07v" firstAttribute="top" secondItem="Giq-Ge-brL" secondAttribute="bottom" constant="5" id="NYo-T6-82A"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Giq-Ge-brL" secondAttribute="trailing" constant="5" id="Naf-sK-7tw"/>
+                                                                <constraint firstAttribute="trailing" secondItem="KaQ-8s-MLS" secondAttribute="trailing" constant="8" id="P8U-yC-FS5"/>
                                                                 <constraint firstAttribute="trailing" secondItem="dUg-yF-pDj" secondAttribute="trailing" id="Q6C-yc-vOy"/>
                                                                 <constraint firstItem="Ht6-rJ-PAc" firstAttribute="leading" secondItem="HOd-75-P79" secondAttribute="trailing" constant="10" id="U6V-IG-tBd"/>
                                                                 <constraint firstItem="IdH-lB-YeQ" firstAttribute="leading" secondItem="LGX-6y-Uyu" secondAttribute="leading" constant="35" id="UZx-PJ-T00"/>
@@ -1574,6 +1586,7 @@
                                                                 <constraint firstItem="Ht6-rJ-PAc" firstAttribute="height" secondItem="HOd-75-P79" secondAttribute="height" id="i3h-es-d5j"/>
                                                                 <constraint firstItem="7Ju-KM-HMb" firstAttribute="top" secondItem="5ms-zv-07v" secondAttribute="bottom" constant="5" id="jhp-Hv-GUd"/>
                                                                 <constraint firstItem="Ht6-rJ-PAc" firstAttribute="top" secondItem="LGX-6y-Uyu" secondAttribute="top" constant="10" id="oI3-cc-vYZ"/>
+                                                                <constraint firstItem="KaQ-8s-MLS" firstAttribute="top" secondItem="LGX-6y-Uyu" secondAttribute="top" constant="5" id="rOg-OV-gPr"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Ol4-lA-ksc" secondAttribute="trailing" constant="5" id="sce-km-Lyf"/>
                                                                 <constraint firstItem="Giq-Ge-brL" firstAttribute="top" secondItem="HOd-75-P79" secondAttribute="bottom" constant="10" id="yPa-eA-7xo"/>
                                                             </constraints>
@@ -2090,6 +2103,7 @@
         <image name="Home" width="30" height="30"/>
         <image name="LanguageIcon" width="58" height="58"/>
         <image name="Logo" width="234" height="185"/>
+        <image name="MoreInfoIcon" width="48" height="8"/>
         <image name="Settings" width="30" height="30"/>
         <image name="StandardBackButton" width="22" height="42"/>
         <image name="ThingsToTalkAboutIcon" width="66" height="57"/>

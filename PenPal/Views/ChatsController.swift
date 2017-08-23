@@ -18,24 +18,25 @@ class ChatsController: UIViewController {
     var chats = [Chat]()
     var userChatsHandle: DatabaseHandle = 0
     var userChatsRef: DatabaseReference?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         localize()
-        
         loadChatsImageView.loadGif(name: "StandardLoadingAnimation")
-        
-        chatsListTableView.delegate = self
-        chatsListTableView.dataSource = self
-        chatsListTableView.tableFooterView = UIView()
-        
-        noCurrentChatsLabel.isHidden = true
         
         userChatsHandle = FirebaseService.observeChats { [weak self] (ref, chats) in
             self?.userChatsRef = ref
-            self?.chats = chats
             self?.loadChatsImageView.isHidden = true
+            
+            let defaults = UserDefaults.standard
+            let blockedUsers = defaults.object(forKey: "blockedUsers") as? [String] ?? [String]()
+    
+            for (chat) in chats {
+                if (!blockedUsers.contains(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: chat.memberUIDs)[0])) {
+                    self?.chats.append(chat)
+                }
+            }
             
             if (chats.count == 0) {
                 self?.noCurrentChatsLabel.isHidden = false
@@ -46,6 +47,12 @@ class ChatsController: UIViewController {
                 self?.chatsListTableView.reloadData()
             }
         }
+        
+        chatsListTableView.delegate = self
+        chatsListTableView.dataSource = self
+        chatsListTableView.tableFooterView = UIView()
+        
+        noCurrentChatsLabel.isHidden = true
         
     }
 
@@ -66,6 +73,35 @@ extension ChatsController {
             let destination = segue.destination as? MessageController,
             let indexPath = chatsListTableView.indexPathForSelectedRow {
             destination.chat = chats[indexPath.row]
+            destination.delegate = self
+        }
+    }
+}
+
+extension ChatsController: blockedUserDelegate {
+    func blockedUser(_ user: String) {
+        userChatsHandle = FirebaseService.observeChats { [weak self] (ref, chats) in
+            self?.chats.removeAll()
+            self?.userChatsRef = ref
+            self?.loadChatsImageView.isHidden = true
+            
+            let defaults = UserDefaults.standard
+            let blockedUsers = defaults.object(forKey: "blockedUsers") as? [String] ?? [String]()
+            
+            for (chat) in chats {
+                if (!blockedUsers.contains(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: chat.memberUIDs)[0])) {
+                    self?.chats.append(chat)
+                }
+            }
+            
+            if (chats.count == 0) {
+                self?.noCurrentChatsLabel.isHidden = false
+            } else {
+                self?.noCurrentChatsLabel.isHidden = true
+            }
+            DispatchQueue.main.async {
+                self?.chatsListTableView.reloadData()
+            }
         }
     }
 }

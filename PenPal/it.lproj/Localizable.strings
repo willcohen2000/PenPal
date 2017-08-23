@@ -58,7 +58,7 @@
 "Please enter the email you signed up with to change your password." = "Inserisci l'email con cui sei iscritto per modificare la tua password.";
 
 "Are you sure you want to block this user?" = "Sei sicuro di voler bloccare questo utente?";
-"Please confirm that you would like to block this user." = "Conferma che desideri bloccare questo utente.";
+"Please confirm that you would like to permanently block this user." = "Conferma che desideri bloccare in modo permanente questo utente.";
 "Block This User" = "Blocca questo utente";
 "No, Don't Block This User" = "No, non bloccare questo utente";
 

@@ -10,12 +10,16 @@ import UIKit
 import JSQMessagesViewController
 import FirebaseDatabase.FIRDatabase
 
+protocol blockedUserDelegate {
+    func blockedUser(_ user: String)
+}
+
 class MessageController: JSQMessagesViewController {
 
     var chat: Chat!
     var messages = [Message]()
     var selectedMessage: String = ""
-    
+    var delegate: blockedUserDelegate?
     
     @IBOutlet weak var topView: UIView!
     
@@ -45,7 +49,6 @@ class MessageController: JSQMessagesViewController {
         addViewOnTop()
         self.topContentAdditionalInset = 80
         super.collectionView.backgroundColor = Colors.standardGray
-        
     }
     
     deinit {
@@ -56,6 +59,23 @@ class MessageController: JSQMessagesViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func flagUserButtonPressed(_ sender: UITapGestureRecognizer) {
+        let flagUserAlert = UIAlertController(title: NSLocalizedString("Are you sure you want to block this user?", comment: "Are you sure you want to block this user?"), message: NSLocalizedString("Please confirm that you would like to permanently block this user.", comment: "Please confirm that you would like to permanently block this user."), preferredStyle: UIAlertControllerStyle.alert)
+        flagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Block User", comment: "Block User"), style: .default, handler: { (UIAlertAction) in
+            let defaults = UserDefaults.standard
+            var blockedUsers = defaults.object(forKey: "blockedUsers") as? [String] ?? [String]()
+            blockedUsers.append(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: self.chat.memberUIDs)[0])
+            defaults.set(blockedUsers, forKey: "blockedUsers")
+            defaults.synchronize()
+            if let delegate = self.delegate {
+                delegate.blockedUser(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: self.chat.memberUIDs)[0])
+            }
+            self.dismiss(animated: true, completion: nil)
+        }))
+        flagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .destructive, handler: nil))
+        self.present(flagUserAlert, animated: true, completion: nil)
+    }
+    
     func addViewOnTop() {
         let selectableView = ShadowView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 75))
         selectableView.backgroundColor = .white
@@ -63,12 +83,17 @@ class MessageController: JSQMessagesViewController {
         backButton.setImage(UIImage(named: "StandardBackButton"), for: .normal)
         backButton.contentMode = .scaleAspectFit
         backButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.backButtonPressed(_:))))
+        let flagButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 40, y: 42, width: 30, height: 5))
+        flagButton.setImage(UIImage(named: "MoreInfoIcon"), for: .normal)
+        flagButton.contentMode = .scaleAspectFit
+        flagButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.flagUserButtonPressed(_:))))
         let messageNameLabel = UILabel(frame: CGRect(x: 30, y: 28, width: (UIScreen.main.bounds.width - 60), height: 30))
         messageNameLabel.text = MainFunctions.removeUserFromChatName(chatTitle: self.chat.title)
         messageNameLabel.textAlignment = .center
         messageNameLabel.font = UIFont(name: "Roboto-Thin", size: 25)
         selectableView.addSubview(messageNameLabel)
         selectableView.addSubview(backButton)
+        selectableView.addSubview(flagButton)
         view.addSubview(selectableView)
     }
     

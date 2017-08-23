@@ -14,6 +14,10 @@ protocol clickedTalkToUser {
     func clickedTalkToUser(_ person: ExternalLearner)
 }
 
+protocol flaggedUserDelegate {
+    func flaggedUser(_ user: String)
+}
+
 class ExternalLearnerCell: UITableViewCell {
 
     @IBOutlet weak var profilePictureImageView: UIImageView!
@@ -26,6 +30,7 @@ class ExternalLearnerCell: UITableViewCell {
     @IBOutlet weak var likesToTalkAboutLabel: UILabel!
     
     var clickedTalkToUserDelegate: clickedTalkToUser?
+    var flaggedUserDelegate: flaggedUserDelegate?
     var person: ExternalLearner!
     
     override func awakeFromNib() {
@@ -49,6 +54,12 @@ class ExternalLearnerCell: UITableViewCell {
         interestLabelThree.text = "- \(NSLocalizedString(person.interests["three"]!, comment: ""))"
         interestLabelFour.text = "- \(NSLocalizedString(person.interests["four"]!, comment: ""))"
         talkWithPersonButton.setTitle("\(NSLocalizedString("Talk with", comment: "Talk with/to")) \(person.name!)", for: .normal)
+    }
+    
+    @IBAction func flagUserButtonPressed(_ sender: Any) {
+        if let flaggedUserDelegate = flaggedUserDelegate {
+            flaggedUserDelegate.flaggedUser(person.postKey)
+        }
     }
     
     @IBAction func talkWithPersonButtonPressed(_ sender: Any) {

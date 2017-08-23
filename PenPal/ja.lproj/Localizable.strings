@@ -58,7 +58,7 @@
 "Please enter the email you signed up with to change your password." = "パスワードを変更するには、登録したメールアドレスを入力してください。";
 
 "Are you sure you want to block this user?" = "このユーザーをブロックしてもよろしいですか？";
-"Please confirm that you would like to block this user." = "このユーザーをブロックすることを確認してください。";
+"Please confirm that you would like to permanently block this user." = "このユーザーを完全にブロックすることを確認してください。";
 "Block This User" = "このユーザーをブロックする";
 "No, Don't Block This User" = "いいえ、このユーザーをブロックしないでください";
 

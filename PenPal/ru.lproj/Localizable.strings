@@ -58,7 +58,7 @@
 "Please enter the email you signed up with to change your password." = "Чтобы изменить пароль, введите адрес электронной почты, с которым вы зарегистрировались.";
 
 "Are you sure you want to block this user?" = "Вы уверены, что хотите заблокировать этого пользователя?";
-"Please confirm that you would like to block this user." = "Пожалуйста, подтвердите, что вы хотели бы заблокировать этого пользователя";
+"Please confirm that you would like to permanently block this user." = "Подтвердите, что вы хотите заблокировать этого пользователя навсегда.";
 "Block This User" = "Заблокировать этого пользователя";
 "No, Don't Block This User" = "Нет, не блокируйте этого пользователя";
 
