@@ -67,8 +67,9 @@ extension HomeController {
 
 extension HomeController: flaggedUserDelegate {
     func flaggedUser(_ user: String) {
-        let flagUserAlert = UIAlertController(title: NSLocalizedString("Are you sure you want to block this user?", comment: "Are you sure you want to block this user?"), message: NSLocalizedString("Please confirm that you would like to permanently block this user.", comment: "Please confirm that you would like to permanently block this user."), preferredStyle: UIAlertControllerStyle.alert)
-        flagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Block User", comment: "Block User"), style: .default, handler: { (UIAlertAction) in
+        
+        let blockOrFlagUserAlert = UIAlertController(title: NSLocalizedString("Do you want to block or flag user?", comment: "Do you want to block or flag user?"), message: "", preferredStyle: UIAlertControllerStyle.alert)
+        blockOrFlagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Block User", comment: "Block User"), style: .default, handler: { (UIAlertAction) in
             let defaults = UserDefaults.standard
             var blockedUsers = defaults.object(forKey: "blockedUsers") as? [String] ?? [String]()
             blockedUsers.append(user)
@@ -76,8 +77,19 @@ extension HomeController: flaggedUserDelegate {
             defaults.synchronize()
             self.loadUsersTableView()
         }))
-        flagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .destructive, handler: nil))
-        self.present(flagUserAlert, animated: true, completion: nil)
+        
+        blockOrFlagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Flag User", comment: "Flag User"), style: .default, handler: { (UIAlertAction) in
+            let flagReference = Database.database().reference().child("FlaggedUsers")
+            flagReference.childByAutoId().child("UID").setValue(user, withCompletionBlock: { (error, ref) in
+                if (error == nil) {
+                    MainFunctions.createSimpleAlert(alertTitle: "Thank you for flagging this user.", alertMessage: "Please continue to flag users who have graphic images for their profile image, as well as have an inapropriate name.", controller: self)
+                }
+            })
+        }))
+        
+        blockOrFlagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .destructive, handler: nil))
+        self.present(blockOrFlagUserAlert, animated: true, completion: nil)
+        
     }
 }
 

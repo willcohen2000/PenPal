@@ -44,11 +44,13 @@ class MessageController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         setupJSQMessagesViewController()
         tryObservingMessages()
         addViewOnTop()
         self.topContentAdditionalInset = 80
         super.collectionView.backgroundColor = Colors.standardGray
+        self.collectionView.collectionViewLayout.messageBubbleLeftRightMargin = 50
     }
     
     deinit {
@@ -60,6 +62,36 @@ class MessageController: JSQMessagesViewController {
     }
     
     func flagUserButtonPressed(_ sender: UITapGestureRecognizer) {
+        
+        let blockOrFlagUserAlert = UIAlertController(title: NSLocalizedString("Do you want to block or flag user?", comment: "Do you want to block or flag user?"), message: "", preferredStyle: UIAlertControllerStyle.alert)
+        blockOrFlagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Block User", comment: "Block User"), style: .default, handler: { (UIAlertAction) in
+            let defaults = UserDefaults.standard
+            var blockedUsers = defaults.object(forKey: "blockedUsers") as? [String] ?? [String]()
+            blockedUsers.append(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: self.chat.memberUIDs)[0])
+            defaults.set(blockedUsers, forKey: "blockedUsers")
+            defaults.synchronize()
+            if let delegate = self.delegate {
+                delegate.blockedUser(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: self.chat.memberUIDs)[0])
+            }
+        }))
+        
+        blockOrFlagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Flag User", comment: "Flag User"), style: .default, handler: { (UIAlertAction) in
+            let flagReference = Database.database().reference().child("FlaggedUsers")
+            flagReference.childByAutoId().child("UID").setValue(MainFunctions.takeObjectOutOfStringArray(object: User.sharedInstance.uid, array: self.chat.memberUIDs)[0], withCompletionBlock: { (error, ref) in
+                if (error == nil) {
+                    MainFunctions.createSimpleAlert(alertTitle: "Thank you for flagging this user.", alertMessage: "Please continue to flag users who have graphic images for their profile image, as well as have an inapropriate name.", controller: self)
+                }
+            })
+        }))
+        
+        blockOrFlagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .destructive, handler: nil))
+        self.present(blockOrFlagUserAlert, animated: true, completion: nil)
+        
+        
+        
+        
+        
+        
         let flagUserAlert = UIAlertController(title: NSLocalizedString("Are you sure you want to block this user?", comment: "Are you sure you want to block this user?"), message: NSLocalizedString("Please confirm that you would like to permanently block this user.", comment: "Please confirm that you would like to permanently block this user."), preferredStyle: UIAlertControllerStyle.alert)
         flagUserAlert.addAction(UIAlertAction(title: NSLocalizedString("Block User", comment: "Block User"), style: .default, handler: { (UIAlertAction) in
             let defaults = UserDefaults.standard
