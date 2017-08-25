@@ -84,12 +84,17 @@ class FirebaseService {
             targetLanguageDict[language] = true
             allTargetLanguagesDict[language] = true
         }
-
+        
+        let newTargetLanguageDict = [
+            "TargetLangs": allTargetLanguagesDict,
+            "uid": User.sharedInstance.uid
+        ] as [String : Any]
+        
         targetLanguageReference.updateChildValues(targetLanguageDict) { (error, ref) in
             if (error == nil) {
                 var counter = 0
                 for (languageDict) in allTargetLanguagesDict {
-                    languageReference.child(languageDict.key).child(userUID).child("TargetLangs").updateChildValues(allTargetLanguagesDict, withCompletionBlock: { (error, ref) in
+                    languageReference.child(languageDict.key).child(userUID).updateChildValues(newTargetLanguageDict, withCompletionBlock: { (error, ref) in
                         if (error == nil) {
                             counter += 1
                             if (counter == targetLanguages.count) {

@@ -26,6 +26,7 @@ class ChatsController: UIViewController {
         loadChatsImageView.loadGif(name: "StandardLoadingAnimation")
         
         userChatsHandle = FirebaseService.observeChats { [weak self] (ref, chats) in
+            self?.chats.removeAll()
             self?.userChatsRef = ref
             self?.loadChatsImageView.isHidden = true
             
