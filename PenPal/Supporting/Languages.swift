@@ -15,9 +15,9 @@ struct Languages {
         "English",     // TRANSLATED
         "French",      // TRANSLATED
         "Spanish",     // TRANSLATED
-        "Italian",
+        "Italian",     // TRANSLATED
         "Japanese",    // TRANSLATED
-        "Russian",
+        "Russian",     // TRANSLATED
         "German",      // TRANSLATED
         "Chinese"      // TRANSLATED
     ]

@@ -16,7 +16,7 @@ protocol unpickTargetLanguageDelegate {
     func targetLanguageDeselected(_ language: String)
 }
 
-class PickLanguageCell: UICollectionViewCell {
+class PickLanguageCell: UITableViewCell {
 
     @IBOutlet weak var pickLanguageButton: UIButton!
     
@@ -25,28 +25,28 @@ class PickLanguageCell: UICollectionViewCell {
     let selectedLanguageColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.3)
     var language: String!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        pickLanguageButton.layer.cornerRadius = pickLanguageButton.frame.height / 2
-        self.frame.size.width = UIScreen.main.bounds.width - 20
-        self.pickLanguageButton.frame.size.width = UIScreen.main.bounds.width - 40
-        pickLanguageButton.layer.borderWidth = 0.5
-        pickLanguageButton.layer.borderColor = UIColor.white.cgColor
-    }
-    
-    func configureCell(language: String) {
+    func configureCellSelected(language: String) {
         self.language = language
         self.pickLanguageButton.setTitle(NSLocalizedString(String(describing: language), comment: ""), for: .normal)
+        self.pickLanguageButton.setTitleColor(Colors.primaryPurple, for: .normal)
+    }
+    
+    func configureCellUnselected(language: String) {
+        self.language = language
+        self.pickLanguageButton.setTitle(NSLocalizedString(String(describing: language), comment: ""), for: .normal)
+        self.pickLanguageButton.setTitleColor(Colors.primaryPurpleFaded, for: .normal)
     }
     
     @IBAction func pickLanguageButtonPressed(_ sender: Any) {
-        if (pickLanguageButton.backgroundColor == selectedLanguageColor) {
-            self.pickLanguageButton.backgroundColor = UIColor.clear
+        if (pickLanguageButton.titleColor(for: .normal) == Colors.primaryPurple) {
+            self.pickLanguageButton.setTitleColor(Colors.primaryPurpleFaded, for: .normal)
+            self.pickLanguageButton.titleLabel?.font = UIFont(name: "Rubik-Regular", size: 18.0)
             if let unpickDelegate = unpickDelegate {
                 unpickDelegate.targetLanguageDeselected(self.language)
             }
         } else {
-            self.pickLanguageButton.backgroundColor = selectedLanguageColor
+            self.pickLanguageButton.setTitleColor(Colors.primaryPurple, for: .normal)
+            self.pickLanguageButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 18.0)
             if let pickDelegate = pickDelegate {
                 pickDelegate.targetLanguageSelected(self.language)
             }

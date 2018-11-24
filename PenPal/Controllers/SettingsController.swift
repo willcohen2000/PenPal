@@ -147,7 +147,7 @@ extension SettingsController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.languageButton.setTitle(NSLocalizedString(language, comment: ""), for: .normal)
             return cell
         } else {
-            return PickNativeLanguageCell()
+            return UICollectionViewCell()//PickNativeLanguageCell()
         }
     }
 }

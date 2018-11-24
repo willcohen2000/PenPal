@@ -10,9 +10,10 @@ import UIKit
 
 class PickNativeLanguageController: UIViewController {
 
-    @IBOutlet weak var pickNativeLanguageCollectionView: UICollectionView!
+    @IBOutlet weak var pickNativeLanguageCollectionView: UITableView!
     @IBOutlet weak var pickLanguageYouAreAlreadyFluentInLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var progressViewWidthConstraint: NSLayoutConstraint!
     
     var nativeLanguages: [String] = []
     
@@ -20,26 +21,33 @@ class PickNativeLanguageController: UIViewController {
         super.viewDidLoad()
         
         localize()
-        
+        progressViewWidthConstraint.constant = UIScreen.main.bounds.width / 3
         pickNativeLanguageCollectionView.delegate = self
         pickNativeLanguageCollectionView.dataSource = self
-        
+        pickNativeLanguageCollectionView.allowsSelection = false
         pickNativeLanguageCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        progressViewWidthConstraint.constant = 0.66 * UIScreen.main.bounds.width
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 
     @IBAction func nextButtonPressed(_ sender: Any) {
         if (nativeLanguages.count != 0) {
             User.sharedInstance.nativeLanguages = []
             User.sharedInstance.nativeLanguages = nativeLanguages
-            self.performSegue(withIdentifier: Constants.Segues.nextSegue, sender: nil)
+            self.performSegue(withIdentifier: "nextSegue", sender: nil)
         } else {
             MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("No Languages Selected", comment: "No Languages Selected"), alertMessage: NSLocalizedString("You need to select at least one language to continue.", comment: "You need to select at least one language to continue."), controller: self)
         }
     }
     
     @IBAction func backArrowButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     private func localize() {
@@ -63,18 +71,26 @@ extension PickNativeLanguageController: pickNativeLanguageDelegate, unpickNative
     
 }
 
-extension PickNativeLanguageController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PickNativeLanguageController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Languages.languages.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = Languages.languages[indexPath.row]
-        if let cell = pickNativeLanguageCollectionView.dequeueReusableCell(withReuseIdentifier: "pickNativeLanguageCell", for: indexPath) as? PickNativeLanguageCell {
+        if let cell = pickNativeLanguageCollectionView.dequeueReusableCell(withIdentifier: "pickNativeLanguageCell") as? PickNativeLanguageCell {
+            if (nativeLanguages.contains(post)) {
+                cell.configureCellSelected(language: post)
+            } else {
+                cell.configureCellUnselected(language: post)
+            }
             cell.pickDelegate = self
             cell.unpickDelegate = self
-            cell.configureCell(language: post)
             return cell
         } else {
             return PickNativeLanguageCell()

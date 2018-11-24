@@ -19,6 +19,7 @@ target 'PenPal' do
   pod 'JSQMessagesViewController'
   pod 'UITextView+Placeholder'
   pod 'ROGoogleTranslate'
+  pod 'SwiftyShadow', '~> 1.6.0'
 
   target 'PenPalTests' do
     inherit! :search_paths

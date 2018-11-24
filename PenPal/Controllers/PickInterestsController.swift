@@ -12,37 +12,49 @@ import SwiftKeychainWrapper
 
 class PickInterestsController: UIViewController {
 
-    @IBOutlet weak var pickInterestsCollectionView: UICollectionView!
+    @IBOutlet weak var pickInterestsCollectionView: UITableView!
     @IBOutlet weak var pickFourInterestsLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var loadingImageView: UIImageView!
+    @IBOutlet weak var progressViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var loadingHolderView: UIView!
+    @IBOutlet weak var loadingView: UIImageView!
+    
     
     var selected: NSMutableSet = NSMutableSet()
     static var userInterests: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadingView.isHidden = true
-        loadingImageView.loadGif(name: "Spinner")
         localize()
+        loadingHolderView.isHidden = true;
+        loadingView.isHidden = true;
+        progressViewWidthConstraint.constant = 0.66 * UIScreen.main.bounds.width
         pickInterestsCollectionView.delegate = self
         pickInterestsCollectionView.dataSource = self
+        pickInterestsCollectionView.allowsSelection = false
         pickInterestsCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        progressViewWidthConstraint.constant = UIScreen.main.bounds.width
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
     @IBAction func backArrowButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
         if (PickInterestsController.userInterests.count < 4) {
             MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("You have not selected enough interests.", comment: "You have not selected enough interests."), alertMessage: NSLocalizedString("You must select four interests to continue.", comment: "You must select four interests to continue."), controller: self)
         } else {
-            loadingView.isHidden = false
             User.sharedInstance.interests = []
             User.sharedInstance.interests = PickInterestsController.userInterests
-            
+            loadingHolderView.isHidden = false;
+            loadingView.isHidden = false;
+            loadingView.loadGif(name: "LangexLoading")
             FirebaseService.saveInterestsInDatabase(uid: User.sharedInstance.uid, interests: PickInterestsController.userInterests) { (success) in
                 if (success) {
                     FirebaseService.saveByLanguages(targetLanguages: User.sharedInstance.targetLanguages, nativeLanguages: User.sharedInstance.nativeLanguages)
@@ -53,12 +65,10 @@ class PickInterestsController: UIViewController {
                             let vc = homeStoryboard.instantiateViewController(withIdentifier: "tabID") as UIViewController
                             self.present(vc, animated: true, completion: nil)
                         } else {
-                            self.loadingView.isHidden = true
                             MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Unable to save your data.", comment: "Unable to save your data."), alertMessage: NSLocalizedString("It seems like we are currently having issues signing you up. Please try again later.", comment: "It seems like we are currently having issues signing you up. Please try again later."), controller: self)
                         }
                     }
                 } else {
-                    self.loadingView.isHidden = true
                     MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Unable to save your data.", comment: "Unable to save your data."), alertMessage: NSLocalizedString("It seems like we are currently having issues signing you up. Please try again later.", comment: "It seems like we are currently having issues signing you up. Please try again later."), controller: self)
                 }
             }
@@ -72,14 +82,19 @@ class PickInterestsController: UIViewController {
     
 }
 
-extension PickInterestsController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension PickInterestsController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Interests.Interests.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let interest = Interests.Interests[indexPath.row]
-        if let cell = pickInterestsCollectionView.dequeueReusableCell(withReuseIdentifier: "pickInterestCell", for: indexPath) as? PickInterestsCell {
+        if let cell = pickInterestsCollectionView.dequeueReusableCell(withIdentifier: "pickInterestCell") as? PickInterestsCell {
             if selected.contains(interest) {
                 cell.configureCell(interest: interest, isSelectedBool: true)
             } else {
@@ -89,9 +104,10 @@ extension PickInterestsController: UICollectionViewDataSource, UICollectionViewD
             cell.unpickDelegate = self
             return cell
         } else {
-            return PickNativeLanguageCell()
+            return PickInterestsCell()
         }
     }
+    
 }
 
 extension PickInterestsController: pickInterestDelegate {

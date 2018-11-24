@@ -9,6 +9,7 @@
 import UIKit
 import DropDown
 import Firebase
+import SwiftyShadow
 
 class HomeController: UIViewController {
     
@@ -19,6 +20,7 @@ class HomeController: UIViewController {
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var noCompatibleUsersLabel: UILabel!
     @IBOutlet weak var targetLanguageStaticLabel: UILabel!
+    @IBOutlet weak var targetLanguageView: UIView!
     
     var dropMenuGlobal = DropDown()
     var pulledUsers = [ExternalLearner]()
@@ -35,7 +37,15 @@ class HomeController: UIViewController {
         initiateDropDownMenu()
         loadUsersTableView()
         self.noCompatibleUsersLabel.isHidden = true
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        targetLanguageView.layer.cornerRadius = 10
+        targetLanguageView.layer.shadowRadius = 5
+        targetLanguageView.layer.shadowOpacity = 0.3
+        targetLanguageView.layer.shadowColor = UIColor.black.cgColor
+        targetLanguageView.layer.shadowOffset = CGSize.zero
+        targetLanguageView.generateOuterShadow()
     }
     
     private func refresh(sender: AnyObject) {

@@ -8,23 +8,40 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftyShadow
 
 class DictionaryEntryCreationController: UIViewController {
 
     @IBOutlet weak var termTextView: UITextView!
     @IBOutlet weak var definitionTextView: UITextView!
+    @IBOutlet weak var termView: UIView!
+    @IBOutlet weak var definitionView: UIView!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var saveToDictionaryButton: ShadowButton!
     @IBOutlet weak var loadingImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addRoundedShadow(view: definitionView)
+        addRoundedShadow(view: termView)
+        saveToDictionaryButton.roundedButton()
+        
         loadingView.isHidden = true
         loadingImageView.loadGif(name: "StandardLoadingAnimation")
         
         termTextView.placeholder = NSLocalizedString("Remember - this dictionary works best with nouns and verbs!", comment: "Remember - this dictionary works best with nouns and verbs!")
         definitionTextView.placeholder = NSLocalizedString("We recommend that you keep your definitions short and consise. This will help you to remember it quicker.", comment: "We recommend that you keep your definitions short and consise. This will help you to remember it quicker.")
         
+    }
+    
+    func addRoundedShadow(view: UIView) {
+        view.layer.cornerRadius = 10
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize.zero
+        view.generateOuterShadow()
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {

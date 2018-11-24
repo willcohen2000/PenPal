@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyShadow
 
 class DictionaryController: UIViewController {
 
@@ -15,17 +16,25 @@ class DictionaryController: UIViewController {
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var noExitsingDictionaryEntriesLabel: UILabel!
     @IBOutlet weak var myDictionaryLabel: UILabel!
+    @IBOutlet weak var addDictionaryView: UIView!
     
     var userDictionaryArray = [DictionaryEntry]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         localize()
-        customizeAddDictionaryButton()
+
         loadingImageView.loadGif(name: "StandardLoadingAnimation")
         noExitsingDictionaryEntriesLabel.isHidden = true
         dictionaryTableView.delegate = self
         dictionaryTableView.dataSource = self
+        
+        addDictionaryView.layer.cornerRadius = 10
+        addDictionaryView.layer.shadowRadius = 5
+        addDictionaryView.layer.shadowOpacity = 0.3
+        addDictionaryView.layer.shadowColor = UIColor.black.cgColor
+        addDictionaryView.layer.shadowOffset = CGSize.zero
+        addDictionaryView.generateOuterShadow()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,12 +54,6 @@ class DictionaryController: UIViewController {
             }
         }
         
-    }
-    
-    private func customizeAddDictionaryButton() {
-        addDictionaryItemButton.layer.cornerRadius = addDictionaryItemButton.frame.height / 2
-        addDictionaryItemButton.layer.borderColor = UIColor.black.cgColor
-        addDictionaryItemButton.layer.borderWidth = 0.5
     }
     
     private func localize() {

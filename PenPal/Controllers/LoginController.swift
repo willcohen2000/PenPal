@@ -13,42 +13,24 @@ import SwiftKeychainWrapper
 class LoginController: UIViewController {
 
     @IBOutlet weak var logInButton: UIButton!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var gifImageView: UIImageView!
-    @IBOutlet weak var emailTextField: TextFieldPadding!
-    @IBOutlet weak var passwordTextField: TextFieldPadding!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var backToHomePageLabel: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var textFieldsView: UIView!
     
-    @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         localize()
         
-        logInButton.layer.cornerRadius = 15
-        loadingView.isHidden = true
-        gifImageView.loadGif(name: "Spinner")
+        logInButton.layer.cornerRadius = 8
         emailTextField.delegate = self
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: Notification.Name.UIKeyboardWillShow, object: nil)
-    }
-    
-    @objc func keyboardWillAppear() {
-        logoImageViewHeightConstraint.constant = 0
-        
-        UIView.animate(withDuration: 1, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    @objc func keyboardWillDisappear() {
-        deanimateLogo()
+        textFieldsView.layer.borderColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0).cgColor;
+        textFieldsView.layer.borderWidth = 1;
+        textFieldsView.layer.cornerRadius = 8
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,8 +74,6 @@ class LoginController: UIViewController {
     @IBAction func logInButtonPressed(_ sender: Any) {
         let userEmail: String = emailTextField.text!
         let userPassword: String = passwordTextField.text!
-        deanimateLogo()
-        loadingView.isHidden = false
         Auth.auth().signIn( withEmail: userEmail, password: userPassword, completion: { (user, error) in
             if error == nil {
                 MainFunctions.loadSingletonData(uid: (user?.uid)!, completionHandler: { (success) in
@@ -108,7 +88,6 @@ class LoginController: UIViewController {
                 })
             } else {
                 if let error = error {
-                    self.loadingView.isHidden = true
                     AuthenticationErrorService.loginErrors(error: error, controller: self)
                     MainFunctions.showErrorMessage(error: error)
                 }
@@ -116,19 +95,11 @@ class LoginController: UIViewController {
         })
     }
     
-    @IBAction func backToHomePageButtonPressed(_ sender: Any) {
+    @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-
-    private func deanimateLogo() {
-        logoImageViewHeightConstraint.constant = 95
-        UIView.animate(withDuration: 1, animations: {
-            self.view.layoutIfNeeded()
-        })
     }
     
     private func localize() {
-        backToHomePageLabel.setTitle(NSLocalizedString("Go back to home page", comment: "Go back to home page"), for: .normal)
         logInButton.setTitle(NSLocalizedString("Log In", comment: "Log In"), for: .normal)
         emailTextField.placeholder = NSLocalizedString("Email", comment: "Email")
         passwordTextField.placeholder = NSLocalizedString("Password", comment: "Password")

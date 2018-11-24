@@ -17,13 +17,6 @@
 		6E1E9B361F2693F1006C2338 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B351F2693F1006C2338 /* User.swift */; };
 		6E1E9B381F26D825006C2338 /* AuthenticationError+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E9B371F26D825006C2338 /* AuthenticationError+Service.swift */; };
 		6E58DBA41F19016D0031E78B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBA31F19016D0031E78B /* GoogleService-Info.plist */; };
-		6E58DBB11F1901DC0031E78B /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */; };
-		6E58DBB31F1901DC0031E78B /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBA71F1901DC0031E78B /* Roboto-Bold.ttf */; };
-		6E58DBB61F1901DC0031E78B /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBAA1F1901DC0031E78B /* Roboto-Light.ttf */; };
-		6E58DBB71F1901DC0031E78B /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBAB1F1901DC0031E78B /* Roboto-LightItalic.ttf */; };
-		6E58DBB81F1901DC0031E78B /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBAC1F1901DC0031E78B /* Roboto-Medium.ttf */; };
-		6E58DBB91F1901DC0031E78B /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBAD1F1901DC0031E78B /* Roboto-MediumItalic.ttf */; };
-		6E58DBBC1F1901DC0031E78B /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E58DBB01F1901DC0031E78B /* Roboto-ThinItalic.ttf */; };
 		6E58DBBE1F1901E90031E78B /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58DBBD1F1901E90031E78B /* SignUpController.swift */; };
 		6E58DBC01F1901F50031E78B /* ExternalLearner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58DBBF1F1901F50031E78B /* ExternalLearner.swift */; };
 		6E58DBC61F1902220031E78B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E58DBC31F1902220031E78B /* Constants.swift */; };
@@ -39,7 +32,6 @@
 		6E76286F1F3B58F900883DD6 /* CorrectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E76286E1F3B58F900883DD6 /* CorrectionsController.swift */; };
 		6E7628711F3B5C6900883DD6 /* CorrectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7628701F3B5C6900883DD6 /* CorrectionCell.swift */; };
 		6E7628731F3B5D9400883DD6 /* Correction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7628721F3B5D9400883DD6 /* Correction.swift */; };
-		6E7628751F3B837100883DD6 /* StandardLoadingAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E7628741F3B837100883DD6 /* StandardLoadingAnimation.gif */; };
 		6E7628771F3B9F1400883DD6 /* FullCorrectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7628761F3B9F1400883DD6 /* FullCorrectionController.swift */; };
 		6E7A162D1F448E00009A5838 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E7A162F1F448E00009A5838 /* Home.storyboard */; };
 		6E7A16301F448E09009A5838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E7A16321F448E09009A5838 /* Main.storyboard */; };
@@ -52,6 +44,7 @@
 		6E8C71081F1657FA0015C107 /* PenPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C71071F1657FA0015C107 /* PenPalUITests.swift */; };
 		6E8F28D91F27902B004DA767 /* CircleButtonImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F28D81F27902B004DA767 /* CircleButtonImage.swift */; };
 		6E8F28DC1F28D2CA004DA767 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F28DB1F28D2CA004DA767 /* SettingsController.swift */; };
+		6E93A35621778023007C56ED /* LangexLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6E93A35521778023007C56ED /* LangexLoading.gif */; };
 		6E960ABA1F290952003E30CA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E960AB91F290952003E30CA /* CustomTabBar.swift */; };
 		6E9C28761F3CFBB2009C29C9 /* AddNewTargetLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C28751F3CFBB2009C29C9 /* AddNewTargetLanguageController.swift */; };
 		6ED4BCBB1F38A082008E119E /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED4BCBA1F38A082008E119E /* Chat.swift */; };
@@ -69,6 +62,16 @@
 		6EDA589A1F1D337E0071B3F1 /* PickNativeLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */; };
 		6EDA589C1F1D33A00071B3F1 /* PickNativeLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA589B1F1D33A00071B3F1 /* PickNativeLanguageCell.swift */; };
 		6EDA589E1F1D44FF0071B3F1 /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDA589D1F1D44FF0071B3F1 /* Interests.swift */; };
+		6EDABDED2158360100BD1982 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE3215835F900BD1982 /* Rubik-Italic.ttf */; };
+		6EDABDEE2158360100BD1982 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE4215835FA00BD1982 /* Rubik-Light.ttf */; };
+		6EDABDEF2158360100BD1982 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE5215835FA00BD1982 /* Rubik-Medium.ttf */; };
+		6EDABDF02158360100BD1982 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE6215835FB00BD1982 /* Rubik-BoldItalic.ttf */; };
+		6EDABDF12158360100BD1982 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE7215835FC00BD1982 /* Rubik-LightItalic.ttf */; };
+		6EDABDF22158360100BD1982 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE8215835FC00BD1982 /* Rubik-Bold.ttf */; };
+		6EDABDF32158360100BD1982 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDE9215835FD00BD1982 /* Rubik-Regular.ttf */; };
+		6EDABDF42158360100BD1982 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDEA215835FE00BD1982 /* Rubik-MediumItalic.ttf */; };
+		6EDABDF52158360100BD1982 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDEB2158360000BD1982 /* Rubik-BlackItalic.ttf */; };
+		6EDABDF62158360100BD1982 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EDABDEC2158360100BD1982 /* Rubik-Black.ttf */; };
 		6EE43CBE1F17B91C002FDC96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE43CBC1F17B91C002FDC96 /* LaunchScreen.storyboard */; };
 		6EE81B941F18648C00C5CF67 /* InitialLandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81B931F18648C00C5CF67 /* InitialLandingPage.swift */; };
 		6EE81B981F1874D000C5CF67 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81B971F1874D000C5CF67 /* LoginController.swift */; };
@@ -127,13 +130,6 @@
 		6E1E9B351F2693F1006C2338 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
 		6E1E9B371F26D825006C2338 /* AuthenticationError+Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AuthenticationError+Service.swift"; path = "Services/AuthenticationError+Service.swift"; sourceTree = "<group>"; };
 		6E58DBA31F19016D0031E78B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Supporting/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "Rescources/Roboto-Black.ttf"; sourceTree = "<group>"; };
-		6E58DBA71F1901DC0031E78B /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "Rescources/Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		6E58DBAA1F1901DC0031E78B /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "Rescources/Roboto-Light.ttf"; sourceTree = "<group>"; };
-		6E58DBAB1F1901DC0031E78B /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "Rescources/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
-		6E58DBAC1F1901DC0031E78B /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "Rescources/Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		6E58DBAD1F1901DC0031E78B /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "Rescources/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
-		6E58DBB01F1901DC0031E78B /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "Rescources/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		6E58DBBD1F1901E90031E78B /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpController.swift; path = Controllers/SignUpController.swift; sourceTree = "<group>"; };
 		6E58DBBF1F1901F50031E78B /* ExternalLearner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExternalLearner.swift; path = Models/ExternalLearner.swift; sourceTree = "<group>"; };
 		6E58DBC31F1902220031E78B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Supporting/Constants.swift; sourceTree = "<group>"; };
@@ -150,7 +146,6 @@
 		6E76286E1F3B58F900883DD6 /* CorrectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CorrectionsController.swift; path = Controllers/CorrectionsController.swift; sourceTree = "<group>"; };
 		6E7628701F3B5C6900883DD6 /* CorrectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CorrectionCell.swift; path = Views/CorrectionCell.swift; sourceTree = "<group>"; };
 		6E7628721F3B5D9400883DD6 /* Correction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Correction.swift; path = Models/Correction.swift; sourceTree = "<group>"; };
-		6E7628741F3B837100883DD6 /* StandardLoadingAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = StandardLoadingAnimation.gif; path = Rescources/StandardLoadingAnimation.gif; sourceTree = "<group>"; };
 		6E7628761F3B9F1400883DD6 /* FullCorrectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullCorrectionController.swift; path = Controllers/FullCorrectionController.swift; sourceTree = "<group>"; };
 		6E7A162E1F448E00009A5838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		6E7A16311F448E09009A5838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,6 +184,7 @@
 		6E8C71091F1657FA0015C107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E8F28D81F27902B004DA767 /* CircleButtonImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButtonImage.swift; sourceTree = "<group>"; };
 		6E8F28DB1F28D2CA004DA767 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = Controllers/SettingsController.swift; sourceTree = "<group>"; };
+		6E93A35521778023007C56ED /* LangexLoading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LangexLoading.gif; sourceTree = "<group>"; };
 		6E960AB91F290952003E30CA /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		6E9C28751F3CFBB2009C29C9 /* AddNewTargetLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddNewTargetLanguageController.swift; path = Controllers/AddNewTargetLanguageController.swift; sourceTree = "<group>"; };
 		6ED4BCBA1F38A082008E119E /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chat.swift; path = Models/Chat.swift; sourceTree = "<group>"; };
@@ -206,6 +202,16 @@
 		6EDA58991F1D337E0071B3F1 /* PickNativeLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickNativeLanguageController.swift; sourceTree = "<group>"; };
 		6EDA589B1F1D33A00071B3F1 /* PickNativeLanguageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickNativeLanguageCell.swift; path = Views/PickNativeLanguageCell.swift; sourceTree = "<group>"; };
 		6EDA589D1F1D44FF0071B3F1 /* Interests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interests.swift; path = Supporting/Interests.swift; sourceTree = "<group>"; };
+		6EDABDE3215835F900BD1982 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		6EDABDE4215835FA00BD1982 /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		6EDABDE5215835FA00BD1982 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		6EDABDE6215835FB00BD1982 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		6EDABDE7215835FC00BD1982 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		6EDABDE8215835FC00BD1982 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		6EDABDE9215835FD00BD1982 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		6EDABDEA215835FE00BD1982 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
+		6EDABDEB2158360000BD1982 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		6EDABDEC2158360100BD1982 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Black.ttf"; sourceTree = "<group>"; };
 		6EE43CBC1F17B91C002FDC96 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6EE81B931F18648C00C5CF67 /* InitialLandingPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialLandingPage.swift; path = Controllers/InitialLandingPage.swift; sourceTree = "<group>"; };
 		6EE81B971F1874D000C5CF67 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Controllers/LoginController.swift; sourceTree = "<group>"; };
@@ -294,13 +300,16 @@
 		6E6E20A61F192B330032ADBC /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				6E58DBA51F1901DC0031E78B /* Roboto-Black.ttf */,
-				6E58DBA71F1901DC0031E78B /* Roboto-Bold.ttf */,
-				6E58DBAA1F1901DC0031E78B /* Roboto-Light.ttf */,
-				6E58DBAB1F1901DC0031E78B /* Roboto-LightItalic.ttf */,
-				6E58DBAC1F1901DC0031E78B /* Roboto-Medium.ttf */,
-				6E58DBAD1F1901DC0031E78B /* Roboto-MediumItalic.ttf */,
-				6E58DBB01F1901DC0031E78B /* Roboto-ThinItalic.ttf */,
+				6EDABDEC2158360100BD1982 /* Rubik-Black.ttf */,
+				6EDABDEB2158360000BD1982 /* Rubik-BlackItalic.ttf */,
+				6EDABDE8215835FC00BD1982 /* Rubik-Bold.ttf */,
+				6EDABDE6215835FB00BD1982 /* Rubik-BoldItalic.ttf */,
+				6EDABDE3215835F900BD1982 /* Rubik-Italic.ttf */,
+				6EDABDE4215835FA00BD1982 /* Rubik-Light.ttf */,
+				6EDABDE7215835FC00BD1982 /* Rubik-LightItalic.ttf */,
+				6EDABDE5215835FA00BD1982 /* Rubik-Medium.ttf */,
+				6EDABDEA215835FE00BD1982 /* Rubik-MediumItalic.ttf */,
+				6EDABDE9215835FD00BD1982 /* Rubik-Regular.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -499,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				6E76286C1F3B404B00883DD6 /* Spinner.gif */,
-				6E7628741F3B837100883DD6 /* StandardLoadingAnimation.gif */,
+				6E93A35521778023007C56ED /* LangexLoading.gif */,
 				6E6E20A61F192B330032ADBC /* Fonts */,
 				6E8C70EE1F1657F90015C107 /* Assets.xcassets */,
 			);
@@ -541,7 +550,6 @@
 				6E8C70DF1F1657F90015C107 /* Frameworks */,
 				6E8C70E01F1657F90015C107 /* Resources */,
 				E8D2747D95E53C9BF3445EC8 /* [CP] Embed Pods Frameworks */,
-				4BAC25ED120CF83C115BD984 /* [CP] Copy Pods Resources */,
 				6E717D1B1F428B6000AD050D /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -561,8 +569,6 @@
 				6E8C70F41F1657F90015C107 /* Sources */,
 				6E8C70F51F1657F90015C107 /* Frameworks */,
 				6E8C70F61F1657F90015C107 /* Resources */,
-				7B0DF1BCBF930618CE240D40 /* [CP] Embed Pods Frameworks */,
-				6645AE60A90AD1B6A900FABC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -582,8 +588,6 @@
 				6E8C70FF1F1657FA0015C107 /* Sources */,
 				6E8C71001F1657FA0015C107 /* Frameworks */,
 				6E8C71011F1657FA0015C107 /* Resources */,
-				D924A49B2087C8C915A6A3CB /* [CP] Embed Pods Frameworks */,
-				399F2786E666A6D86EF820E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -657,20 +661,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E76286D1F3B404B00883DD6 /* Spinner.gif in Resources */,
-				6E58DBB91F1901DC0031E78B /* Roboto-MediumItalic.ttf in Resources */,
-				6E7628751F3B837100883DD6 /* StandardLoadingAnimation.gif in Resources */,
+				6EDABDF02158360100BD1982 /* Rubik-BoldItalic.ttf in Resources */,
+				6EDABDF42158360100BD1982 /* Rubik-MediumItalic.ttf in Resources */,
 				6E7A162D1F448E00009A5838 /* Home.storyboard in Resources */,
 				6E7A16371F448F48009A5838 /* Localizable.strings in Resources */,
+				6EDABDF62158360100BD1982 /* Rubik-Black.ttf in Resources */,
 				6E7A16301F448E09009A5838 /* Main.storyboard in Resources */,
-				6E58DBB61F1901DC0031E78B /* Roboto-Light.ttf in Resources */,
-				6E58DBBC1F1901DC0031E78B /* Roboto-ThinItalic.ttf in Resources */,
+				6EDABDED2158360100BD1982 /* Rubik-Italic.ttf in Resources */,
+				6EDABDF12158360100BD1982 /* Rubik-LightItalic.ttf in Resources */,
 				6EE43CBE1F17B91C002FDC96 /* LaunchScreen.storyboard in Resources */,
-				6E58DBB71F1901DC0031E78B /* Roboto-LightItalic.ttf in Resources */,
+				6EDABDEE2158360100BD1982 /* Rubik-Light.ttf in Resources */,
+				6EDABDF52158360100BD1982 /* Rubik-BlackItalic.ttf in Resources */,
 				6E58DBA41F19016D0031E78B /* GoogleService-Info.plist in Resources */,
-				6E58DBB11F1901DC0031E78B /* Roboto-Black.ttf in Resources */,
-				6E58DBB31F1901DC0031E78B /* Roboto-Bold.ttf in Resources */,
+				6EDABDF22158360100BD1982 /* Rubik-Bold.ttf in Resources */,
+				6E93A35621778023007C56ED /* LangexLoading.gif in Resources */,
+				6EDABDEF2158360100BD1982 /* Rubik-Medium.ttf in Resources */,
+				6EDABDF32158360100BD1982 /* Rubik-Regular.ttf in Resources */,
 				6E8C70EF1F1657F90015C107 /* Assets.xcassets in Resources */,
-				6E58DBB81F1901DC0031E78B /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,13 +704,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenPal-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		131AD26E22D6B2C859559127 /* [CP] Check Pods Manifest.lock */ = {
@@ -712,73 +722,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenPalUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		399F2786E666A6D86EF820E6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenPalUITests/Pods-PenPalUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BAC25ED120CF83C115BD984 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenPal/Pods-PenPal-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6645AE60A90AD1B6A900FABC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenPalTests/Pods-PenPalTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7B0DF1BCBF930618CE240D40 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenPalTests/Pods-PenPalTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8664E5FCBEA53793069AC98 /* [CP] Check Pods Manifest.lock */ = {
@@ -787,28 +740,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenPalTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D924A49B2087C8C915A6A3CB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenPalUITests/Pods-PenPalUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8D2747D95E53C9BF3445EC8 /* [CP] Embed Pods Frameworks */ = {
@@ -817,9 +758,34 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PenPal/Pods-PenPal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/ROGoogleTranslate/ROGoogleTranslate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyShadow/SwiftyShadow.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ROGoogleTranslate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyShadow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

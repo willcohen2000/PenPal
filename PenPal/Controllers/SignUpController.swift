@@ -13,20 +13,30 @@ import SwiftKeychainWrapper
 class SignUpController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var emailTextField: TextFieldPadding!
-    @IBOutlet weak var passwordTextField: TextFieldPadding!
-    @IBOutlet weak var confirmPasswordTextField: TextFieldPadding!
-    @IBOutlet weak var fullNameTextField: TextFieldPadding!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var gifLoadingImage: UIImageView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var backToHomePageButton: UIButton!
+    @IBOutlet weak var textFieldsHolder: UIView!
+    @IBOutlet weak var errorMessageHolder: UIView!
+    @IBOutlet weak var errorMessageTextView: UITextView!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         localize()
         signUpButton.layer.cornerRadius = 15
-        loadingView.isHidden = true
-        gifLoadingImage.loadGif(name: "Spinner")
+        textFieldsHolder.layer.borderColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0).cgColor;
+        textFieldsHolder.layer.borderWidth = 1;
+        textFieldsHolder.layer.cornerRadius = 8
+        errorMessageHolder.layer.cornerRadius = 5
+        
+        errorMessageHolder.isHidden = true;
+        errorMessageTextView.isHidden = true;
     }
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
@@ -36,18 +46,16 @@ class SignUpController: UIViewController {
         guard let fullName: String = fullNameTextField.text else { return }
         
         if (passwordTextField.text != confirmPasswordTextField.text) {
-            MainFunctions.textFieldError(textFields: [passwordTextField, confirmPasswordTextField])
-            let passwordsDontMatchAlert = UIAlertController(title: NSLocalizedString("Passwords Do Not Match", comment: "Passwords Do Not Match"), message:
-                NSLocalizedString("It seems like you have entered in two different passwords.", comment: "It seems like you have entered in two different passwords."), preferredStyle: UIAlertControllerStyle.alert)
-            passwordsDontMatchAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
-            self.present(passwordsDontMatchAlert, animated: true, completion: nil)
+            errorMessageHolder.isHidden = false;
+            errorMessageTextView.isHidden = false;
+            errorMessageTextView.text = NSLocalizedString("Passwords Do Not Match", comment: "Passwords Do Not Match");
         } else if userPassword.characters.count < 6 {
-            MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Password too short.", comment: "Password too short."), alertMessage: NSLocalizedString("Passwords must contain at least six characters.", comment: "Passwords must contain at least six characters."), controller: self)
+            errorMessageHolder.isHidden = false;
+            errorMessageTextView.isHidden = false;
+            errorMessageTextView.text = NSLocalizedString("Password too short.", comment: "Password too short.")
         } else {
-            self.loadingView.isHidden = false
             Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (user, error) in
                 if let error = error {
-                    self.loadingView.isHidden = true
                     AuthenticationErrorService.signUpErrors(error: error, controller: self)
                     MainFunctions.showErrorMessage(error: error) 
                     return
@@ -62,8 +70,9 @@ class SignUpController: UIViewController {
                             User.sharedInstance.name = userName
                         }
                     } else {
-                        self.loadingView.isHidden = true
-                        MainFunctions.createSimpleAlert(alertTitle: NSLocalizedString("Error signing up", comment: "Error signing up"), alertMessage: NSLocalizedString("It seems like there was an error signing you up. Please try again soon.", comment: "It seems like there was an error signing you up. Please try again soon."), controller: self)
+                        self.errorMessageHolder.isHidden = false;
+                        self.errorMessageTextView.isHidden = false;
+                        self.errorMessageTextView.text = NSLocalizedString("Error signing up", comment: "Error signing up")
                     }
                 })
             }

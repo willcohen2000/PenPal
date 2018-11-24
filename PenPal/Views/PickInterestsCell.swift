@@ -16,7 +16,7 @@ protocol unpickInterestDelegate {
     func interestDeselected(_ interest: String)
 }
 
-class PickInterestsCell: UICollectionViewCell {
+class PickInterestsCell: UITableViewCell {
     
     @IBOutlet weak var pickInterestButton: UIButton!
     
@@ -25,22 +25,15 @@ class PickInterestsCell: UICollectionViewCell {
     var unpickDelegate: unpickInterestDelegate?
     let selectedLanguageColor = UIColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.3)
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        pickInterestButton.layer.cornerRadius = pickInterestButton.frame.height / 2
-        self.frame.size.width = UIScreen.main.bounds.width - 20
-        self.pickInterestButton.frame.size.width = UIScreen.main.bounds.width - 40
-        pickInterestButton.layer.borderWidth = 0.5
-        pickInterestButton.layer.borderColor = UIColor.white.cgColor
-    }
-    
     func configureCell(interest: String, isSelectedBool: Bool) {
         self.interest = interest
         self.pickInterestButton.setTitle(NSLocalizedString(String(describing: interest), comment: ""), for: .normal)
         if (isSelectedBool) {
-            self.pickInterestButton.backgroundColor = selectedLanguageColor
+            self.pickInterestButton.setTitleColor(Colors.primaryPurple, for: .normal)
+            self.pickInterestButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 18.0)
         } else {
-            self.pickInterestButton.backgroundColor = UIColor.clear
+            self.pickInterestButton.setTitleColor(Colors.primaryPurpleFaded, for: .normal)
+            self.pickInterestButton.titleLabel?.font = UIFont(name: "Rubik-Regular", size: 18.0)
         }
     }
  
@@ -50,14 +43,16 @@ class PickInterestsCell: UICollectionViewCell {
     }
     
     @IBAction func interestButtonPressed(_ sender: Any) {
-        if (pickInterestButton.backgroundColor == selectedLanguageColor) {
-            self.pickInterestButton.backgroundColor = UIColor.clear
+        if (pickInterestButton.titleColor(for: .normal) == Colors.primaryPurple) {
+            self.pickInterestButton.setTitleColor(Colors.primaryPurpleFaded, for: .normal)
+            self.pickInterestButton.titleLabel?.font = UIFont(name: "Rubik-Regular", size: 18.0)
             if unpickDelegate != nil {
                 unpickDelegate?.interestDeselected(interest)
             }
         } else {
             if (PickInterestsController.userInterests.count != 4) {
-                self.pickInterestButton.backgroundColor = selectedLanguageColor
+                self.pickInterestButton.setTitleColor(Colors.primaryPurple, for: .normal)
+                self.pickInterestButton.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 18.0)
                 if pickDelegate != nil {
                     pickDelegate?.interestSelected(interest)
                 }

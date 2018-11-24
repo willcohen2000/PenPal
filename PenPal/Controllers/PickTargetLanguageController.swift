@@ -7,22 +7,30 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class PickTargetLanguageController: UIViewController {
 
-    @IBOutlet weak var pickTargetLanguageCollectionView: UICollectionView!
+    @IBOutlet weak var pickTargetLanguageCollectionView: UITableView!
     @IBOutlet weak var pickTheLanguagesYouAreTryingToLearnLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var progressViewWidthConstraint: NSLayoutConstraint!
+    
     
     var targetLanguages: [String] = []
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         localize()
-        
+        progressViewWidthConstraint.constant = UIScreen.main.bounds.width / 3
         pickTargetLanguageCollectionView.delegate = self
         pickTargetLanguageCollectionView.dataSource = self
+        pickTargetLanguageCollectionView.allowsSelection = false
         
         pickTargetLanguageCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
     }
@@ -58,16 +66,24 @@ extension PickTargetLanguageController: pickTargetLanguageDelegate, unpickTarget
     
 }
 
-extension PickTargetLanguageController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension PickTargetLanguageController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Languages.languages.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = Languages.languages[indexPath.row]
-        if let cell = pickTargetLanguageCollectionView.dequeueReusableCell(withReuseIdentifier: "pickTargetLanguageCell", for: indexPath) as? PickLanguageCell {
-            cell.configureCell(language: post)
+        if let cell = pickTargetLanguageCollectionView.dequeueReusableCell(withIdentifier: "pickTargetLanguageCell") as? PickLanguageCell {
+            if (targetLanguages.contains(post)) {
+                cell.configureCellSelected(language: post)
+            } else {
+                cell.configureCellUnselected(language: post)
+            }
             cell.pickDelegate = self
             cell.unpickDelegate = self
             return cell

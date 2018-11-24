@@ -21,23 +21,7 @@ class InitialLandingPage: UIViewController {
     @IBOutlet weak var loadingImageView: UIImageView!
     @IBOutlet weak var loginAndSignUpStackView: UIStackView!
     
-    @IBOutlet weak var logoStackViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var logoImageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var logoImageViewWidthConstraint: NSLayoutConstraint!
-    
-    var didCompleteAnimation: Bool = false
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if (!didCompleteAnimation) {
-            logoStackViewTopConstraint.constant = ((self.view.frame.height / 2) - (logoImageView.frame.height / 2))
-            didCompleteAnimation = true
-        }
-        logoImageViewHeightConstraint.constant = 120
-        logoImageViewWidthConstraint.constant = 282
-        self.view.layoutIfNeeded()
-        
-        loadUpAnimation()
-    }
+    var didCompleteAnimation: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +29,11 @@ class InitialLandingPage: UIViewController {
         localize()
         
         loadingPreviouslyLoggedInUserView.isHidden = true
+        
+        logInButton.layer.cornerRadius = (logInButton.frame.height / 2)
+        signUpButton.layer.cornerRadius = (signUpButton.frame.height / 2)
+        logInButton.setTitle(logInButton.titleLabel?.text?.uppercased(), for: UIControlState.normal)
+        signUpButton.setTitle(signUpButton.titleLabel?.text?.uppercased(), for: UIControlState.normal)
         
         if (KeychainWrapper.standard.string(forKey: "uid") != nil) {
             Auth.auth().addStateDidChangeListener({ (auth, user) in
@@ -73,10 +62,7 @@ class InitialLandingPage: UIViewController {
                 }
             })
         }
-        
-        loginAndSignUpStackView.alpha = 0
-        connecitngLanguageLearnersLabel.textColor = UIColor.clear
-        loadUpAnimation()
+ 
     }
     
     private func localize() {
@@ -85,21 +71,5 @@ class InitialLandingPage: UIViewController {
         signUpButton.setTitle(NSLocalizedString("Sign Up", comment: "Register/Sign Up"), for: .normal)
     }
 
-    private func loadUpAnimation() {
-        logoStackViewTopConstraint.constant = 20
-        UIView.animate(withDuration: 1.0, animations: {
-            self.view.layoutIfNeeded()
-        }) { (success) in
-            if (success) {
-                UIView.animate(withDuration: 1.0, animations: {
-                    self.loginAndSignUpStackView.alpha = 1.0
-                }) { (success) in
-                    UIView.transition(with: self.connecitngLanguageLearnersLabel, duration: 2.0, options: .transitionCrossDissolve, animations: {
-                        self.connecitngLanguageLearnersLabel.textColor = UIColor.black
-                    }, completion: nil)
-                }
-            }
-        }
-    }
     
 }

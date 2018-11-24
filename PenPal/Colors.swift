@@ -16,6 +16,10 @@ class Colors {
     static let textFieldErrorRed = UIColor(red:0.91, green:0.30, blue:0.24, alpha:1.0)
     static let standardGray = UIColor(red:0.86, green:0.84, blue:0.84, alpha:1.0)
     
+    static let primaryPurple = UIColor(red:0.25, green:0.32, blue:0.71, alpha:1.0);
+    static let primaryPurpleFaded = UIColor(red:0.25, green:0.32, blue:0.71, alpha:0.75);
+    static let primaryWhite = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0);
+    
     static let unfilledProfilePictures = [
         UIColor(red:0.91, green:0.30, blue:0.24, alpha:1.0),
         UIColor(red:0.18, green:0.80, blue:0.44, alpha:1.0),
