@@ -19,6 +19,10 @@ class ChatsController: UIViewController {
     var userChatsHandle: DatabaseHandle = 0
     var userChatsRef: DatabaseReference?
 
+    override func viewDidAppear(_ animated: Bool) {
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +75,7 @@ extension ChatsController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "toChat",
-            let destination = segue.destination as? MessageController,
+            let destination = segue.destination as? MessagesController,
             let indexPath = chatsListTableView.indexPathForSelectedRow {
             destination.chat = chats[indexPath.row]
             destination.delegate = self

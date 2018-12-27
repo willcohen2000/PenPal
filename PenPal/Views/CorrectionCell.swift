@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SwiftyShadow
 
 protocol viewCorrectionDelegate {
     func viewCorrectionButtonPressed(_ correction: Correction)
@@ -19,10 +20,23 @@ class CorrectionCell: UITableViewCell {
     @IBOutlet weak var correctorNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var correctionDateLabel: UILabel!
-    @IBOutlet weak var viewThisCorrectionButton: ShadowButton!
+    @IBOutlet weak var viewThisCorrectionButton: UIButton!
+    @IBOutlet weak var correctionView: UIView!
     
     var correctionDelegate: viewCorrectionDelegate?
     var correction: Correction!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.backgroundColor = UIColor(white: 1, alpha: 0)
+        correctionView.layer.cornerRadius = 10
+        correctionView.layer.shadowRadius = 5
+        correctionView.layer.shadowOpacity = 0.3
+        correctionView.layer.shadowColor = UIColor.black.cgColor
+        correctionView.layer.shadowOffset = CGSize.zero
+        correctionView.generateOuterShadow()
+        viewThisCorrectionButton.roundedButton()
+    }
     
     func configureCell(_ correction: Correction) {
         self.correction = correction

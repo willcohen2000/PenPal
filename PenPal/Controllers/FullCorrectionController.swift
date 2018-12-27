@@ -8,6 +8,7 @@
 
 import UIKit
 import ROGoogleTranslate
+import SwiftyShadow
 
 class FullCorrectionController: UIViewController {
 
@@ -16,6 +17,8 @@ class FullCorrectionController: UIViewController {
     @IBOutlet weak var correctionFromLabel: UILabel!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var yourMessageLabel: UILabel!
+    @IBOutlet weak var messageView: UIView!
+    @IBOutlet weak var correctionView: UIView!
     
     let translator = ROGoogleTranslate()
     var correction: Correction!
@@ -24,6 +27,9 @@ class FullCorrectionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewRoundShadow(view: messageView)
+        viewRoundShadow(view: correctionView)
+        
         localize()
         
         userMessageLabel.text = correction.originalMessage
@@ -32,11 +38,20 @@ class FullCorrectionController: UIViewController {
         correctionLabel.isEditable = false
         userMessageLabel.isEditable = false
         translateButton.layer.cornerRadius = 5.0
-        translateButton.layer.borderColor = UIColor.black.cgColor
+        translateButton.layer.borderColor = Colors.primaryPurple.cgColor
         translateButton.layer.borderWidth = 1.0
         
         translator.apiKey = "AIzaSyBGd7mhycCRUB3kjMCghrHn5W3d6DP_rwY"
         
+    }
+    
+    private func viewRoundShadow(view: UIView) {
+        view.layer.cornerRadius = 10
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize.zero
+        view.generateOuterShadow()
     }
 
     @IBAction func translateButtonPressed(_ sender: Any) {

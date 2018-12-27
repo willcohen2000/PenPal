@@ -6,13 +6,15 @@
 //  Copyright © 2017 Will Cohen. All rights reserved.
 //
 
+/*
+
 import UIKit
 import JSQMessagesViewController
 import FirebaseDatabase.FIRDatabase
 
-protocol blockedUserDelegate {
+/*protocol blockedUserDelegate {
     func blockedUser(_ user: String)
-}
+}*/
 
 class MessageController: JSQMessagesViewController {
 
@@ -257,3 +259,4 @@ extension MessageController {
 }
 
 
+*/

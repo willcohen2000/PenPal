@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftKeychainWrapper
+import SwiftyShadow
 
 class SettingsController: UIViewController {
 
@@ -17,9 +18,10 @@ class SettingsController: UIViewController {
     @IBOutlet weak var profilePictureButton: UIButton!
     @IBOutlet weak var myLanguagesCollectionView: UICollectionView!
     @IBOutlet weak var signOutButton: UIButton!
-    @IBOutlet weak var lowerSettingsView: ShadowView!
+    @IBOutlet weak var lowerSettingsView: UIView!
     @IBOutlet weak var editMyFourThingsToTalkAboutLabel: UILabel!
     @IBOutlet weak var languagesImLearningLabel: UILabel!
+    @IBOutlet weak var upperSettingsView: UIView!
     
     var selectedImage: UIImage?
     
@@ -29,7 +31,8 @@ class SettingsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addRoundedShadow(view: upperSettingsView)
+        addRoundedShadow(view: lowerSettingsView)
         localize()
         loadSettingsView()
         myLanguagesCollectionView.delegate = self
@@ -58,16 +61,23 @@ class SettingsController: UIViewController {
         
     }
     
+    private func addRoundedShadow(view: UIView) {
+        view.layer.cornerRadius = 10
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize.zero
+        view.generateOuterShadow()
+    }
+    
     private func loadSettingsView() {
         self.profilePictureButton.setImage(UIImage(named: "User"), for: .normal)
         
-        editMyFourThingsButton.layer.borderColor = UIColor.black.cgColor
+        editMyFourThingsButton.layer.borderColor = Colors.primaryPurple.cgColor
         editMyFourThingsButton.layer.cornerRadius = editMyFourThingsButton.frame.height / 2
         editMyFourThingsButton.layer.borderWidth = 1.0
         
-        signOutButton.layer.borderColor = UIColor.black.cgColor
-        signOutButton.layer.cornerRadius = 10.0
-        signOutButton.layer.borderWidth = 0.5
+        signOutButton.roundedButton()
         
         nameLabel.text = User.sharedInstance.name
     }

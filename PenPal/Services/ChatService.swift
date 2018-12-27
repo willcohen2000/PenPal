@@ -84,10 +84,24 @@ class ChatService {
         })
     }
     
+    static func getMessages(forChatKey chatKey: String, completionHandler: @escaping (_ messages: [Message]) -> Void) {
+        let messagesRef = Database.database().reference().child("messages").child(chatKey)
+        var messages: [Message] = []
+        messagesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for (snap) in snapshot {
+                    let message = Message(snapshot: snap)
+                    messages.append(message!)
+                }
+            }
+            completionHandler(messages)
+        })
+    }
+    
     static func observeMessages(forChatKey chatKey: String, completion: @escaping (DatabaseReference, Message?) -> Void) -> DatabaseHandle {
         let messagesRef = Database.database().reference().child("messages").child(chatKey)
         
-        return messagesRef.observe(.childAdded, with: { snapshot in
+        return messagesRef.observe(.value, with: { snapshot in
             guard let message = Message(snapshot: snapshot) else {
                 return completion(messagesRef, nil)
             }

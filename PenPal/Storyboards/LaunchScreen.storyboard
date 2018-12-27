@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.15" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.9"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="6f2-tN-MLv">
-                                <rect key="frame" x="46.5" y="273" width="282" height="120"/>
+                                <rect key="frame" x="46.5" y="273.5" width="282" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="LJB-SB-jqI"/>
                                     <constraint firstAttribute="width" constant="282" id="b5u-0M-1lF"/>
@@ -38,8 +38,8 @@
                             <constraint firstItem="6f2-tN-MLv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GzD-oV-Gdj"/>
                             <constraint firstAttribute="trailing" secondItem="0ne-dF-K0A" secondAttribute="trailing" id="bZL-2X-zII"/>
                             <constraint firstItem="0ne-dF-K0A" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="eH8-78-4AL"/>
+                            <constraint firstAttribute="bottom" secondItem="0ne-dF-K0A" secondAttribute="bottom" id="f3L-Ak-YfX"/>
                             <constraint firstItem="0ne-dF-K0A" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="f9g-tb-tGd"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="0ne-dF-K0A" secondAttribute="bottom" id="rLl-7f-XoF"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -37,9 +37,7 @@ class HomeController: UIViewController {
         initiateDropDownMenu()
         loadUsersTableView()
         self.noCompatibleUsersLabel.isHidden = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
         targetLanguageView.layer.cornerRadius = 10
         targetLanguageView.layer.shadowRadius = 5
         targetLanguageView.layer.shadowOpacity = 0.3
@@ -66,8 +64,8 @@ class HomeController: UIViewController {
 extension HomeController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.Segues.toChat {
-            if segue.destination is MessageController {
-                let destination = segue.destination as? MessageController
+            if segue.destination is MessagesController {
+                let destination = segue.destination as? MessagesController
                 let members = [selectedUser, PublicUser(name: User.sharedInstance.name, uid: User.sharedInstance.uid)]
                 destination?.chat = existingChat ?? Chat(members: members as! [PublicUser])
             }
